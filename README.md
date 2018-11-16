@@ -26,7 +26,7 @@ Project | Notes
 	* Note: This sample application requires two Innovator instances to install
 2. Agent Service installed
 3. Conversion Server installed
-	* You can refer to the [Sample Guide](https://github.com/ArasLabs/vm-sample-application/blob/master/Documentation/Aras%20Innovator%2011.0%20-%20DSS%20Sample%20Package%20Guide) for steps on configuring your Conversion Server
+	* You can refer to the [Sample Guide](https://github.com/ArasLabs/dss-sample-application/blob/master/Documentation/Aras%20Innovator%2011.0%20-%20DSS%20Sample%20Package%20Guide.pdf) for steps on configuring your Conversion Server
 4. [Aras Package Import tool](https://www.aras.com/support/downloads)
 5. Data Synchronization Services Application package
 
@@ -71,7 +71,7 @@ Project | Notes
 7. Navigate to **Administration/Methods**
 8. Run the **ConversionTaskCreate** method
 
-Your environment should now be configured to allow synchronization from your Source Aras Innovator instance to your Target. For more details on how to run this synchronization, please see Section 4 of the [Sample Guide](https://github.com/ArasLabs/vm-sample-application/blob/master/Documentation/Aras%20Innovator%2011.0%20-%20DSS%20Sample%20Package%20Guide)
+Your environment should now be configured to allow synchronization from your Source Aras Innovator instance to your Target. For more details on how to run this synchronization, please see Section 4 of the [Sample Guide](https://github.com/ArasLabs/dss-sample-application/blob/master/Documentation/Aras%20Innovator%2011.0%20-%20DSS%20Sample%20Package%20Guide.pdf)
 
 ## Contributing
 
