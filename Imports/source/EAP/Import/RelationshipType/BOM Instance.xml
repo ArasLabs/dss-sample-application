@@ -1,0 +1,27 @@
+﻿<AML>
+ <Item type="RelationshipType" id="C9C5E2E1B9F34CBFACCDD4FA2E8BCE35" action="edit" >
+  <relationship_id keyed_name="BOM Instance" type="ItemType" name="BOM Instance">
+   <Item type="ItemType" id="41FA648728234F97AEB1D5CEFE36F871" action="edit">
+    <Relationships>
+     <Item type="Property" id="42AA80E676F94EC4AEF15ED1BFF0B47A" action="add">
+      <column_alignment>left</column_alignment>
+      <data_type>global_version</data_type>
+      <is_hidden>1</is_hidden>
+      <is_hidden2>1</is_hidden2>
+      <is_indexed>0</is_indexed>
+      <is_keyed>0</is_keyed>
+      <is_multi_valued>0</is_multi_valued>
+      <is_required>0</is_required>
+      <label xml:lang="en">global_version</label>
+      <range_inclusive>0</range_inclusive>
+      <readonly>1</readonly>
+      <sort_order>4608</sort_order>
+      <source_id keyed_name="BOM Instance" type="ItemType" name="BOM Instance">41FA648728234F97AEB1D5CEFE36F871</source_id>
+      <track_history>0</track_history>
+      <name>global_version</name>
+     </Item>
+    </Relationships>
+   </Item>
+  </relationship_id>
+ </Item>
+</AML>

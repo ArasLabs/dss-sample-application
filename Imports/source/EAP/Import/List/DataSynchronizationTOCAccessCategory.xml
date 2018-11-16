@@ -1,0 +1,12 @@
+<AML>
+ <Item type="List" id="EAB29654E2CD4D30B376957788198B40" action="edit">
+  <Relationships>
+   <Item type="Value" id="6ED6CFDC6DBD47F89998133B09055538" action="add">
+    <label xml:lang="en">Data Synchronization</label>
+    <sort_order>3268</sort_order>
+    <source_id keyed_name="Categories" type="List">EAB29654E2CD4D30B376957788198B40</source_id>
+    <value>Administration/Data Synchronization</value>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

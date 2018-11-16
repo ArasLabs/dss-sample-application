@@ -1,0 +1,27 @@
+﻿<AML>
+ <Item type="RelationshipType" id="D118B38457DB4E57A8660CF2CCA13122" action="edit">
+  <relationship_id keyed_name="fr_Representation" type="ItemType" name="fr_Representation">
+   <Item type="ItemType" id="7AD385D642CA4B2184AB5401A3F6D99F">
+    <Relationships>
+     <Item type="Property" id="3F4BDA08A78E4F66A8EC2816D16C2856" action="add">
+      <column_alignment>left</column_alignment>
+      <data_type>global_version</data_type>
+      <is_hidden>1</is_hidden>
+      <is_hidden2>1</is_hidden2>
+      <is_indexed>0</is_indexed>
+      <is_keyed>0</is_keyed>
+      <is_multi_valued>0</is_multi_valued>
+      <is_required>0</is_required>
+      <label xml:lang="en">global_version</label>
+      <range_inclusive>0</range_inclusive>
+      <readonly>1</readonly>
+      <sort_order>3840</sort_order>
+      <source_id keyed_name="fr_Representation" type="ItemType" name="fr_Representation">7AD385D642CA4B2184AB5401A3F6D99F</source_id>
+      <track_history>0</track_history>
+      <name>global_version</name>
+     </Item>
+    </Relationships>
+   </Item>
+  </relationship_id>
+ </Item>
+</AML>

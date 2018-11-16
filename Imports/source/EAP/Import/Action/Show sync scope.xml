@@ -1,0 +1,15 @@
+﻿<AML>
+ <Item type="Action" id="33FC4E90DF46415EAE0F6EDC28639951" action="add">
+  <item_query />
+  <label xml:lang="en">Show Sync Scope</label>
+  <location>client</location>
+  <method keyed_name="TGV Synchronization scope" type="Method">
+   <Item type="Method" action="get" select="id">
+    <name>TGV Synchronization scope</name>
+   </Item>
+  </method>
+  <target>none</target>
+  <type>generic</type>
+  <name>Show sync scope</name>
+ </Item>
+</AML>

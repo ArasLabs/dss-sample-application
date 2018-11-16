@@ -1,0 +1,6 @@
+﻿<AML>
+ <Item type="Variable" id="614AD875D7EE402B8ACA232CB3DE9327" action="add">
+  <value>Eastern Standard Time</value>
+  <name>CorporateTimeZone</name>
+ </Item>
+</AML>

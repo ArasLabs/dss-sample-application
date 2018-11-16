@@ -1,0 +1,18 @@
+﻿<AML>
+ <Item type="RelationshipType" id="B4DBC6589F5C4864B829C28AA73C5A95" action="edit">
+  <relationship_id keyed_name="fr_RepresentationFile" type="ItemType" name="fr_RepresentationFile">
+   <Item type="ItemType" id="21121ADEF2C64B2AB86C94371122DEFD">
+    <Relationships>
+	 <Item type="Allowed Permission" id="7B49D325334641178DFE17473F4ABEA7" action="add">
+		<is_default>1</is_default>
+		<related_id>A9E8279B32184CC9855ED825992FB42B</related_id>
+		<source_id keyed_name="fr_RepresentationFile">21121ADEF2C64B2AB86C94371122DEFD</source_id>
+	 </Item>
+    </Relationships>
+   </Item>
+  </relationship_id>
+  <sort_order>128</sort_order>
+  <source_id keyed_name="fr_Representation" type="ItemType" name="fr_Representation">7AD385D642CA4B2184AB5401A3F6D99F</source_id>
+  <name>fr_RepresentationFile</name>
+ </Item>
+</AML>

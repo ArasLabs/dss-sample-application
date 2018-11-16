@@ -1,0 +1,218 @@
+﻿<AML>
+ <Item type="ItemType" id="94BE76337D6A4ECE941ADCF5451D91E5" action="add">
+  <allow_private_permission>1</allow_private_permission>
+  <auto_search>0</auto_search>
+  <enforce_discovery>1</enforce_discovery>
+  <hide_where_used>0</hide_where_used>
+  <implementation_type>table</implementation_type>
+  <instance_data>SYNCHRONIZATION_TASK</instance_data>
+  <is_dependent>0</is_dependent>
+  <is_relationship>0</is_relationship>
+  <is_versionable>0</is_versionable>
+  <revisions keyed_name="Default" type="Revision">7FE395DD8B9F4E1090756A34B733D75E</revisions>
+  <show_parameters_tab>1</show_parameters_tab>
+  <structure_view>tabs on</structure_view>
+  <unlock_on_logout>0</unlock_on_logout>
+  <use_src_access>0</use_src_access>
+  <name>Synchronization Task</name>
+  <Relationships>
+   <Item type="Property" id="564D2664C71640AB94A4241A88E30444" action="add">
+    <column_alignment>left</column_alignment>
+    <data_type>text</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Additional Data</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>3712</sort_order>
+    <source_id keyed_name="Synchronization Task" type="ItemType" name="Synchronization Task">94BE76337D6A4ECE941ADCF5451D91E5</source_id>
+    <track_history>0</track_history>
+    <name>additional_data</name>
+   </Item>
+   <Item type="Property" id="F86CB1BED5634C2986EF572F276BB69C" action="add">
+    <column_alignment>left</column_alignment>
+    <data_type>string</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Current Action</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>3456</sort_order>
+    <source_id keyed_name="Synchronization Task" type="ItemType" name="Synchronization Task">94BE76337D6A4ECE941ADCF5451D91E5</source_id>
+    <stored_length>128</stored_length>
+    <track_history>0</track_history>
+    <name>current_action</name>
+   </Item>
+   <Item type="Property" id="C450DDCF7CCF452DA7EBF2E8B1FD7F5E" action="add">
+    <column_alignment>left</column_alignment>
+    <data_type>integer</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Current Action Progress</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>3584</sort_order>
+    <source_id keyed_name="Synchronization Task" type="ItemType" name="Synchronization Task">94BE76337D6A4ECE941ADCF5451D91E5</source_id>
+    <track_history>0</track_history>
+    <name>current_action_progress</name>
+   </Item>
+   <Item type="Property" id="086E57B4F5CC4FBC9492A47E4F05508D" action="add">
+    <column_alignment>left</column_alignment>
+    <data_type>date</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Finished On</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>3328</sort_order>
+    <source_id keyed_name="Synchronization Task" type="ItemType" name="Synchronization Task">94BE76337D6A4ECE941ADCF5451D91E5</source_id>
+    <track_history>0</track_history>
+    <name>finished_on</name>
+   </Item>
+   <Item type="Property" id="3523241F336C417AA8C90B68D5A468A3" action="add">
+    <column_alignment>left</column_alignment>
+    <data_source keyed_name="Synchronization Rule" type="ItemType" name="Synchronization Rule">3F42C313D8C0477CBE68D16D4A10651E</data_source>
+    <data_type>item</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>1</is_required>
+    <item_behavior>float</item_behavior>
+    <label xml:lang="en">Rule Id</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>3072</sort_order>
+    <source_id keyed_name="Synchronization Task" type="ItemType" name="Synchronization Task">94BE76337D6A4ECE941ADCF5451D91E5</source_id>
+    <track_history>0</track_history>
+    <name>rule_id</name>
+   </Item>
+   <Item type="Property" id="0C2C2E69AD0044E088FAD97282DF2BE8" action="add">
+    <column_alignment>left</column_alignment>
+    <data_type>date</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Started On</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>3200</sort_order>
+    <source_id keyed_name="Synchronization Task" type="ItemType" name="Synchronization Task">94BE76337D6A4ECE941ADCF5451D91E5</source_id>
+    <track_history>0</track_history>
+    <name>started_on</name>
+   </Item>
+   <Item type="View" id="F6C83C5466054C15B10A4E697EBAB2E5" action="add">
+    <client>js</client>
+    <related_id keyed_name="Synchronization Task" type="Form">6AA22E0E5AA54AD09A854FABAC7F2898</related_id>
+    <role keyed_name="World" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>World</name>
+     </Item>
+    </role>
+    <show_ssvc>0</show_ssvc>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Synchronization Task" type="ItemType" name="Synchronization Task">94BE76337D6A4ECE941ADCF5451D91E5</source_id>
+    <type>default</type>
+   </Item>
+   <Item type="Server Event" id="89D7C90BD2B74144B178FEC69A65F3EC" action="add">
+    <event_version>version_1</event_version>
+    <is_required>0</is_required>
+    <related_id keyed_name="SyncTask_StateDate" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>SyncTask_StateDate</name>
+     </Item>
+    </related_id>
+    <server_event>onAfterPromote</server_event>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Synchronization Task" type="ItemType" name="Synchronization Task">94BE76337D6A4ECE941ADCF5451D91E5</source_id>
+   </Item>
+   <Item type="ItemType Life Cycle" id="80297F52E402458BAE7691E58EC1DA53" action="add">
+    <related_id keyed_name="Sync Task" type="Life Cycle Map">22A686F2F13F42E8AE0019D923C0708F</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Synchronization Task" type="ItemType" name="Synchronization Task">94BE76337D6A4ECE941ADCF5451D91E5</source_id>
+   </Item>
+   <Item type="TOC Access" id="5C7875ACE1F74610A5422F3DE3389AB2" action="add">
+    <related_id keyed_name="Administrators" type="Identity">2618D6F5A90949BAA7E920D1B04C7EE1</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Synchronization Task" type="ItemType" name="Synchronization Task">94BE76337D6A4ECE941ADCF5451D91E5</source_id>
+    <category>Administration</category>
+   </Item>
+   <Item type="TOC View" id="AA38525286FF4CB7AB92FA793BBEA4AC" action="add">
+    <related_id keyed_name="Administrators" type="Identity">2618D6F5A90949BAA7E920D1B04C7EE1</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Synchronization Task" type="ItemType" name="Synchronization Task">94BE76337D6A4ECE941ADCF5451D91E5</source_id>
+   </Item>
+   <Item type="Can Add" id="7E374C24090843E09229A2C1134EA28C" action="add">
+    <can_add>1</can_add>
+    <related_id keyed_name="Administrators" type="Identity">2618D6F5A90949BAA7E920D1B04C7EE1</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Synchronization Task" type="ItemType" name="Synchronization Task">94BE76337D6A4ECE941ADCF5451D91E5</source_id>
+   </Item>
+   <Item type="Allowed Permission" id="D7D85502B72E46C7AAEC0FC2A3C1D21E" action="add">
+    <is_default>1</is_default>
+    <related_id keyed_name="Administrators" type="Permission">5BE54C871FB14F6EBC11596D1A010D26</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Synchronization Task" type="ItemType" name="Synchronization Task">94BE76337D6A4ECE941ADCF5451D91E5</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+ <Item type="ItemType" id="94BE76337D6A4ECE941ADCF5451D91E5" action="edit">
+  <Relationships>
+   <Item type="Property" action="edit" where="source_id='94BE76337D6A4ECE941ADCF5451D91E5' and name='state'">
+    <column_alignment>left</column_alignment>
+    <data_type>string</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">state</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Synchronization Task" type="ItemType" name="Synchronization Task">94BE76337D6A4ECE941ADCF5451D91E5</source_id>
+    <stored_length>32</stored_length>
+    <track_history>0</track_history>
+    <name>state</name>
+   </Item>
+  </Relationships>
+ </Item>
+ <Item type="ItemType" id="94BE76337D6A4ECE941ADCF5451D91E5" action="edit">
+  <Relationships>
+   <Item type="Property" id="F86CB1BED5634C2986EF572F276BB69C" action="edit">
+    <column_width>240</column_width>
+   </Item>
+  </Relationships>
+ </Item>
+ <Item type="ItemType" id="94BE76337D6A4ECE941ADCF5451D91E5" action="edit">
+  <label_plural xml:lang="en">Synchronization Tasks</label_plural>
+ </Item>
+ <Item type="ItemType" id="94BE76337D6A4ECE941ADCF5451D91E5" action="edit">
+  <Relationships>
+    <Item type="TOC Access" id="5C7875ACE1F74610A5422F3DE3389AB2" action="edit">
+      <category>Administration/Data Synchronization</category>
+    </Item>
+  </Relationships>
+</Item>
+</AML>

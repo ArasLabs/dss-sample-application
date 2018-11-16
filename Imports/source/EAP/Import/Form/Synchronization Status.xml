@@ -1,0 +1,151 @@
+﻿<AML>
+ <Item type="Form" id="DD18C0C616834025AAD79632342E3DB1" action="add">
+  <category_form>0</category_form>
+  <height>234</height>
+  <stylesheet><![CDATA[../styles/default.css]]></stylesheet>
+  <width>699</width>
+  <name>Synchronization Status</name>
+  <Relationships>
+   <Item type="Body" id="9E9840A69BD24FF99A4733D138912117" action="add">
+    <bg_color>#FFFFFF</bg_color>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Synchronization Status" type="Form">DD18C0C616834025AAD79632342E3DB1</source_id>
+    <Relationships>
+     <Item type="Field" id="67EDE524F1134E4780BA8B503FA6C48B" action="add">
+      <border_width>0</border_width>
+      <display_length_unit>px</display_length_unit>
+      <field_type>item</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Destination System</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <propertytype_id keyed_name="destination_system" type="Property">5AEF05293B364C76927CFAEB57AC6E93</propertytype_id>
+      <sort_order>640</sort_order>
+      <source_id keyed_name="9E9840A69BD24FF99A4733D138912117" type="Body">9E9840A69BD24FF99A4733D138912117</source_id>
+      <tab_index>3584</tab_index>
+      <tab_stop>1</tab_stop>
+      <x>190</x>
+      <y>205</y>
+      <name>destination_system</name>
+     </Item>
+     <Item type="Field" id="AC620F37266E44B7943D888B57C5AFD6" action="add">
+      <border_width>0</border_width>
+      <display_length_unit>px</display_length_unit>
+      <field_type>item</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Item Id</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <propertytype_id keyed_name="item_id" type="Property">32FCB714E2A1411796479B16F00431A4</propertytype_id>
+      <sort_order>256</sort_order>
+      <source_id keyed_name="9E9840A69BD24FF99A4733D138912117" type="Body">9E9840A69BD24FF99A4733D138912117</source_id>
+      <tab_index>3200</tab_index>
+      <tab_stop>1</tab_stop>
+      <x>190</x>
+      <y>50</y>
+      <name>item_id</name>
+     </Item>
+     <Item type="Field" id="4D8305DCA0AD49F5858B1DB67DFFB755" action="add">
+      <display_length_unit>px</display_length_unit>
+      <field_type>html</field_type>
+      <html_code><![CDATA[<span id='ITEM_INFO_INTERNAL_SPAN'/>
+<script>
+  populate_ITEM_INFO_INTERNAL_SPAN = function()
+  {
+    document.getElementById('ITEM_INFO_INTERNAL_SPAN').innerHTML = aras.uiGetItemInfoTable(document.itemType);
+  }
+  window.addEventListener('load', populate_ITEM_INFO_INTERNAL_SPAN);
+</script>]]></html_code>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <list_no_blank>0</list_no_blank>
+      <sort_order>768</sort_order>
+      <source_id keyed_name="9E9840A69BD24FF99A4733D138912117" type="Body">9E9840A69BD24FF99A4733D138912117</source_id>
+      <tab_stop>0</tab_stop>
+      <x>0</x>
+      <y>0</y>
+      <name>item_info</name>
+     </Item>
+     <Item type="Field" id="3697AC0C3FD74CD2B110CC2673F31FA7" action="add">
+      <border_width>0</border_width>
+      <display_length_unit>px</display_length_unit>
+      <field_type>textarea</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Item Keyed Name</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <propertytype_id keyed_name="item_keyed_name" type="Property">BD69ACAA84D34249855B775848237B00</propertytype_id>
+      <sort_order>384</sort_order>
+      <source_id keyed_name="9E9840A69BD24FF99A4733D138912117" type="Body">9E9840A69BD24FF99A4733D138912117</source_id>
+      <tab_index>3328</tab_index>
+      <tab_stop>1</tab_stop>
+      <textarea_cols>350</textarea_cols>
+      <textarea_rows>50</textarea_rows>
+      <x>190</x>
+      <y>90</y>
+      <name>item_keyed_name</name>
+     </Item>
+     <Item type="Field" id="FF8B82E6D10B445A9D07D690CB8C1FF9" action="add">
+      <border_width>0</border_width>
+      <display_length_unit>px</display_length_unit>
+      <field_type>item</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">ItemType Id</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <propertytype_id keyed_name="itemtype_id" type="Property">EBD906CE9AD8465F8C4EF1926735DFFD</propertytype_id>
+      <sort_order>128</sort_order>
+      <source_id keyed_name="9E9840A69BD24FF99A4733D138912117" type="Body">9E9840A69BD24FF99A4733D138912117</source_id>
+      <tab_index>3072</tab_index>
+      <tab_stop>1</tab_stop>
+      <x>190</x>
+      <y>10</y>
+      <name>itemtype_id</name>
+     </Item>
+     <Item type="Field" id="30D9FE8F4C07430292509A5AC4981CB2" action="add">
+      <border_width>0</border_width>
+      <display_length_unit>px</display_length_unit>
+      <field_type>text</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Synchronized Version</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <propertytype_id keyed_name="synchronized_version" type="Property">50E198E049764BBAA44E720EA3C95593</propertytype_id>
+      <sort_order>512</sort_order>
+      <source_id keyed_name="9E9840A69BD24FF99A4733D138912117" type="Body">9E9840A69BD24FF99A4733D138912117</source_id>
+      <tab_index>3456</tab_index>
+      <tab_stop>1</tab_stop>
+      <x>190</x>
+      <y>165</y>
+      <name>synchronized_version</name>
+     </Item>
+    </Relationships>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

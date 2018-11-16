@@ -1,0 +1,399 @@
+﻿<AML>
+ <Item type="qry_QueryDefinition" id="9C7CE0257F1843CAA91757E04209DAD6" action="add">
+  <name>SyncScopeQD</name>
+  <Relationships>
+   <Item type="qry_QueryItem" id="F693348D7EA44C1D96133FFD079677FD" action="add">
+    <item_type keyed_name="Sync Root" type="ItemType" name="Sync Root">EAE1BD9EF3E1444FB9E93B80F052A2A6</item_type>
+    <ref_id>FDC5A50E29634592BA7B2E2AD0EA8B72</ref_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="SyncScopeQD" type="qry_QueryDefinition">9C7CE0257F1843CAA91757E04209DAD6</source_id>
+    <alias>Sync Root</alias>
+    <Relationships>
+     <Item type="qry_QueryItemSelectProperty" id="D28E096DB4514D69A57E1AC0714F6B2C" action="add">
+      <property_name>id</property_name>
+      <sort_order>128</sort_order>
+      <source_id keyed_name="Sync Root" type="qry_QueryItem">F693348D7EA44C1D96133FFD079677FD</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="D11598174BB143A187B481D7B5547A5A" action="add">
+      <property_name>keyed_name</property_name>
+      <sort_order>256</sort_order>
+      <source_id keyed_name="Sync Root" type="qry_QueryItem">F693348D7EA44C1D96133FFD079677FD</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="FA96B57EADF542C5A4808971DBD1268E" action="add">
+      <property_name>sync_state</property_name>
+      <sort_order>384</sort_order>
+      <source_id keyed_name="Sync Root" type="qry_QueryItem">F693348D7EA44C1D96133FFD079677FD</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="C7E8A608187B48B895A31191F61C50D4" action="add">
+      <property_name>generation</property_name>
+      <sort_order>512</sort_order>
+      <source_id keyed_name="Sync Root" type="qry_QueryItem">F693348D7EA44C1D96133FFD079677FD</source_id>
+     </Item>
+    </Relationships>
+   </Item>
+   <Item type="qry_QueryItem" id="66CB15C1FC194A0286B6A8CBB21EF720" action="add">
+    <filter_xml><![CDATA[<condition>
+	<gt>
+		<count>
+			<query_reference_path>962D704D2BB640CB9ED2375229A0BC5C</query_reference_path>
+		</count>
+		<constant>0</constant>
+	</gt>
+</condition>]]></filter_xml>
+    <item_type keyed_name="Sync Root Part" type="ItemType" name="Sync Root Part">B5BFF650F9764ABB9E095A6DC6BAE275</item_type>
+    <ref_id>1BC6A07031A745B195D89C7558F9AEBD</ref_id>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="SyncScopeQD" type="qry_QueryDefinition">9C7CE0257F1843CAA91757E04209DAD6</source_id>
+    <alias>Sync Root Part</alias>
+   </Item>
+   <Item type="qry_QueryItem" id="83BCB2405D1549E4A7916F3A5878DE08" action="add">
+    <filter_xml><![CDATA[<condition>
+	<ne>
+		<property name="is_internal" />
+		<constant>1</constant>
+	</ne>
+</condition>]]></filter_xml>
+    <item_type keyed_name="Part" type="ItemType" name="Part">4F1AC04A2B484F3ABA4E20DB63808A88</item_type>
+    <ref_id>56BB49BB5707483EA5042747C559D6C0</ref_id>
+    <sort_order>384</sort_order>
+    <source_id keyed_name="SyncScopeQD" type="qry_QueryDefinition">9C7CE0257F1843CAA91757E04209DAD6</source_id>
+    <alias>Part</alias>
+    <Relationships>
+     <Item type="qry_QueryItemSelectProperty" id="D99C4BBA3F044139A2989D5156B7DC74" action="add">
+      <property_name>id</property_name>
+      <sort_order>128</sort_order>
+      <source_id keyed_name="Part" type="qry_QueryItem">83BCB2405D1549E4A7916F3A5878DE08</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="F8F39F45039048A2949C506573D27865" action="add">
+      <property_name>keyed_name</property_name>
+      <sort_order>256</sort_order>
+      <source_id keyed_name="Part" type="qry_QueryItem">83BCB2405D1549E4A7916F3A5878DE08</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="A53844BFD36341128D4AF33AD53CC579" action="add">
+      <property_name>sync_state</property_name>
+      <sort_order>384</sort_order>
+      <source_id keyed_name="Part" type="qry_QueryItem">83BCB2405D1549E4A7916F3A5878DE08</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="E93B27CD1E004782BB7A71FAC00754C5" action="add">
+      <property_name>generation</property_name>
+      <sort_order>512</sort_order>
+      <source_id keyed_name="Part" type="qry_QueryItem">83BCB2405D1549E4A7916F3A5878DE08</source_id>
+     </Item>
+    </Relationships>
+   </Item>
+   <Item type="qry_QueryItem" id="12ECAEC1696C40EC91D3D028588D1166" action="add">
+    <item_type keyed_name="Part CAD" type="ItemType" name="Part CAD">935DF68BCFD849EBB5C3A528F04C5B5B</item_type>
+    <ref_id>C3F005411CBF4D86A5BD1A8DD0595C76</ref_id>
+    <sort_order>512</sort_order>
+    <source_id keyed_name="SyncScopeQD" type="qry_QueryDefinition">9C7CE0257F1843CAA91757E04209DAD6</source_id>
+    <alias>Part CAD</alias>
+   </Item>
+   <Item type="qry_QueryItem" id="D635752648A44923A89F7CDA1B62FC61" action="add">
+    <item_type keyed_name="CAD" type="ItemType" name="CAD">CCF205347C814DD1AF056875E0A880AC</item_type>
+    <ref_id>CE7B31014389408C80656E72D3971876</ref_id>
+    <sort_order>640</sort_order>
+    <source_id keyed_name="SyncScopeQD" type="qry_QueryDefinition">9C7CE0257F1843CAA91757E04209DAD6</source_id>
+    <alias>CAD</alias>
+    <Relationships>
+     <Item type="qry_QueryItemSelectProperty" id="982A6BD73458479BA8851954C0BC0C06" action="add">
+      <property_name>id</property_name>
+      <sort_order>128</sort_order>
+      <source_id keyed_name="CAD" type="qry_QueryItem">D635752648A44923A89F7CDA1B62FC61</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="5A89905CE9CC4F5FAAF15AC392742E31" action="add">
+      <property_name>keyed_name</property_name>
+      <sort_order>256</sort_order>
+      <source_id keyed_name="CAD" type="qry_QueryItem">D635752648A44923A89F7CDA1B62FC61</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="03930FE95AF244B291319EB087572BCA" action="add">
+      <property_name>sync_state</property_name>
+      <sort_order>384</sort_order>
+      <source_id keyed_name="CAD" type="qry_QueryItem">D635752648A44923A89F7CDA1B62FC61</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="9DDB067A77314E65A7D816A208EBAD1D" action="add">
+      <property_name>generation</property_name>
+      <sort_order>512</sort_order>
+      <source_id keyed_name="CAD" type="qry_QueryItem">D635752648A44923A89F7CDA1B62FC61</source_id>
+     </Item>
+    </Relationships>
+   </Item>
+   <Item type="qry_QueryItem" id="A7D8F72DBA4343AFBFBD05525E59AB81" action="add">
+    <item_type keyed_name="CADFiles" type="ItemType" name="CADFiles">15FF1A4262FA4164B45A8A97BCE20CD4</item_type>
+    <ref_id>26130CED371C4C4485B739F719CFEAC5</ref_id>
+    <sort_order>768</sort_order>
+    <source_id keyed_name="SyncScopeQD" type="qry_QueryDefinition">9C7CE0257F1843CAA91757E04209DAD6</source_id>
+    <alias>CADFiles</alias>
+   </Item>
+   <Item type="qry_QueryItem" id="D32DAF02660E46B597B65A8A7F80E9B1" action="add">
+    <item_type keyed_name="CAD Structure" type="ItemType" name="CAD Structure">2812BEB188644E7FB3BEE526FD62032A</item_type>
+    <ref_id>38BB58055BF74620B20008CD8A4DCD79</ref_id>
+    <sort_order>896</sort_order>
+    <source_id keyed_name="SyncScopeQD" type="qry_QueryDefinition">9C7CE0257F1843CAA91757E04209DAD6</source_id>
+    <alias>CAD Structure</alias>
+   </Item>
+   <Item type="qry_QueryItem" id="B9B249EF8D7A4770A9A62D053632BC6E" action="add">
+    <item_type keyed_name="File" type="ItemType" name="File">8052A558B9084D41B9F11805E464F443</item_type>
+    <ref_id>91108F745A814ED4AA4FB48B34270037</ref_id>
+    <sort_order>1024</sort_order>
+    <source_id keyed_name="SyncScopeQD" type="qry_QueryDefinition">9C7CE0257F1843CAA91757E04209DAD6</source_id>
+    <alias>CAD Files</alias>
+    <Relationships>
+     <Item type="qry_QueryItemSelectProperty" id="630E01B33E8A417ABE9C8823C17CFB9F" action="add">
+      <property_name>id</property_name>
+      <sort_order>128</sort_order>
+      <source_id keyed_name="CAD Files" type="qry_QueryItem">B9B249EF8D7A4770A9A62D053632BC6E</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="D36F156E85BB4DC8A021BAF30DEC585A" action="add">
+      <property_name>keyed_name</property_name>
+      <sort_order>256</sort_order>
+      <source_id keyed_name="CAD Files" type="qry_QueryItem">B9B249EF8D7A4770A9A62D053632BC6E</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="8CE58B018ED14395B9ECE85F1DD40C33" action="add">
+      <property_name>sync_state</property_name>
+      <sort_order>384</sort_order>
+      <source_id keyed_name="CAD Files" type="qry_QueryItem">B9B249EF8D7A4770A9A62D053632BC6E</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="854B07172B3240068ABDF8EA250D109D" action="add">
+      <property_name>generation</property_name>
+      <sort_order>512</sort_order>
+      <source_id keyed_name="CAD Files" type="qry_QueryItem">B9B249EF8D7A4770A9A62D053632BC6E</source_id>
+     </Item>
+    </Relationships>
+   </Item>
+   <Item type="qry_QueryItem" id="71EE72A13F6748FBB654557A92CE1A3F" action="add">
+    <item_type keyed_name="File" type="ItemType" name="File">8052A558B9084D41B9F11805E464F443</item_type>
+    <ref_id>FEDD4A403AEA4E20A0AA63874778C48E</ref_id>
+    <sort_order>1152</sort_order>
+    <source_id keyed_name="SyncScopeQD" type="qry_QueryDefinition">9C7CE0257F1843CAA91757E04209DAD6</source_id>
+    <alias>CAD Native File</alias>
+    <Relationships>
+     <Item type="qry_QueryItemSelectProperty" id="A58D1B19BF184C9B9A1BF268654598B4" action="add">
+      <property_name>id</property_name>
+      <sort_order>128</sort_order>
+      <source_id keyed_name="CAD Native File" type="qry_QueryItem">71EE72A13F6748FBB654557A92CE1A3F</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="10205094D09643C487B85BF6926A71CF" action="add">
+      <property_name>keyed_name</property_name>
+      <sort_order>256</sort_order>
+      <source_id keyed_name="CAD Native File" type="qry_QueryItem">71EE72A13F6748FBB654557A92CE1A3F</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="FBDA018FF36344879046B1C89172E40D" action="add">
+      <property_name>sync_state</property_name>
+      <sort_order>384</sort_order>
+      <source_id keyed_name="CAD Native File" type="qry_QueryItem">71EE72A13F6748FBB654557A92CE1A3F</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="9772D0B23CCC4EEFB65E01CCE71F783A" action="add">
+      <property_name>generation</property_name>
+      <sort_order>512</sort_order>
+      <source_id keyed_name="CAD Native File" type="qry_QueryItem">71EE72A13F6748FBB654557A92CE1A3F</source_id>
+     </Item>
+    </Relationships>
+   </Item>
+   <Item type="qry_QueryItem" id="538CB3094C584980AEC2E4BCFB2B1487" action="add">
+    <filter_xml><![CDATA[<condition>
+	<gt>
+		<count>
+			<query_reference_path>545FC3B582A340F8914482B6F95AAFE4</query_reference_path>
+		</count>
+		<constant>0</constant>
+	</gt>
+</condition>]]></filter_xml>
+    <item_type keyed_name="Part BOM" type="ItemType" name="Part BOM">5E9C5A12CC58413A8670CF4003C57848</item_type>
+    <ref_id>CCB4873A898E426B89725A312FEF5F32</ref_id>
+    <sort_order>1280</sort_order>
+    <source_id keyed_name="SyncScopeQD" type="qry_QueryDefinition">9C7CE0257F1843CAA91757E04209DAD6</source_id>
+    <alias>Part BOM</alias>
+   </Item>
+   <Item type="qry_QueryItem" id="E663BAF5B6F949EF9B2A667B4729170E" action="add">
+    <item_type keyed_name="File" type="ItemType" name="File">8052A558B9084D41B9F11805E464F443</item_type>
+    <ref_id>186546A33B8E499084E2D1A5C067C4A6</ref_id>
+    <sort_order>1408</sort_order>
+    <source_id keyed_name="SyncScopeQD" type="qry_QueryDefinition">9C7CE0257F1843CAA91757E04209DAD6</source_id>
+    <alias>CAD Viewable File</alias>
+    <Relationships>
+     <Item type="qry_QueryItemSelectProperty" id="D76005DEDD5A477BA56A08573EDAD022" action="add">
+      <property_name>id</property_name>
+      <sort_order>128</sort_order>
+      <source_id keyed_name="CAD Viewable File" type="qry_QueryItem">E663BAF5B6F949EF9B2A667B4729170E</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="F6583D637B6A42189BDE626FAF3B2C4F" action="add">
+      <property_name>keyed_name</property_name>
+      <sort_order>256</sort_order>
+      <source_id keyed_name="CAD Viewable File" type="qry_QueryItem">E663BAF5B6F949EF9B2A667B4729170E</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="CD808DBB59E843CCAF7490FCADEB3944" action="add">
+      <property_name>sync_state</property_name>
+      <sort_order>384</sort_order>
+      <source_id keyed_name="CAD Viewable File" type="qry_QueryItem">E663BAF5B6F949EF9B2A667B4729170E</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="A0E97FED7B5840CCBECC9B2BB1B6FD3D" action="add">
+      <property_name>generation</property_name>
+      <sort_order>512</sort_order>
+      <source_id keyed_name="CAD Viewable File" type="qry_QueryItem">E663BAF5B6F949EF9B2A667B4729170E</source_id>
+     </Item>
+    </Relationships>
+   </Item>
+   <Item type="qry_QueryReference" id="765A6D955362468CB9E000AD989150EA" action="add">
+    <child_ref_id>FDC5A50E29634592BA7B2E2AD0EA8B72</child_ref_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="SyncScopeQD" type="qry_QueryDefinition">9C7CE0257F1843CAA91757E04209DAD6</source_id>
+   </Item>
+   <Item type="qry_QueryReference" id="31C0B52312F14D59AD555671E838B268" action="add">
+    <child_ref_id>1BC6A07031A745B195D89C7558F9AEBD</child_ref_id>
+    <filter_xml><![CDATA[<condition>
+	<eq>
+		<property query_items_xpath="parent::Item" name="id" />
+		<property name="source_id" />
+	</eq>
+</condition>]]></filter_xml>
+    <parent_ref_id>FDC5A50E29634592BA7B2E2AD0EA8B72</parent_ref_id>
+    <ref_id>660F580A1C6548CA9FE9FFBBA632DD96</ref_id>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="SyncScopeQD" type="qry_QueryDefinition">9C7CE0257F1843CAA91757E04209DAD6</source_id>
+   </Item>
+   <Item type="qry_QueryReference" id="526391D2D49841318A0E7842E53926E2" action="add">
+    <child_ref_id>56BB49BB5707483EA5042747C559D6C0</child_ref_id>
+    <filter_xml><![CDATA[<condition>
+	<eq>
+		<property query_items_xpath="parent::Item" name="related_id" />
+		<property name="id" />
+	</eq>
+</condition>]]></filter_xml>
+    <parent_ref_id>1BC6A07031A745B195D89C7558F9AEBD</parent_ref_id>
+    <ref_id>962D704D2BB640CB9ED2375229A0BC5C</ref_id>
+    <sort_order>384</sort_order>
+    <source_id keyed_name="SyncScopeQD" type="qry_QueryDefinition">9C7CE0257F1843CAA91757E04209DAD6</source_id>
+   </Item>
+   <Item type="qry_QueryReference" id="13178788EC0749D3A36F6C4BF848E05B" action="add">
+    <child_ref_id>C3F005411CBF4D86A5BD1A8DD0595C76</child_ref_id>
+    <filter_xml><![CDATA[<condition>
+	<eq>
+		<property query_items_xpath="parent::Item" name="id" />
+		<property name="source_id" />
+	</eq>
+</condition>]]></filter_xml>
+    <parent_ref_id>56BB49BB5707483EA5042747C559D6C0</parent_ref_id>
+    <ref_id>28859CEE55A249A482D02EBBD4E22A7E</ref_id>
+    <sort_order>512</sort_order>
+    <source_id keyed_name="SyncScopeQD" type="qry_QueryDefinition">9C7CE0257F1843CAA91757E04209DAD6</source_id>
+   </Item>
+   <Item type="qry_QueryReference" id="55FC466B16304488919A5FCAA52B17D0" action="add">
+    <child_ref_id>CE7B31014389408C80656E72D3971876</child_ref_id>
+    <filter_xml><![CDATA[<condition>
+	<eq>
+		<property query_items_xpath="parent::Item" name="related_id" />
+		<property name="id" />
+	</eq>
+</condition>]]></filter_xml>
+    <parent_ref_id>C3F005411CBF4D86A5BD1A8DD0595C76</parent_ref_id>
+    <ref_id>096F16767D244CD69AD699F0E477F273</ref_id>
+    <sort_order>640</sort_order>
+    <source_id keyed_name="SyncScopeQD" type="qry_QueryDefinition">9C7CE0257F1843CAA91757E04209DAD6</source_id>
+   </Item>
+   <Item type="qry_QueryReference" id="6A820EA4A9BB457EBFDEFA8468D49098" action="add">
+    <child_ref_id>26130CED371C4C4485B739F719CFEAC5</child_ref_id>
+    <filter_xml><![CDATA[<condition>
+	<eq>
+		<property query_items_xpath="parent::Item" name="id" />
+		<property name="source_id" />
+	</eq>
+</condition>]]></filter_xml>
+    <parent_ref_id>CE7B31014389408C80656E72D3971876</parent_ref_id>
+    <ref_id>7A94C8E5BA9540DDB44FC21648BEB266</ref_id>
+    <sort_order>768</sort_order>
+    <source_id keyed_name="SyncScopeQD" type="qry_QueryDefinition">9C7CE0257F1843CAA91757E04209DAD6</source_id>
+   </Item>
+   <Item type="qry_QueryReference" id="4D5DFF814352483AA4A89F1A9ED6093E" action="add">
+    <child_ref_id>38BB58055BF74620B20008CD8A4DCD79</child_ref_id>
+    <filter_xml><![CDATA[<condition>
+	<eq>
+		<property query_items_xpath="parent::Item" name="id" />
+		<property name="source_id" />
+	</eq>
+</condition>]]></filter_xml>
+    <parent_ref_id>CE7B31014389408C80656E72D3971876</parent_ref_id>
+    <ref_id>BC5F2DAA57CB40F389449FEC58F33BED</ref_id>
+    <sort_order>896</sort_order>
+    <source_id keyed_name="SyncScopeQD" type="qry_QueryDefinition">9C7CE0257F1843CAA91757E04209DAD6</source_id>
+   </Item>
+   <Item type="qry_QueryReference" id="B96438DBB1A04F46A5713D97E96976A8" action="add">
+    <child_ref_id>91108F745A814ED4AA4FB48B34270037</child_ref_id>
+    <filter_xml><![CDATA[<condition>
+	<eq>
+		<property query_items_xpath="parent::Item" name="attached_file" />
+		<property name="id" />
+	</eq>
+</condition>]]></filter_xml>
+    <parent_ref_id>26130CED371C4C4485B739F719CFEAC5</parent_ref_id>
+    <ref_id>A7C84F9401D249A1A54CF3A28655B295</ref_id>
+    <sort_order>1024</sort_order>
+    <source_id keyed_name="SyncScopeQD" type="qry_QueryDefinition">9C7CE0257F1843CAA91757E04209DAD6</source_id>
+   </Item>
+   <Item type="qry_QueryReference" id="8F9ED373C02D45F5B832CC3B18BB34E1" action="add">
+    <child_ref_id>FEDD4A403AEA4E20A0AA63874778C48E</child_ref_id>
+    <filter_xml><![CDATA[<condition>
+	<eq>
+		<property query_items_xpath="parent::Item" name="native_file" />
+		<property name="id" />
+	</eq>
+</condition>]]></filter_xml>
+    <parent_ref_id>CE7B31014389408C80656E72D3971876</parent_ref_id>
+    <ref_id>09848214D5034517A0C518DE6DBF98F7</ref_id>
+    <sort_order>1152</sort_order>
+    <source_id keyed_name="SyncScopeQD" type="qry_QueryDefinition">9C7CE0257F1843CAA91757E04209DAD6</source_id>
+   </Item>
+   <Item type="qry_QueryReference" id="88045143912041D6852B75B436E18B93" action="add">
+    <child_ref_id>CE7B31014389408C80656E72D3971876</child_ref_id>
+    <filter_xml><![CDATA[<condition>
+	<eq>
+		<property query_items_xpath="parent::Item" name="related_id" />
+		<property name="id" />
+	</eq>
+</condition>]]></filter_xml>
+    <parent_ref_id>38BB58055BF74620B20008CD8A4DCD79</parent_ref_id>
+    <ref_id>D9069FC95799450BB15D85941C516CB8</ref_id>
+    <sort_order>1280</sort_order>
+    <source_id keyed_name="SyncScopeQD" type="qry_QueryDefinition">9C7CE0257F1843CAA91757E04209DAD6</source_id>
+   </Item>
+   <Item type="qry_QueryReference" id="14456FF38ED642C4B52822A21079D306" action="add">
+    <child_ref_id>CCB4873A898E426B89725A312FEF5F32</child_ref_id>
+    <filter_xml><![CDATA[<condition>
+	<eq>
+		<property query_items_xpath="parent::Item" name="id" />
+		<property name="source_id" />
+	</eq>
+</condition>]]></filter_xml>
+    <parent_ref_id>56BB49BB5707483EA5042747C559D6C0</parent_ref_id>
+    <ref_id>874CC869792C4F74BAD0019B2E163696</ref_id>
+    <sort_order>1408</sort_order>
+    <source_id keyed_name="SyncScopeQD" type="qry_QueryDefinition">9C7CE0257F1843CAA91757E04209DAD6</source_id>
+   </Item>
+   <Item type="qry_QueryReference" id="1BD59DDD725B44218FF5D17DD9D660BC" action="add">
+    <child_ref_id>56BB49BB5707483EA5042747C559D6C0</child_ref_id>
+    <filter_xml><![CDATA[<condition>
+	<eq>
+		<property query_items_xpath="parent::Item" name="related_id" />
+		<property name="id" />
+	</eq>
+</condition>]]></filter_xml>
+    <parent_ref_id>CCB4873A898E426B89725A312FEF5F32</parent_ref_id>
+    <ref_id>545FC3B582A340F8914482B6F95AAFE4</ref_id>
+    <sort_order>1536</sort_order>
+    <source_id keyed_name="SyncScopeQD" type="qry_QueryDefinition">9C7CE0257F1843CAA91757E04209DAD6</source_id>
+   </Item>
+   <Item type="qry_QueryReference" id="CA47B5A2715F4CF483FF91EC5F6D9F6C" action="add">
+    <child_ref_id>186546A33B8E499084E2D1A5C067C4A6</child_ref_id>
+    <filter_xml><![CDATA[<condition>
+	<eq>
+		<property query_items_xpath="parent::Item" name="viewable_file" />
+		<property name="id" />
+	</eq>
+</condition>]]></filter_xml>
+    <parent_ref_id>CE7B31014389408C80656E72D3971876</parent_ref_id>
+    <ref_id>CEF8AB1D72CE41F9AFC9D19EC3E2BEF4</ref_id>
+    <sort_order>1664</sort_order>
+    <source_id keyed_name="SyncScopeQD" type="qry_QueryDefinition">9C7CE0257F1843CAA91757E04209DAD6</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

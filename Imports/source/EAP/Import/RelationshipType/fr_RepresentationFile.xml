@@ -1,0 +1,30 @@
+﻿<AML>
+ <Item type="RelationshipType" id="B4DBC6589F5C4864B829C28AA73C5A95" action="edit">
+  <relationship_id keyed_name="fr_RepresentationFile" type="ItemType" name="fr_RepresentationFile">
+   <Item type="ItemType" id="21121ADEF2C64B2AB86C94371122DEFD">
+    <Relationships>
+     <Item type="Property" id="730FEB9C6B41485FA14335DD54758819" action="add">
+      <column_alignment>left</column_alignment>
+      <data_type>global_version</data_type>
+      <is_hidden>1</is_hidden>
+      <is_hidden2>1</is_hidden2>
+      <is_indexed>0</is_indexed>
+      <is_keyed>0</is_keyed>
+      <is_multi_valued>0</is_multi_valued>
+      <is_required>0</is_required>
+      <label xml:lang="en">global_version</label>
+      <range_inclusive>0</range_inclusive>
+      <readonly>1</readonly>
+      <sort_order>3456</sort_order>
+      <source_id keyed_name="fr_RepresentationFile" type="ItemType" name="fr_RepresentationFile">21121ADEF2C64B2AB86C94371122DEFD</source_id>
+      <track_history>0</track_history>
+      <name>global_version</name>
+     </Item>
+    </Relationships>
+   </Item>
+  </relationship_id>
+  <sort_order>128</sort_order>
+  <source_id keyed_name="fr_Representation" type="ItemType" name="fr_Representation">7AD385D642CA4B2184AB5401A3F6D99F</source_id>
+  <name>fr_RepresentationFile</name>
+ </Item>
+</AML>

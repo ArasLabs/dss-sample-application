@@ -1,0 +1,16 @@
+﻿<AML>
+  <Item type="Permission" id="EA3ED7E7391542D7A17AF2F42B5274ED" action="edit">
+		<name>New CAD</name>
+		<Relationships>
+			<Item type="Access" id="FDBE31C2B21E4694B2356B199D2224C9" action="add">
+				<can_change_access>1</can_change_access>
+				<can_discover>1</can_discover>
+				<related_id>63346296585E4BA7AD2E4B99C4530817</related_id>
+				<source_id keyed_name="New CAD">EA3ED7E7391542D7A17AF2F42B5274ED</source_id>
+				<can_get>1</can_get>
+				<can_update>1</can_update>
+				<can_delete>1</can_delete>
+			</Item>
+		</Relationships>
+	</Item>
+</AML>

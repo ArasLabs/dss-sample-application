@@ -1,0 +1,15 @@
+﻿<AML>
+ <Item type="RelationshipType" id="6D93CB6029D141C1998CD833EAA1A0C0" action="edit">
+  <relationship_id keyed_name="CADFiles" type="ItemType" name="CADFiles">
+   <Item type="ItemType" id="15FF1A4262FA4164B45A8A97BCE20CD4" >
+    <Relationships>
+	 <Item type="Allowed Permission" id="4B49D325334641178DFE17473F4ABEA7" action="add">
+		<is_default>1</is_default>
+		<related_id>A9E8279B32184CC9855ED825992FB42B</related_id>
+		<source_id keyed_name="CADFiles">15FF1A4262FA4164B45A8A97BCE20CD4</source_id>
+	</Item>
+    </Relationships>
+   </Item>
+  </relationship_id>
+ </Item>
+</AML>

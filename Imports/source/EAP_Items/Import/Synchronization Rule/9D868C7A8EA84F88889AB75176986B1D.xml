@@ -1,0 +1,19 @@
+﻿<AML>
+ <Item type="Synchronization Rule" id="9D868C7A8EA84F88889AB75176986B1D" action="add">
+  <destination_authentication_type>Manual</destination_authentication_type>
+  <destination_credentials keyed_name="Innovator Admin" type="User">30B991F927274FA3829655F50C99472E</destination_credentials>
+  <destination_database>Destination database name</destination_database>
+  <destination_system keyed_name="331E8651033F43D9AF3FE2D2E7709231" type="InnovatorServer">331E8651033F43D9AF3FE2D2E7709231</destination_system>
+  <files_checkout_path>Temporary source file storage path</files_checkout_path>
+  <is_active>1</is_active>
+  <start_at>00:00</start_at>
+  <start_mode>Manual</start_mode>
+  <Relationships>
+   <Item type="Synchronization Scope" id="382F84D0211D4638B0CFE807CEF3B7C8" action="add">
+    <related_id keyed_name="C709F0328D4746918BCB281D24246B5C" type="Synchronization Map">C709F0328D4746918BCB281D24246B5C</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="9D868C7A8EA84F88889AB75176986B1D" type="Synchronization Rule">9D868C7A8EA84F88889AB75176986B1D</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

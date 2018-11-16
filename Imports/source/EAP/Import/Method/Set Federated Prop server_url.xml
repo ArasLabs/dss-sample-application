@@ -1,0 +1,46 @@
+﻿<AML>
+ <Item type="Method" id="54AEB23A3DB0459593408FFA0113EE7E" action="add">
+  <comments>Transform server_url_pattern into server_url federated property</comments>
+  <execution_allowed_to keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</execution_allowed_to>
+  <method_code><![CDATA[// URL can be something like this: 
+// $[HTTP_PREFIX_SERVER]$[HTTP_HOST_SERVER]$[HTTP_PORT_SERVER]$[HTTP_PATH_SERVER]/Server/innovatorserver.aspx
+// In this case need a special request to server to transform it using server settings.
+int count = this.getItemCount();
+for (int i = 0; i < count; i ++)
+{
+	Item item = this.getItemByIndex(i);
+	string prop = item.getProperty("server_url_pattern", null);
+	if (prop != null)
+	{
+		XmlDocument inDom = this.newXMLDocument();
+		XmlDocument outDom = this.newXMLDocument();
+		inDom.XmlResolver = null;
+		outDom.XmlResolver = null;
+		inDom.LoadXml(string.Format(CultureInfo.InvariantCulture,"<url>{0}</url>", prop));
+		outDom.LoadXml("<Empty />");
+		
+		string url = "";
+		XmlNode urle = inDom.SelectSingleNode("//url");
+		if (urle != null)
+		{
+			url = urle.InnerText;
+		}
+		string xformUrl = CCO.ServerEnvironment.TransformUrl(url, false);
+		CCO.XML.MakeResponseMessage(outDom, xformUrl);
+		
+		Item resItem = this.newItem();
+		resItem.loadAML(outDom.OuterXml);
+		if(resItem.isError())
+		{
+	      return resItem;
+		}
+		
+		string result = outDom.SelectSingleNode(Item.XPathResult).InnerText;
+		item.setProperty("server_url", result);
+	}
+}
+return this;]]></method_code>
+  <method_type>C#</method_type>
+  <name>Set Federated Prop server_url</name>
+ </Item>
+</AML>

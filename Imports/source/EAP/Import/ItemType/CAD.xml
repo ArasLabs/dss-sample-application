@@ -1,0 +1,40 @@
+﻿<AML>
+ <Item type="ItemType" id="CCF205347C814DD1AF056875E0A880AC" action="edit">
+  <Relationships>
+   <Item type="Property" id="D82E8CEB0F3E4C43B54D16DA9B7FBFB8" action="add">
+    <column_alignment>left</column_alignment>
+    <data_type>global_version</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">global_version</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>1</readonly>
+    <sort_order>105496</sort_order>
+    <source_id keyed_name="CAD" type="ItemType" name="CAD">CCF205347C814DD1AF056875E0A880AC</source_id>
+    <track_history>0</track_history>
+    <name>global_version</name>
+   </Item>
+   <Item type="Property" id="CDAAD50CF1534D538CD191034683CCA0" action="add">
+    <column_alignment>left</column_alignment>
+    <data_type>federated</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Sync State</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>105624</sort_order>
+    <source_id keyed_name="CAD" type="ItemType" name="CAD">CCF205347C814DD1AF056875E0A880AC</source_id>
+    <track_history>0</track_history>
+    <name>sync_state</name>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

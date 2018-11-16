@@ -1,0 +1,220 @@
+﻿<AML>
+ <Item type="ItemType" id="3F42C313D8C0477CBE68D16D4A10651E" action="add">
+  <allow_private_permission>1</allow_private_permission>
+  <auto_search>0</auto_search>
+  <enforce_discovery>1</enforce_discovery>
+  <hide_where_used>0</hide_where_used>
+  <implementation_type>table</implementation_type>
+  <instance_data>SYNCHRONIZATION_RULE</instance_data>
+  <is_dependent>0</is_dependent>
+  <is_relationship>0</is_relationship>
+  <is_versionable>0</is_versionable>
+  <revisions keyed_name="Default" type="Revision">7FE395DD8B9F4E1090756A34B733D75E</revisions>
+  <show_parameters_tab>1</show_parameters_tab>
+  <structure_view>tabs on</structure_view>
+  <unlock_on_logout>0</unlock_on_logout>
+  <use_src_access>0</use_src_access>
+  <name>Synchronization Rule</name>
+  <Relationships>
+   <Item type="Property" id="BB544E8D534F4FD5A3B7A4E8443E0199" action="add">
+    <column_alignment>left</column_alignment>
+    <data_source keyed_name="SynchronizationModes">95F3D2AB91384EECA4270E3B62BD608E</data_source>
+    <data_type>list</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Destination Authentication</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>3328</sort_order>
+    <source_id keyed_name="Synchronization Rule" type="ItemType" name="Synchronization Rule">3F42C313D8C0477CBE68D16D4A10651E</source_id>
+    <stored_length>256</stored_length>
+    <track_history>0</track_history>
+    <name>destination_authentication_type</name>
+   </Item>
+   <Item type="Property" id="DAFEDA4198FD48AF860C5D5E1D9DA9AC" action="add">
+    <column_alignment>left</column_alignment>
+    <data_source keyed_name="User" type="ItemType" name="User">45E899CD2859442982EB22BB2DF683E5</data_source>
+    <data_type>item</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <item_behavior>float</item_behavior>
+    <label xml:lang="en">Destination Credentials</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>3456</sort_order>
+    <source_id keyed_name="Synchronization Rule" type="ItemType" name="Synchronization Rule">3F42C313D8C0477CBE68D16D4A10651E</source_id>
+    <track_history>0</track_history>
+    <name>destination_credentials</name>
+   </Item>
+   <Item type="Property" id="C10A2FFC77B744389488A4AD11D731AA" action="add">
+    <column_alignment>left</column_alignment>
+    <data_type>string</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>1</is_required>
+    <label xml:lang="en">Destination Database</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>3200</sort_order>
+    <source_id keyed_name="Synchronization Rule" type="ItemType" name="Synchronization Rule">3F42C313D8C0477CBE68D16D4A10651E</source_id>
+    <stored_length>512</stored_length>
+    <track_history>0</track_history>
+    <name>destination_database</name>
+   </Item>
+   <Item type="Property" id="4D74758141C341489452B13E14700DD3" action="add">
+    <column_alignment>left</column_alignment>
+    <data_type>string</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>1</is_required>
+    <label xml:lang="en">Files Checkout Path</label>
+    <pattern></pattern>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>3968</sort_order>
+    <source_id keyed_name="Synchronization Rule" type="ItemType" name="Synchronization Rule">3F42C313D8C0477CBE68D16D4A10651E</source_id>
+    <stored_length>512</stored_length>
+    <track_history>0</track_history>
+    <name>files_checkout_path</name>
+   </Item>
+   <Item type="Property" id="FBE934457B074532B4E0BD31E70DF0FA" action="add">
+    <column_alignment>left</column_alignment>
+    <data_type>boolean</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Active</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>3840</sort_order>
+    <source_id keyed_name="Synchronization Rule" type="ItemType" name="Synchronization Rule">3F42C313D8C0477CBE68D16D4A10651E</source_id>
+    <track_history>0</track_history>
+    <name>is_active</name>
+   </Item>
+   <Item type="Property" id="0B0DA54FF5CB40239C13D4A33ED7B1BB" action="add">
+    <column_alignment>left</column_alignment>
+    <data_source keyed_name="RangeOfHalfOfHours">34A69CF05F8F4DEA96461670505C5463</data_source>
+    <data_type>list</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Start At</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>3712</sort_order>
+    <source_id keyed_name="Synchronization Rule" type="ItemType" name="Synchronization Rule">3F42C313D8C0477CBE68D16D4A10651E</source_id>
+    <stored_length>256</stored_length>
+    <track_history>0</track_history>
+    <name>start_at</name>
+   </Item>
+   <Item type="Property" id="5BB9334E5CD24CE6A494BAA37D0A8CB9" action="add">
+    <column_alignment>left</column_alignment>
+    <data_source keyed_name="SynchronizationModes">95F3D2AB91384EECA4270E3B62BD608E</data_source>
+    <data_type>list</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>1</is_required>
+    <label xml:lang="en">Start Mode</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>3584</sort_order>
+    <source_id keyed_name="Synchronization Rule" type="ItemType" name="Synchronization Rule">3F42C313D8C0477CBE68D16D4A10651E</source_id>
+    <stored_length>256</stored_length>
+    <track_history>0</track_history>
+    <name>start_mode</name>
+   </Item>
+   <Item type="View" id="5BAEEA8C75BB4237AA1EDD09D4141BA9" action="add">
+    <client>js</client>
+    <related_id keyed_name="Synchronization Rule" type="Form">1F84116911C947CA9D786D76CA1ED261</related_id>
+    <role keyed_name="World" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>World</name>
+     </Item>
+    </role>
+    <show_ssvc>0</show_ssvc>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Synchronization Rule" type="ItemType" name="Synchronization Rule">3F42C313D8C0477CBE68D16D4A10651E</source_id>
+    <type>default</type>
+   </Item>
+   <Item type="TOC Access" id="98D2D13E0CE74F5187943FC22B6E1CC0" action="add">
+    <related_id keyed_name="Administrators" type="Identity">2618D6F5A90949BAA7E920D1B04C7EE1</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Synchronization Rule" type="ItemType" name="Synchronization Rule">3F42C313D8C0477CBE68D16D4A10651E</source_id>
+    <category>Administration</category>
+   </Item>
+   <Item type="TOC View" id="5F34C7CAB1134E8A87B936C6C348C23A" action="add">
+    <related_id keyed_name="Administrators" type="Identity">2618D6F5A90949BAA7E920D1B04C7EE1</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Synchronization Rule" type="ItemType" name="Synchronization Rule">3F42C313D8C0477CBE68D16D4A10651E</source_id>
+   </Item>
+   <Item type="Can Add" id="E9AAFD71C8484ACEBEDD4E90460C5FB5" action="add">
+    <can_add>1</can_add>
+    <related_id keyed_name="Administrators" type="Identity">2618D6F5A90949BAA7E920D1B04C7EE1</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Synchronization Rule" type="ItemType" name="Synchronization Rule">3F42C313D8C0477CBE68D16D4A10651E</source_id>
+   </Item>
+   <Item type="Allowed Permission" id="96B1AC9DCDDC4E3AAB06CAFC70095B75" action="add">
+    <is_default>1</is_default>
+    <related_id keyed_name="Administrators" type="Permission">5BE54C871FB14F6EBC11596D1A010D26</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Synchronization Rule" type="ItemType" name="Synchronization Rule">3F42C313D8C0477CBE68D16D4A10651E</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+ <Item type="ItemType" id="3F42C313D8C0477CBE68D16D4A10651E" action="edit">
+  <Relationships>
+   <Item type="Property" id="07945D37E122492D9A7C59A4966ED5BF" action="add">
+    <column_alignment>left</column_alignment>
+    <data_source keyed_name="InnovatorServer" type="ItemType" name="InnovatorServer">5BE067BD61E94D398638E3077942F21A</data_source>
+    <data_type>item</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>1</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>1</is_required>
+    <item_behavior>float</item_behavior>
+    <label xml:lang="en">Destination System</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>3072</sort_order>
+    <source_id keyed_name="Synchronization Rule" type="ItemType" name="Synchronization Rule">3F42C313D8C0477CBE68D16D4A10651E</source_id>
+    <track_history>0</track_history>
+    <name>destination_system</name>
+   </Item>
+  </Relationships>
+ </Item>
+ <Item type="ItemType" id="3F42C313D8C0477CBE68D16D4A10651E" action="edit">
+  <label_plural xml:lang="en">Synchronization Rules</label_plural>
+ </Item>
+ <Item type="ItemType" id="3F42C313D8C0477CBE68D16D4A10651E" action="edit">
+  <Relationships>
+    <Item type="TOC Access" id="98D2D13E0CE74F5187943FC22B6E1CC0" action="edit">
+      <category>Administration/Data Synchronization</category>
+    </Item>
+  </Relationships>
+</Item>
+</AML>

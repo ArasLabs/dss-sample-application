@@ -1,0 +1,61 @@
+﻿<AML>
+ <Item type="Form" id="E6E449B8080743FE8290622853DEE7A2" action="add">
+  <category_form>0</category_form>
+  <height>234</height>
+  <stylesheet><![CDATA[../styles/default.css]]></stylesheet>
+  <width>699</width>
+  <name>Sync Root</name>
+  <Relationships>
+   <Item type="Body" id="49864847AC064B7CAEAA1FAF0D4FF968" action="add">
+    <bg_color>#FFFFFF</bg_color>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Sync Root" type="Form">E6E449B8080743FE8290622853DEE7A2</source_id>
+    <Relationships>
+     <Item type="Field" id="FE2BB9C80D694659B661CA367F2ECDEE" action="add">
+      <display_length_unit>px</display_length_unit>
+      <field_type>html</field_type>
+      <html_code><![CDATA[<span id='ITEM_INFO_INTERNAL_SPAN'/>
+<script>
+  populate_ITEM_INFO_INTERNAL_SPAN = function()
+  {
+    document.getElementById('ITEM_INFO_INTERNAL_SPAN').innerHTML = aras.uiGetItemInfoTable(document.itemType);
+  }
+  window.addEventListener('load', populate_ITEM_INFO_INTERNAL_SPAN);
+</script>]]></html_code>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <list_no_blank>0</list_no_blank>
+      <sort_order>256</sort_order>
+      <source_id keyed_name="49864847AC064B7CAEAA1FAF0D4FF968" type="Body">49864847AC064B7CAEAA1FAF0D4FF968</source_id>
+      <tab_stop>0</tab_stop>
+      <x>0</x>
+      <y>0</y>
+      <name>item_info</name>
+     </Item>
+     <Item type="Field" id="34DB8D1FF68445D8AC1B09F733E24699" action="add">
+      <border_width>0</border_width>
+      <display_length_unit>px</display_length_unit>
+      <field_type>text</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Name</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <propertytype_id keyed_name="name" type="Property">5FCD4139ECAC484EB93160BB0D56A07A</propertytype_id>
+      <sort_order>128</sort_order>
+      <source_id keyed_name="49864847AC064B7CAEAA1FAF0D4FF968" type="Body">49864847AC064B7CAEAA1FAF0D4FF968</source_id>
+      <tab_index>3200</tab_index>
+      <tab_stop>1</tab_stop>
+      <x>190</x>
+      <y>10</y>
+      <name>name</name>
+     </Item>
+    </Relationships>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

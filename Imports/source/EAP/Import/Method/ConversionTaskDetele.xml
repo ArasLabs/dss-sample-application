@@ -1,0 +1,100 @@
+﻿<AML>
+ <Item type="Method" id="4CD9BF7202414D869EDF0A8B2667A030" action="add">
+  <comments>The method of removing old conversion tasks</comments>
+  <execution_allowed_to keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</execution_allowed_to>
+  <method_code><![CDATA[
+	BusinessLogic businessLogic = new BusinessLogic(new DataAccessLayer(this.getInnovator()), this);
+	return businessLogic.Run();
+}
+
+#region Business Logic
+
+internal class BusinessLogic
+{
+	private readonly Item _contextItem;
+	private readonly IDataAccessLayer _dataAccessLayer;
+
+	public BusinessLogic(IDataAccessLayer dataAccessLayer, Item contextItem)
+	{
+		_dataAccessLayer = dataAccessLayer;
+		_contextItem = contextItem;
+	}
+
+	public Item Run()
+	{
+		string previousTaskId = GetPreviousTaskIdFromUserData(_contextItem);
+		if(!string.IsNullOrEmpty(previousTaskId))
+		{
+			Item query = _dataAccessLayer.NewItem("ConversionTask", "delete");
+			query.setID(previousTaskId);
+
+			Item result = _dataAccessLayer.ApplyItem(query);
+			if (result.isError())
+			{
+				return _dataAccessLayer.NewError("Unable to remove the previous task. Error: " + result.getErrorString());
+			}
+		}
+		return _contextItem;
+	}
+
+	private static string GetPreviousTaskIdFromUserData(Item item)
+	{
+		string previousTaskId = null;
+		string incomingJson = item.getProperty("user_data", string.Empty);
+		if (!string.IsNullOrEmpty(incomingJson))
+		{
+			Dictionary<string, string> userData = JsonWrapper.ConvertJsonToDictionary(incomingJson);
+			userData.TryGetValue("previous_task_id", out previousTaskId);
+		}
+
+		return previousTaskId;
+	}
+}
+
+internal static class JsonWrapper
+{
+	private static System.Web.Script.Serialization.JavaScriptSerializer serializer = new System.Web.Script.Serialization.JavaScriptSerializer();
+
+	public static Dictionary<string, string> ConvertJsonToDictionary(string json)
+	{
+		Dictionary<string, string> result = serializer.Deserialize<Dictionary<string, string>>(json);
+		return result;
+	}
+}
+
+#endregion // Business Logic
+
+internal interface IDataAccessLayer
+{
+	Item NewError(string error);
+	Item NewItem(string type, string action);
+	Item ApplyItem(Item item);
+}
+
+internal class DataAccessLayer: IDataAccessLayer
+{
+	private Innovator inn;
+
+	internal DataAccessLayer(Innovator innovator)
+	{
+		this.inn = innovator;
+	}
+
+	public Item NewError(string error)
+	{
+		return inn.newError(error);
+	}
+
+	public Item NewItem(string type, string action)
+	{
+		return inn.newItem(type, action);
+	}
+
+	public Item ApplyItem(Item item)
+	{
+		return item.apply();
+	}]]></method_code>
+  <method_type>C#</method_type>
+  <name>ConversionTaskDetele</name>
+ </Item>
+</AML>

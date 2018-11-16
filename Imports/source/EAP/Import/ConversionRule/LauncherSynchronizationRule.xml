@@ -1,0 +1,67 @@
+﻿<AML>
+ <Item type="ConversionRule" id="D84FDA7F45474487B12AFF8201811A33" action="add">
+  <converter_type keyed_name="LauncherSynchronization" type="ConverterType">4139E126664C484E93BC282EFF2C5A23</converter_type>
+  <cutoff>1</cutoff>
+  <delay>1</delay>
+  <enabled>1</enabled>
+  <timeout>120</timeout>
+  <name>LauncherSynchronizationRule</name>
+  <Relationships>
+   <Item type="ConversionRuleEventTemplate" id="84F113E28D9044E28F866312ADD9F75A" action="add">
+    <event_type>OnTaskDiscarding</event_type>
+    <lock_dependencies>0</lock_dependencies>
+    <related_id keyed_name="ConversionTaskCreate" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>ConversionTaskCreate</name>
+     </Item>
+    </related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="LauncherSynchronizationRule" type="ConversionRule">D84FDA7F45474487B12AFF8201811A33</source_id>
+   </Item>
+   <Item type="ConversionRuleEventTemplate" id="03B595F7769644248A1A057F41435835" action="add">
+    <event_type>OnConvert</event_type>
+    <lock_dependencies>0</lock_dependencies>
+    <related_id keyed_name="SyncLauncher" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>SyncLauncher</name>
+     </Item>
+    </related_id>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="LauncherSynchronizationRule" type="ConversionRule">D84FDA7F45474487B12AFF8201811A33</source_id>
+   </Item>
+   <Item type="ConversionRuleEventTemplate" id="71FAD344DB814BB8BFA82301A27FD4EC" action="add">
+    <event_type>OnAfterConvert</event_type>
+    <lock_dependencies>0</lock_dependencies>
+    <related_id keyed_name="ConversionTaskCreate" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>ConversionTaskCreate</name>
+     </Item>
+    </related_id>
+    <sort_order>512</sort_order>
+    <source_id keyed_name="LauncherSynchronizationRule" type="ConversionRule">D84FDA7F45474487B12AFF8201811A33</source_id>
+   </Item>
+   <Item type="ConversionRuleEventTemplate" id="D57608019959424B98294FF34A8C2CB6" action="add">
+    <event_type>OnTaskDiscarding</event_type>
+    <lock_dependencies>0</lock_dependencies>
+    <related_id keyed_name="Conversation_SetStatusToFail" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>Conversation_SetStatusToFail</name>
+     </Item>
+    </related_id>
+    <sort_order>640</sort_order>
+    <source_id keyed_name="LauncherSynchronizationRule" type="ConversionRule">D84FDA7F45474487B12AFF8201811A33</source_id>
+   </Item>
+   <Item type="ConversionRuleEventTemplate" id="BC305959C99C4965AEC6083B230B3476" action="add">
+    <event_type>OnBeforeConvert</event_type>
+    <lock_dependencies>0</lock_dependencies>
+    <related_id keyed_name="ConversionTaskDetele" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>ConversionTaskDetele</name>
+     </Item>
+    </related_id>
+    <sort_order>768</sort_order>
+    <source_id keyed_name="LauncherSynchronizationRule" type="ConversionRule">D84FDA7F45474487B12AFF8201811A33</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

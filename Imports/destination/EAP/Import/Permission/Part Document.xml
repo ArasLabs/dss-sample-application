@@ -1,0 +1,15 @@
+﻿<AML>
+ <Item type="RelationshipType" id="09CBB0294FAB477AA7300906DC035462" action="edit">
+  <relationship_id keyed_name="Part Document" type="ItemType" name="Part Document">
+   <Item type="ItemType" id="BFE7AD9711A547FBB05827B5169493CE">
+    <Relationships>
+	 <Item type="Allowed Permission" id="9B49D325334641178DFE17473F4ABEA7" action="add">
+		<is_default>1</is_default>
+		<related_id>A9E8279B32184CC9855ED825992FB42B</related_id>
+		<source_id keyed_name="Part Document">BFE7AD9711A547FBB05827B5169493CE</source_id>
+	 </Item>
+    </Relationships>
+   </Item>
+  </relationship_id>
+ </Item>
+</AML>

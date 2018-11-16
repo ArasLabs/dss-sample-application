@@ -1,0 +1,27 @@
+﻿<AML>
+ <Item type="RelationshipType" id="6D93CB6029D141C1998CD833EAA1A0C0" action="edit">
+  <relationship_id keyed_name="CADFiles" type="ItemType" name="CADFiles">
+   <Item type="ItemType" id="15FF1A4262FA4164B45A8A97BCE20CD4" >
+    <Relationships>
+     <Item type="Property" id="D795B32383974FAB97D2F1B29EBCD226" action="add">
+      <column_alignment>left</column_alignment>
+      <data_type>global_version</data_type>
+      <is_hidden>0</is_hidden>
+      <is_hidden2>0</is_hidden2>
+      <is_indexed>0</is_indexed>
+      <is_keyed>0</is_keyed>
+      <is_multi_valued>0</is_multi_valued>
+      <is_required>0</is_required>
+      <label xml:lang="en">global_version</label>
+      <range_inclusive>0</range_inclusive>
+      <readonly>0</readonly>
+      <sort_order>3584</sort_order>
+      <source_id keyed_name="CADFiles" type="ItemType" name="CADFiles">15FF1A4262FA4164B45A8A97BCE20CD4</source_id>
+      <track_history>0</track_history>
+      <name>global_version</name>
+     </Item>
+    </Relationships>
+   </Item>
+  </relationship_id>
+ </Item>
+</AML>

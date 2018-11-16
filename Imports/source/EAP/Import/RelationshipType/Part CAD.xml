@@ -1,0 +1,27 @@
+﻿<AML>
+ <Item type="RelationshipType" id="C65FB7DC8C3A4EFC97A6EE8196C0B448" action="edit" dependencyLevel="0">
+  <relationship_id keyed_name="Part CAD" type="ItemType" name="Part CAD">
+   <Item type="ItemType" id="935DF68BCFD849EBB5C3A528F04C5B5B" action="edit">
+    <Relationships>
+     <Item type="Property" id="17D3FF457A9342AB8BBE5F0763697F56" action="add">
+      <column_alignment>left</column_alignment>
+      <data_type>global_version</data_type>
+      <is_hidden>1</is_hidden>
+      <is_hidden2>1</is_hidden2>
+      <is_indexed>0</is_indexed>
+      <is_keyed>0</is_keyed>
+      <is_multi_valued>0</is_multi_valued>
+      <is_required>0</is_required>
+      <label xml:lang="en">global_version</label>
+      <range_inclusive>0</range_inclusive>
+      <readonly>1</readonly>
+      <sort_order>3840</sort_order>
+      <source_id keyed_name="Part CAD" type="ItemType" name="Part CAD">935DF68BCFD849EBB5C3A528F04C5B5B</source_id>
+      <track_history>0</track_history>
+      <name>global_version</name>
+     </Item>
+    </Relationships>
+   </Item>
+  </relationship_id>
+ </Item>
+</AML>

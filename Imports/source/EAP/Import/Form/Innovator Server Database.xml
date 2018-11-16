@@ -1,0 +1,87 @@
+﻿<AML>
+ <Item type="Form" id="10FDB6CDC10F4D75942EC21D84D6A79F" action="add">
+  <category_form>0</category_form>
+  <height>234</height>
+  <stylesheet><![CDATA[../styles/default.css]]></stylesheet>
+  <width>699</width>
+  <name>Innovator Server Database</name>
+  <Relationships>
+   <Item type="Body" id="731FBFB620AD400BBF2CD36010040940" action="add">
+    <bg_color>#FFFFFF</bg_color>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Innovator Server Database" type="Form">10FDB6CDC10F4D75942EC21D84D6A79F</source_id>
+    <Relationships>
+     <Item type="Field" id="60544B33E9B641EDBA6664F0B2D1D5F4" action="add">
+      <border_width>0</border_width>
+      <display_length_unit>px</display_length_unit>
+      <field_type>textarea</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Database Id</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <propertytype_id keyed_name="database_id" type="Property">83C62DF03EDC41258DFE518214A0A1CD</propertytype_id>
+      <sort_order>128</sort_order>
+      <source_id keyed_name="731FBFB620AD400BBF2CD36010040940" type="Body">731FBFB620AD400BBF2CD36010040940</source_id>
+      <tab_index>3456</tab_index>
+      <tab_stop>1</tab_stop>
+      <textarea_cols>350</textarea_cols>
+      <textarea_rows>50</textarea_rows>
+      <x>190</x>
+      <y>10</y>
+      <name>database_id</name>
+     </Item>
+     <Item type="Field" id="9C8FCFC9A8074A628F82D7976DA8660C" action="add">
+      <border_width>0</border_width>
+      <display_length_unit>px</display_length_unit>
+      <field_type>textarea</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Database Name</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <propertytype_id keyed_name="database_name" type="Property">D8A8400C369D4C7AA64AEF9BF3711107</propertytype_id>
+      <sort_order>256</sort_order>
+      <source_id keyed_name="731FBFB620AD400BBF2CD36010040940" type="Body">731FBFB620AD400BBF2CD36010040940</source_id>
+      <tab_index>3584</tab_index>
+      <tab_stop>1</tab_stop>
+      <textarea_cols>350</textarea_cols>
+      <textarea_rows>50</textarea_rows>
+      <x>190</x>
+      <y>85</y>
+      <name>database_name</name>
+     </Item>
+     <Item type="Field" id="4739BFBC13EE4470BCE263B1C2861E18" action="add">
+      <display_length_unit>px</display_length_unit>
+      <field_type>html</field_type>
+      <html_code><![CDATA[<span id='ITEM_INFO_INTERNAL_SPAN'/>
+<script>
+  populate_ITEM_INFO_INTERNAL_SPAN = function()
+  {
+    document.getElementById('ITEM_INFO_INTERNAL_SPAN').innerHTML = aras.uiGetItemInfoTable(document.itemType);
+  }
+  window.addEventListener('load', populate_ITEM_INFO_INTERNAL_SPAN);
+</script>]]></html_code>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <list_no_blank>0</list_no_blank>
+      <sort_order>384</sort_order>
+      <source_id keyed_name="731FBFB620AD400BBF2CD36010040940" type="Body">731FBFB620AD400BBF2CD36010040940</source_id>
+      <tab_stop>0</tab_stop>
+      <x>0</x>
+      <y>0</y>
+      <name>item_info</name>
+     </Item>
+    </Relationships>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

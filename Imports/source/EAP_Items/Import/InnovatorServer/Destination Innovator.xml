@@ -1,0 +1,6 @@
+﻿<AML>
+ <Item type="InnovatorServer" id="331E8651033F43D9AF3FE2D2E7709231" action="add">
+  <server_url_pattern>http://localhost/DestinationInnovator</server_url_pattern>
+  <name>Destination Innovator</name>
+ </Item>
+</AML>

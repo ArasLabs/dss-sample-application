@@ -1,0 +1,62 @@
+﻿<AML>
+ <Item type="ItemType" id="4F1AC04A2B484F3ABA4E20DB63808A88" action="edit">
+  <Relationships>
+   <Item type="Property" id="A8D954FF331547CC82F6F0033A30CC19" action="add">
+    <column_alignment>left</column_alignment>
+    <data_type>global_version</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">global_version</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>1</readonly>
+    <sort_order>96280</sort_order>
+    <source_id keyed_name="Part" type="ItemType" name="Part">4F1AC04A2B484F3ABA4E20DB63808A88</source_id>
+    <track_history>0</track_history>
+    <name>global_version</name>
+   </Item>
+   <Item type="Property" id="D88A54960E8D463797A4F1804AB71AAA" action="add">
+    <column_alignment>left</column_alignment>
+    <data_type>boolean</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Internal</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>96152</sort_order>
+    <source_id keyed_name="Part" type="ItemType" name="Part">4F1AC04A2B484F3ABA4E20DB63808A88</source_id>
+    <track_history>0</track_history>
+    <name>is_internal</name>
+   </Item>
+   <Item type="Property" id="8574951C1C28465D990AAC07BAA11590" action="add">
+    <column_alignment>left</column_alignment>
+    <data_type>federated</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Sync State</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>96536</sort_order>
+    <source_id keyed_name="Part" type="ItemType" name="Part">4F1AC04A2B484F3ABA4E20DB63808A88</source_id>
+    <track_history>0</track_history>
+    <name>sync_state</name>
+   </Item>
+   <Item type="Item Action" id="D044D65522864FABA5E7CCB056F23C51" action="add">
+    <related_id keyed_name="Sync" type="Action">C019E99228FB4F8F8467E37EF9BC63B0</related_id>
+    <sort_order>1664</sort_order>
+    <source_id keyed_name="Part" type="ItemType" name="Part">4F1AC04A2B484F3ABA4E20DB63808A88</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

@@ -1,0 +1,29 @@
+﻿<AML>
+ <Item type="ItemType" id="0B4937EB1D7444EFAFC3ECC6911040F8" action="edit">
+  <Relationships>
+   <Item type="Morphae" id="D95EDCFE4234433F805D84B6D3187065" action="add">
+    <related_id keyed_name="Sync Root" type="ItemType" name="Sync Root">EAE1BD9EF3E1444FB9E93B80F052A2A6</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="SyncScopeViewItems" type="ItemType" name="SyncScopeViewItems">0B4937EB1D7444EFAFC3ECC6911040F8</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+ <Item type="ItemType" id="0B4937EB1D7444EFAFC3ECC6911040F8" action="edit">
+  <Relationships>
+   <Item type="Morphae" id="273D2D5C4B494269B4722F54CE91944B" action="add">
+    <related_id keyed_name="Part" type="ItemType" name="Part">4F1AC04A2B484F3ABA4E20DB63808A88</related_id>
+    <sort_order>384</sort_order>
+    <source_id keyed_name="SyncScopeViewItems" type="ItemType" name="SyncScopeViewItems">0B4937EB1D7444EFAFC3ECC6911040F8</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+ <Item type="ItemType" id="0B4937EB1D7444EFAFC3ECC6911040F8" action="edit">
+  <Relationships>
+   <Item type="Morphae" id="CF37DCFE4234433F805D84B6D3187088" action="add">
+    <related_id keyed_name="CAD" type="ItemType" name="CAD">CCF205347C814DD1AF056875E0A880AC</related_id>
+    <sort_order>512</sort_order>
+    <source_id keyed_name="SyncScopeViewItems" type="ItemType" name="SyncScopeViewItems">0B4937EB1D7444EFAFC3ECC6911040F8</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

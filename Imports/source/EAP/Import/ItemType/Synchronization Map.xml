@@ -1,0 +1,121 @@
+﻿<AML>
+ <Item type="ItemType" id="A60A72F745094D52877AFDB42DDB0BC5" action="add">
+  <allow_private_permission>1</allow_private_permission>
+  <auto_search>0</auto_search>
+  <enforce_discovery>1</enforce_discovery>
+  <hide_where_used>0</hide_where_used>
+  <implementation_type>table</implementation_type>
+  <instance_data>SYNCHRONIZATION_MAP</instance_data>
+  <is_dependent>0</is_dependent>
+  <is_relationship>0</is_relationship>
+  <is_versionable>0</is_versionable>
+  <revisions keyed_name="Default" type="Revision">7FE395DD8B9F4E1090756A34B733D75E</revisions>
+  <show_parameters_tab>1</show_parameters_tab>
+  <structure_view>tabs off</structure_view>
+  <unlock_on_logout>0</unlock_on_logout>
+  <use_src_access>0</use_src_access>
+  <name>Synchronization Map</name>
+  <Relationships>
+   <Item type="Property" id="C246BC70D46D4050A3398DBA05E47212" action="add">
+    <column_alignment>left</column_alignment>
+    <data_type>text</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Description</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>3200</sort_order>
+    <source_id keyed_name="Synchronization Map" type="ItemType" name="Synchronization Map">A60A72F745094D52877AFDB42DDB0BC5</source_id>
+    <track_history>0</track_history>
+    <name>description</name>
+   </Item>
+   <Item type="Property" id="FBBC1B7F1BF4413AA2B066EBCCAE02D4" action="add">
+    <column_alignment>left</column_alignment>
+    <data_type>string</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>1</is_required>
+    <label xml:lang="en">Name</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>3072</sort_order>
+    <source_id keyed_name="Synchronization Map" type="ItemType" name="Synchronization Map">A60A72F745094D52877AFDB42DDB0BC5</source_id>
+    <stored_length>128</stored_length>
+    <track_history>0</track_history>
+    <name>name</name>
+   </Item>
+   <Item type="Property" id="602E6C8ABA2C4F15A6454A3F8F3F0F98" action="add">
+    <column_alignment>left</column_alignment>
+    <data_source keyed_name="qry_QueryDefinition" type="ItemType" name="qry_QueryDefinition">0421B558114B4B22886C0F4206C923EE</data_source>
+    <data_type>item</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>1</is_required>
+    <item_behavior>float</item_behavior>
+    <label xml:lang="en">Query Defenition</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>3328</sort_order>
+    <source_id keyed_name="Synchronization Map" type="ItemType" name="Synchronization Map">A60A72F745094D52877AFDB42DDB0BC5</source_id>
+    <track_history>0</track_history>
+    <name>query_defenition</name>
+   </Item>
+   <Item type="View" id="2305CB6799754FA3BF5782938EDA9BCE" action="add">
+    <client>js</client>
+    <related_id keyed_name="Synchronization Map" type="Form">E721E18E1D28421CA23A60E026627841</related_id>
+    <role keyed_name="World" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>World</name>
+     </Item>
+    </role>
+    <show_ssvc>0</show_ssvc>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Synchronization Map" type="ItemType" name="Synchronization Map">A60A72F745094D52877AFDB42DDB0BC5</source_id>
+    <type>default</type>
+   </Item>
+   <Item type="TOC Access" id="1D260E9161B34A64A0CF04DCB0334447" action="add">
+    <related_id keyed_name="Administrators" type="Identity">2618D6F5A90949BAA7E920D1B04C7EE1</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Synchronization Map" type="ItemType" name="Synchronization Map">A60A72F745094D52877AFDB42DDB0BC5</source_id>
+    <category>Administration</category>
+   </Item>
+   <Item type="TOC View" id="91F6A9B4BA9642F2B60017C2B63A0EDE" action="add">
+    <related_id keyed_name="Administrators" type="Identity">2618D6F5A90949BAA7E920D1B04C7EE1</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Synchronization Map" type="ItemType" name="Synchronization Map">A60A72F745094D52877AFDB42DDB0BC5</source_id>
+   </Item>
+   <Item type="Can Add" id="E1B428131A3944C3A4E23C12AA040E2F" action="add">
+    <can_add>1</can_add>
+    <related_id keyed_name="Administrators" type="Identity">2618D6F5A90949BAA7E920D1B04C7EE1</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Synchronization Map" type="ItemType" name="Synchronization Map">A60A72F745094D52877AFDB42DDB0BC5</source_id>
+   </Item>
+   <Item type="Allowed Permission" id="2DC219E7B84245BA87194C6401621CAF" action="add">
+    <is_default>1</is_default>
+    <related_id keyed_name="Administrators" type="Permission">5BE54C871FB14F6EBC11596D1A010D26</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Synchronization Map" type="ItemType" name="Synchronization Map">A60A72F745094D52877AFDB42DDB0BC5</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+ <Item type="ItemType" id="A60A72F745094D52877AFDB42DDB0BC5" action="edit">
+  <label_plural xml:lang="en">Synchronization Maps</label_plural>
+ </Item>
+ <Item type="ItemType" id="A60A72F745094D52877AFDB42DDB0BC5" action="edit">
+  <Relationships>
+    <Item type="TOC Access" id="1D260E9161B34A64A0CF04DCB0334447" action="edit">
+      <category>Administration/Data Synchronization</category>
+    </Item>
+  </Relationships>
+</Item>
+</AML>

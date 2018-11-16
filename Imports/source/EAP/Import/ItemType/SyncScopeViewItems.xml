@@ -1,0 +1,211 @@
+﻿<AML>
+ <Item type="ItemType" id="0B4937EB1D7444EFAFC3ECC6911040F8" action="add">
+  <allow_private_permission>1</allow_private_permission>
+  <auto_search>0</auto_search>
+  <enforce_discovery>1</enforce_discovery>
+  <hide_where_used>0</hide_where_used>
+  <implementation_type>polymorphic</implementation_type>
+  <instance_data>SYNCSCOPEVIEWITEMS</instance_data>
+  <is_dependent>0</is_dependent>
+  <is_relationship>0</is_relationship>
+  <is_versionable>1</is_versionable>
+  <manual_versioning>0</manual_versioning>
+  <revisions keyed_name="Default" type="Revision">7FE395DD8B9F4E1090756A34B733D75E</revisions>
+  <show_parameters_tab>1</show_parameters_tab>
+  <structure_view>tabs off</structure_view>
+  <unlock_on_logout>0</unlock_on_logout>
+  <use_src_access>0</use_src_access>
+  <name>SyncScopeViewItems</name>
+  <Relationships>
+   <Item type="Property" id="0C8E2185FAD84CD8B25CF6B9A98EC399" action="add">
+    <column_alignment>left</column_alignment>
+    <data_type>global_version</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">global_version</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>3584</sort_order>
+    <source_id keyed_name="SyncScopeViewItems" type="ItemType" name="SyncScopeViewItems">0B4937EB1D7444EFAFC3ECC6911040F8</source_id>
+    <track_history>0</track_history>
+    <name>global_version</name>
+   </Item>
+   <Item type="View" id="68B1970A7CAC4C56B83BB9CBDC9A6E61" action="add">
+    <client>js</client>
+    <related_id keyed_name="SyncScopeViewItems" type="Form">493F853A267F491EBFDCA24560016165</related_id>
+    <role keyed_name="World" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>World</name>
+     </Item>
+    </role>
+    <show_ssvc>0</show_ssvc>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="SyncScopeViewItems" type="ItemType" name="SyncScopeViewItems">0B4937EB1D7444EFAFC3ECC6911040F8</source_id>
+    <type>default</type>
+   </Item>
+   <Item type="Server Event" id="ADC159FA1CBB48D4ACA8517AC166CBD4" action="add">
+    <event_version>version_1</event_version>
+    <is_required>0</is_required>
+    <related_id keyed_name="StatusPropertyCalculate" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>StatusPropertyCalculate</name>
+     </Item>
+    </related_id>
+    <server_event>onAfterGet</server_event>
+    <sort_order>1152</sort_order>
+    <source_id keyed_name="SyncScopeViewItems" type="ItemType" name="SyncScopeViewItems">0B4937EB1D7444EFAFC3ECC6911040F8</source_id>
+   </Item>
+   <Item type="Server Event" id="4AB4549530A348BA9481C720D40103B8" action="add">
+    <event_version>version_1</event_version>
+    <is_required>0</is_required>
+    <related_id keyed_name="StatusPropertyCheck" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>StatusPropertyCheck</name>
+     </Item>
+    </related_id>
+    <server_event>onBeforeGet</server_event>
+    <sort_order>1024</sort_order>
+    <source_id keyed_name="SyncScopeViewItems" type="ItemType" name="SyncScopeViewItems">0B4937EB1D7444EFAFC3ECC6911040F8</source_id>
+   </Item>
+   <Item type="Server Event" id="564FA82C93EA40A4B88AED8EAF8948DC" action="add">
+    <event_version>version_1</event_version>
+    <is_required>0</is_required>
+    <related_id keyed_name="polymorphic_item_onBeforeAdd" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>polymorphic_item_onBeforeAdd</name>
+     </Item>
+    </related_id>
+    <server_event>onBeforeAdd</server_event>
+    <sort_order>768</sort_order>
+    <source_id keyed_name="SyncScopeViewItems" type="ItemType" name="SyncScopeViewItems">0B4937EB1D7444EFAFC3ECC6911040F8</source_id>
+   </Item>
+   <Item type="Server Event" id="2C7F19C308094CC8843160FC0C02DD17" action="add">
+    <event_version>version_1</event_version>
+    <is_required>0</is_required>
+    <related_id keyed_name="polymorphic_item_onBeforeCopy" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>polymorphic_item_onBeforeCopy</name>
+     </Item>
+    </related_id>
+    <server_event>onBeforeCopy</server_event>
+    <sort_order>896</sort_order>
+    <source_id keyed_name="SyncScopeViewItems" type="ItemType" name="SyncScopeViewItems">0B4937EB1D7444EFAFC3ECC6911040F8</source_id>
+   </Item>
+   <Item type="Server Event" id="FEB2EFC1BFB14EEFA0B68499D466D1F4" action="add">
+    <event_version>version_1</event_version>
+    <is_required>0</is_required>
+    <related_id keyed_name="polymorphic_item_onBeforeDelete" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>polymorphic_item_onBeforeDelete</name>
+     </Item>
+    </related_id>
+    <server_event>onBeforeDelete</server_event>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="SyncScopeViewItems" type="ItemType" name="SyncScopeViewItems">0B4937EB1D7444EFAFC3ECC6911040F8</source_id>
+   </Item>
+   <Item type="Server Event" id="598BB5A8F8684BDCA855670BE3C75CBA" action="add">
+    <event_version>version_1</event_version>
+    <is_required>0</is_required>
+    <related_id keyed_name="polymorphic_item_onBeforeLock" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>polymorphic_item_onBeforeLock</name>
+     </Item>
+    </related_id>
+    <server_event>onBeforeLock</server_event>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="SyncScopeViewItems" type="ItemType" name="SyncScopeViewItems">0B4937EB1D7444EFAFC3ECC6911040F8</source_id>
+   </Item>
+   <Item type="Server Event" id="90810075A3BF4260970E2E90DDA557C4" action="add">
+    <event_version>version_1</event_version>
+    <is_required>0</is_required>
+    <related_id keyed_name="polymorphic_item_onBeforeUnlock" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>polymorphic_item_onBeforeUnlock</name>
+     </Item>
+    </related_id>
+    <server_event>onBeforeUnlock</server_event>
+    <sort_order>384</sort_order>
+    <source_id keyed_name="SyncScopeViewItems" type="ItemType" name="SyncScopeViewItems">0B4937EB1D7444EFAFC3ECC6911040F8</source_id>
+   </Item>
+   <Item type="Server Event" id="3E099D4F856747C2AA1768D7A407B67D" action="add">
+    <event_version>version_1</event_version>
+    <is_required>0</is_required>
+    <related_id keyed_name="polymorphic_item_onBeforeUpdate" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>polymorphic_item_onBeforeUpdate</name>
+     </Item>
+    </related_id>
+    <server_event>onBeforeUpdate</server_event>
+    <sort_order>640</sort_order>
+    <source_id keyed_name="SyncScopeViewItems" type="ItemType" name="SyncScopeViewItems">0B4937EB1D7444EFAFC3ECC6911040F8</source_id>
+   </Item>
+   <Item type="Server Event" id="CB4D6112BBBA464DB8E2A8AFABC736F6" action="add">
+    <event_version>version_1</event_version>
+    <is_required>0</is_required>
+    <related_id keyed_name="polymorphic_item_onBeforeVersion" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>polymorphic_item_onBeforeVersion</name>
+     </Item>
+    </related_id>
+    <server_event>onBeforeVersion</server_event>
+    <sort_order>512</sort_order>
+    <source_id keyed_name="SyncScopeViewItems" type="ItemType" name="SyncScopeViewItems">0B4937EB1D7444EFAFC3ECC6911040F8</source_id>
+   </Item>
+   <Item type="Can Add" id="C013D6DDE3A44DEE97DDEB65CC989E70" action="add">
+    <can_add>1</can_add>
+    <related_id keyed_name="Administrators" type="Identity">2618D6F5A90949BAA7E920D1B04C7EE1</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="SyncScopeViewItems" type="ItemType" name="SyncScopeViewItems">0B4937EB1D7444EFAFC3ECC6911040F8</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+ <Item type="ItemType" id="0B4937EB1D7444EFAFC3ECC6911040F8" action="edit">
+  <Relationships>
+   <Item type="Property" action="edit" where="source_id='0B4937EB1D7444EFAFC3ECC6911040F8' and name='itemtype'">
+    <column_alignment>left</column_alignment>
+    <data_source keyed_name="SyncScopeViewItems">
+     <Item type="List" action="get" select="id" page="1" pagesize="1">
+      <name>SyncScopeViewItems</name>
+     </Item>
+    </data_source>
+    <data_type>list</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">ItemType</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>1</readonly>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="SyncScopeViewItems" type="ItemType" name="SyncScopeViewItems">0B4937EB1D7444EFAFC3ECC6911040F8</source_id>
+    <stored_length>64</stored_length>
+    <track_history>0</track_history>
+    <name>itemtype</name>
+   </Item>
+   <Item type="Property" action="edit" where="source_id='0B4937EB1D7444EFAFC3ECC6911040F8' and name='superseded_date'">
+    <column_alignment>left</column_alignment>
+    <data_type>date</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Superseded Date</label>
+    <pattern>short_date_time</pattern>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>3328</sort_order>
+    <source_id keyed_name="SyncScopeViewItems" type="ItemType" name="SyncScopeViewItems">0B4937EB1D7444EFAFC3ECC6911040F8</source_id>
+    <track_history>0</track_history>
+    <name>superseded_date</name>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

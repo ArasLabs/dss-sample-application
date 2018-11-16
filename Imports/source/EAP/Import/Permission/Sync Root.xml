@@ -1,0 +1,45 @@
+﻿<AML>
+ <Item type="Permission" id="13807DF12665413B83C7D596D9FE8574" action="add">
+  <is_private>0</is_private>
+  <name>Sync Root</name>
+  <Relationships>
+   <Item type="Access" id="53740EEA87FD4CFC970DBF0D76D7B996" action="add">
+    <can_change_access>1</can_change_access>
+    <can_delete>1</can_delete>
+    <can_discover>1</can_discover>
+    <can_get>1</can_get>
+    <can_update>1</can_update>
+    <related_id keyed_name="dss_SyncReceiver" type="Identity">63346296585E4BA7AD2E4B99C4530817</related_id>
+    <show_permissions_warning>0</show_permissions_warning>
+    <sort_order>384</sort_order>
+    <source_id keyed_name="Sync Root" type="Permission">13807DF12665413B83C7D596D9FE8574</source_id>
+   </Item>
+   <Item type="Access" id="852860A03E2243D8BAC7D05677CAB869" action="add">
+    <can_change_access>1</can_change_access>
+    <can_delete>1</can_delete>
+    <can_discover>1</can_discover>
+    <can_get>1</can_get>
+    <can_update>1</can_update>
+    <related_id keyed_name="Administrators" type="Identity">2618D6F5A90949BAA7E920D1B04C7EE1</related_id>
+    <show_permissions_warning>0</show_permissions_warning>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="Sync Root" type="Permission">13807DF12665413B83C7D596D9FE8574</source_id>
+   </Item>
+   <Item type="Access" id="94BBDB80CBE74898967D0111EE88D5EE" action="add">
+    <can_change_access>0</can_change_access>
+    <can_delete>0</can_delete>
+    <can_discover>1</can_discover>
+    <can_get>1</can_get>
+    <can_update>0</can_update>
+    <related_id keyed_name="World" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>World</name>
+     </Item>
+    </related_id>
+    <show_permissions_warning>0</show_permissions_warning>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Sync Root" type="Permission">13807DF12665413B83C7D596D9FE8574</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

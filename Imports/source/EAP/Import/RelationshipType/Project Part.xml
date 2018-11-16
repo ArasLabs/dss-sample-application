@@ -1,0 +1,30 @@
+﻿<AML>
+ <Item type="RelationshipType" id="018E1EE724D343C5BD4488197C0C4E80" action="edit" dependencyLevel="0">
+  <relationship_id keyed_name="Project Part" type="ItemType" name="Project Part">
+   <Item type="ItemType" id="06BDA3A0ED4F4DA2935A431D82278A30" action="edit">
+    <Relationships>
+     <Item type="Property" id="CFA5F8D24CC74AC9B58AA890CF90A94C" action="add">
+      <column_alignment>left</column_alignment>
+      <data_type>global_version</data_type>
+      <is_hidden>0</is_hidden>
+      <is_hidden2>0</is_hidden2>
+      <is_indexed>0</is_indexed>
+      <is_keyed>0</is_keyed>
+      <is_multi_valued>0</is_multi_valued>
+      <is_required>0</is_required>
+      <label xml:lang="en">Global Version</label>
+      <range_inclusive>0</range_inclusive>
+      <readonly>1</readonly>
+      <sort_order>3584</sort_order>
+      <source_id keyed_name="Project Part" type="ItemType" name="Project Part">06BDA3A0ED4F4DA2935A431D82278A30</source_id>
+      <track_history>0</track_history>
+      <name>global_version</name>
+     </Item>
+    </Relationships>
+   </Item>
+  </relationship_id>
+  <sort_order>260</sort_order>
+  <source_id keyed_name="Project" type="ItemType" name="Project">02184EDAA80D499CB6EC94B159966DBE</source_id>
+  <name>Project Part</name>
+ </Item>
+</AML>

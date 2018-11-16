@@ -1,0 +1,27 @@
+﻿<AML>
+ <Item type="RelationshipType" id="159C6D88795B4A86864420863466F728" action="edit" dependencyLevel="0">
+  <relationship_id keyed_name="Part BOM" type="ItemType" name="Part BOM">
+   <Item type="ItemType" id="5E9C5A12CC58413A8670CF4003C57848" action="edit">
+    <Relationships>
+     <Item type="Property" id="645054CFC0E34D67918A2327D1F5D7D5" action="add">
+      <column_alignment>left</column_alignment>
+      <data_type>global_version</data_type>
+      <is_hidden>1</is_hidden>
+      <is_hidden2>1</is_hidden2>
+      <is_indexed>0</is_indexed>
+      <is_keyed>0</is_keyed>
+      <is_multi_valued>0</is_multi_valued>
+      <is_required>0</is_required>
+      <label xml:lang="en">global_version</label>
+      <range_inclusive>0</range_inclusive>
+      <readonly>1</readonly>
+      <sort_order>5376</sort_order>
+      <source_id keyed_name="Part BOM" type="ItemType" name="Part BOM">5E9C5A12CC58413A8670CF4003C57848</source_id>
+      <track_history>0</track_history>
+      <name>global_version</name>
+     </Item>
+    </Relationships>
+   </Item>
+  </relationship_id>
+ </Item>
+</AML>

@@ -1,0 +1,64 @@
+﻿<AML>
+ <Item type="ItemType" id="8052A558B9084D41B9F11805E464F443" action="edit">
+  <Relationships>
+   <Item type="Property" id="E499634CBB1B46088681EA44B67A6B78" action="add">
+    <column_alignment>left</column_alignment>
+    <data_type>global_version</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">global_version</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>1</readonly>
+    <sort_order>5120</sort_order>
+    <source_id keyed_name="File" type="ItemType" name="File">8052A558B9084D41B9F11805E464F443</source_id>
+    <track_history>0</track_history>
+    <name>global_version</name>
+   </Item>
+   <Item type="Property" id="65C0440860D54DD4B55BB9FF4829B15F" action="add">
+    <column_alignment>left</column_alignment>
+    <data_type>federated</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Sync State</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>5248</sort_order>
+    <source_id keyed_name="File" type="ItemType" name="File">8052A558B9084D41B9F11805E464F443</source_id>
+    <track_history>0</track_history>
+    <name>sync_state</name>
+   </Item>
+   <Item type="Server Event" id="4BAF4753C504472DA81444984DF3226D" action="add">
+    <event_version>version_1</event_version>
+    <is_required>0</is_required>
+    <related_id keyed_name="StatusPropertyCalculate" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>StatusPropertyCalculate</name>
+     </Item>
+    </related_id>
+    <server_event>onAfterGet</server_event>
+    <sort_order>1408</sort_order>
+    <source_id keyed_name="File" type="ItemType" name="File">8052A558B9084D41B9F11805E464F443</source_id>
+   </Item>
+   <Item type="Server Event" id="B62D921DE51846308B6F8AAF88C98510" action="add">
+    <event_version>version_1</event_version>
+    <is_required>0</is_required>
+    <related_id keyed_name="StatusPropertyCheck" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>StatusPropertyCheck</name>
+     </Item>
+    </related_id>
+    <server_event>onBeforeGet</server_event>
+    <sort_order>1536</sort_order>
+    <source_id keyed_name="File" type="ItemType" name="File">8052A558B9084D41B9F11805E464F443</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

@@ -1,0 +1,56 @@
+﻿<AML>
+ <Item type="Method" id="9827EABAE094495997655896FEFAA993" action="add">
+  <execution_allowed_to keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</execution_allowed_to>
+  <method_code><![CDATA[
+var syncTaskReq = this.newItem("Synchronization Task","get");
+syncTaskReq.setAttribute("orderBy","created_on");
+syncTaskReq.setAttribute("select","id");
+syncTaskReq.setProperty("state","In Progress");
+
+var resp = syncTaskReq.apply();
+
+if(resp.isError())
+{
+    return resp;
+}
+
+var taskId = resp.getID();
+
+
+UpdateSyncTaskStatus(taskId, "Failed");
+
+return this;
+}
+	private void UpdateSyncTaskStatus(string taskId, string status)
+	{
+	    
+	    var requestGet = this.newItem("Synchronization Task","get");
+	    requestGet.setID(taskId);
+	    requestGet.setAttribute("select","state");
+	    var responseGet =  requestGet.apply();
+	    if(responseGet.isError())
+	    {
+	        throw new InvalidOperationException(responseGet.getErrorString());    
+	    }
+	    
+	    if(responseGet.getProperty("state") == status)
+	    {
+	        return;
+	    }
+	    
+	    
+	    var request = this.newItem("Synchronization Task","promoteItem");
+	    request.setID(taskId);
+	    request.setProperty("state", status);
+
+	    var response = request.apply();
+	    if(response.isError())
+	    {
+	        throw new InvalidOperationException(response.getErrorString());    
+	    }
+	    
+]]></method_code>
+  <method_type>C#</method_type>
+  <name>Conversation_SetStatusToFail</name>
+ </Item>
+</AML>

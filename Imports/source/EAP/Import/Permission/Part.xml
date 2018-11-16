@@ -1,0 +1,17 @@
+﻿<AML>
+ <Item type="Permission" id="5C07EB829D4241F6BB884952960FAF58" action="edit">
+	<name>New Part</name>
+	<Relationships>
+		<Item type="Access" id="54D267109CCF4D3187AA8A2D02D5BE65" action="add">
+			<can_change_access>1</can_change_access>
+			<can_discover>1</can_discover>
+			<related_id>63346296585E4BA7AD2E4B99C4530817</related_id>
+			<source_id keyed_name="New Part">5C07EB829D4241F6BB884952960FAF58</source_id>
+			<can_get>1</can_get>
+			<can_update>1</can_update>
+			<can_delete>1</can_delete>
+		</Item>
+	</Relationships>
+	<fed_css/>
+</Item>
+</AML>

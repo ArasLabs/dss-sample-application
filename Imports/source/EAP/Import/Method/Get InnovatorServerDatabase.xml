@@ -1,0 +1,85 @@
+﻿<AML>
+ <Item type="Method" id="8E4B85DBC95B408B8C61E5D810FEC933" action="add">
+  <comments>Get Innovator Server Database federated</comments>
+  <execution_allowed_to keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</execution_allowed_to>
+  <method_code><![CDATA[var sourceId = this.getProperty("source_id");
+if (string.IsNullOrEmpty(sourceId))
+{
+    return this;
+}
+
+var innovatorServer = GetInnovatorServer(sourceId);
+if(innovatorServer.isError())
+{
+    return innovatorServer;
+}
+
+var url = innovatorServer.getProperty("server_url");
+var connection = IomFactory.CreateHttpServerConnection(url);
+var databases = connection.GetDatabases();
+
+    var resultItems = new Item[databases.Length];
+    for(int index = 0;index < databases.Length;index++)
+    {
+        var database=databases[index];
+        Item databaseItem = this.newItem("Innovator Server Database");
+        var id = database.GetHashCode();
+        if( id < 0 ) 
+        {
+            id *=-1;
+        }
+        databaseItem.setID(id.ToString(CultureInfo.InvariantCulture));
+        databaseItem.setProperty("database_id",database);
+        databaseItem.setProperty("database_name",database);
+        databaseItem.removeAttribute("isNew");
+    	databaseItem.removeAttribute("isTemp");
+        databaseItem.setProperty("source_id",sourceId);
+        resultItems[index] = databaseItem;
+    }
+
+return FormingToResponse(resultItems);
+}
+
+
+private Item GetInnovatorServer(string sourceId)
+{
+    Item req = this.newItem("InnovatorServer","get");
+    req.setID(sourceId);
+    return req.apply();
+}
+
+
+private Item FormingToResponse(Item[] resultItems)
+{
+    Item aml = this.newItem("", "");
+    aml.removeAttribute("isNew");
+	aml.removeAttribute("isTemp");
+    StringBuilder responseItem = new StringBuilder();
+    responseItem.Append("<SOAP-ENV:Envelope xmlns:SOAP-ENV=\"http://schemas.xmlsoap.org/soap/envelope/\" >");
+    responseItem.Append("<SOAP-ENV:Body>");
+    responseItem.Append("<Result>");
+    
+    foreach(var resultItem in resultItems)
+    {
+         responseItem.Append(resultItem.ToString());
+    }
+   
+    responseItem.Append("</Result>");
+    responseItem.Append("</SOAP-ENV:Body>");
+    responseItem.Append("</SOAP-ENV:Envelope>");
+
+    aml.loadAML(responseItem.ToString());
+
+    return aml;
+
+   
+ 
+
+    
+    
+    
+]]></method_code>
+  <method_type>C#</method_type>
+  <name>Get InnovatorServerDatabase</name>
+ </Item>
+</AML>

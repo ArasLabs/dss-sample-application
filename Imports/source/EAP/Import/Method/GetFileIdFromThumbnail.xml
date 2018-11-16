@@ -1,0 +1,145 @@
+﻿<AML>
+ <Item type="Method" id="58F1E250CFD44354A33BF1455BA61117" action="add">
+  <comments />
+  <execution_allowed_to keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</execution_allowed_to>
+  <method_code><![CDATA[
+BusinessLogic businessLogic = new BusinessLogic(new DataAccessLayer(this.getInnovator()), this);
+return businessLogic.Run();
+}
+
+internal class BusinessLogic
+{
+	private readonly Item _contextItem;
+	private readonly IDataAccessLayer _dataAccessLayer;
+	private const string xpathIdConditions = "and/id[@condition='in']";
+	private const string vaultPattern = "vault:///?fileId=";
+
+	public BusinessLogic(IDataAccessLayer dataAccessLayer, Item contextItem)
+	{
+		_dataAccessLayer = dataAccessLayer;
+		_contextItem = contextItem;
+	}
+
+	public Item Run()
+	{
+		string idCondition = _dataAccessLayer.SelectSingleNodeValueByXpath(_contextItem, xpathIdConditions);
+		string contextTypeId = _dataAccessLayer.GetAttribute(_contextItem, "typeId");
+
+		Item allCadResp = GetAllItemsByIdList(idCondition, "CAD", "thumbnail");
+		if (allCadResp.isError())
+		{
+			return allCadResp;
+		}
+
+		List<Item> resultCadRespose = CreateResponseWithFileId(allCadResp, contextTypeId);
+
+		return FormingResponse(resultCadRespose.ToArray());
+	}
+
+	internal List<Item> CreateResponseWithFileId(Item allCad, string typeId)
+	{
+		List<Item> resultItems = new List<Item>();
+		int allCADCount = allCad.getItemCount();
+		for (int currentCadIndex = 0; currentCadIndex < allCADCount; currentCadIndex++)
+		{
+			var cadItem = allCad.getItemByIndex(currentCadIndex);
+			var thumbnailValue = cadItem.getProperty("thumbnail");
+			if (thumbnailValue != null && !string.IsNullOrEmpty(thumbnailValue) && thumbnailValue.IndexOf(vaultPattern, StringComparison.OrdinalIgnoreCase) == 0)
+			{
+				string fileId = thumbnailValue.Replace(vaultPattern, string.Empty);
+				string CADId = cadItem.getID();
+
+				Item itemToResp = _dataAccessLayer.NewItem("ImageWrapper", string.Empty);
+				itemToResp.setID(CADId);
+				itemToResp.setProperty("id", CADId);
+				itemToResp.setProperty("itemtype", typeId);
+				itemToResp.setProperty("file_id", fileId);
+				itemToResp.removeAttribute("isNew");
+				itemToResp.removeAttribute("isTemp");
+				resultItems.Add(itemToResp);
+			}
+		}
+		return resultItems;
+	}
+
+	internal Item GetAllItemsByIdList(string idCondition, string typeName, string selectProperties)
+	{
+		Item req = _dataAccessLayer.NewItem(typeName, "get");
+		req.setProperty("id", idCondition);
+		req.setPropertyCondition("id", "in");
+		req.setAttribute("select", selectProperties);
+		return _dataAccessLayer.ApplyItem(req);
+	}
+
+	internal Item FormingResponse(Item[] resultItems)
+	{
+		Item aml = _dataAccessLayer.NewItem(string.Empty, string.Empty);
+		aml.removeAttribute("isNew");
+		aml.removeAttribute("isTemp");
+		StringBuilder responseItem = new StringBuilder();
+		responseItem.Append("<SOAP-ENV:Envelope xmlns:SOAP-ENV=\"http://schemas.xmlsoap.org/soap/envelope/\" >");
+		responseItem.Append("<SOAP-ENV:Body>");
+		responseItem.Append("<Result>");
+
+		foreach (var resultItem in resultItems)
+		{
+			responseItem.Append(resultItem.ToString());
+		}
+
+		responseItem.Append("</Result>");
+		responseItem.Append("</SOAP-ENV:Body>");
+		responseItem.Append("</SOAP-ENV:Envelope>");
+
+		aml.loadAML(responseItem.ToString());
+
+		return aml;
+	}
+}
+
+internal interface IDataAccessLayer
+{
+	Item NewError(string error);
+	Item NewItem(string type, string action);
+	Item ApplyItem(Item item);
+	string GetAttribute(Item item, string attributeName);
+	string SelectSingleNodeValueByXpath(Item item, string xpath);
+}
+
+internal class DataAccessLayer : IDataAccessLayer
+{
+	private Innovator inn;
+
+	internal DataAccessLayer(Innovator innovator)
+	{
+		this.inn = innovator;
+	}
+
+	public Item NewError(string error)
+	{
+		return inn.newError(error);
+	}
+
+	public Item NewItem(string type, string action)
+	{
+		return inn.newItem(type, action);
+	}
+
+	public Item ApplyItem(Item item)
+	{
+		return item.apply();
+	}
+
+	public string GetAttribute(Item item, string attributeName)
+	{
+		return item.getAttribute(attributeName);
+	}
+
+	public string SelectSingleNodeValueByXpath(Item item, string xpath)
+	{
+		return item.node.SelectSingleNode(xpath).InnerText;
+	}
+	]]></method_code>
+  <method_type>C#</method_type>
+  <name>GetFileIdFromThumbnail</name>
+ </Item>
+</AML>

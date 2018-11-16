@@ -1,0 +1,17 @@
+﻿<AML>
+ <Item type="Permission" id="1E63D742A5794F8DB995A5298A202C4C" action="edit">
+	<name>Project</name>
+	<Relationships>
+		<Item type="Access" id="A71B5BF81D834F65B56119A21A2AAB03" action="add">
+			<can_change_access>1</can_change_access>
+			<can_discover>1</can_discover>
+			<related_id>63346296585E4BA7AD2E4B99C4530817</related_id>
+			<source_id keyed_name="Project">1E63D742A5794F8DB995A5298A202C4C</source_id>
+			<can_get>1</can_get>
+			<can_update>1</can_update>
+			<can_delete>1</can_delete>
+		</Item>
+	</Relationships>
+	<fed_css/>
+</Item>
+</AML>

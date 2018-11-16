@@ -1,0 +1,123 @@
+﻿<AML>
+ <Item type="RelationshipType" id="0E1569B87A19429D8B298A25AD2293D4" action="add" dependencyLevel="0">
+  <auto_search>1</auto_search>
+  <behavior>float</behavior>
+  <copy_permissions>0</copy_permissions>
+  <create_related>0</create_related>
+  <hide_in_all>0</hide_in_all>
+  <inc_rel_key_name>1</inc_rel_key_name>
+  <inc_related_key_name>1</inc_related_key_name>
+  <is_list_type>0</is_list_type>
+  <label xml:lang="en">Synchronization Task Log</label>
+  <new_show_related>0</new_show_related>
+  <related_notnull>0</related_notnull>
+  <related_option>2</related_option>
+  <relationship_id keyed_name="Synchronization Task Log" type="ItemType" name="Synchronization Task Log">
+   <Item type="ItemType" id="54C626C167FA49AAB11165A79D50A1BB" action="add">
+    <allow_private_permission>1</allow_private_permission>
+    <auto_search>0</auto_search>
+    <enforce_discovery>0</enforce_discovery>
+    <hide_where_used>0</hide_where_used>
+    <implementation_type>table</implementation_type>
+    <instance_data>SYNCHRONIZATION_TASK_LOG</instance_data>
+    <is_dependent>0</is_dependent>
+    <is_relationship>1</is_relationship>
+    <is_versionable>0</is_versionable>
+    <revisions keyed_name="Default" type="Revision">7FE395DD8B9F4E1090756A34B733D75E</revisions>
+    <show_parameters_tab>1</show_parameters_tab>
+    <structure_view>tabs off</structure_view>
+    <unlock_on_logout>0</unlock_on_logout>
+    <use_src_access>1</use_src_access>
+    <name>Synchronization Task Log</name>
+    <Relationships>
+     <Item type="Property" id="C17DF39EA6CF4FC79DEF80633E245D41" action="add">
+      <column_alignment>left</column_alignment>
+      <data_type>text</data_type>
+      <is_hidden>1</is_hidden>
+      <is_hidden2>1</is_hidden2>
+      <is_indexed>0</is_indexed>
+      <is_keyed>0</is_keyed>
+      <is_multi_valued>0</is_multi_valued>
+      <is_required>0</is_required>
+      <label xml:lang="en">Error message</label>
+      <range_inclusive>0</range_inclusive>
+      <readonly>0</readonly>
+      <sort_order>4096</sort_order>
+      <source_id keyed_name="Synchronization Task Log" type="ItemType" name="Synchronization Task Log">54C626C167FA49AAB11165A79D50A1BB</source_id>
+      <track_history>0</track_history>
+      <name>error_message</name>
+     </Item>
+     <Item type="Property" id="6670B85D8868450B94DA6D41FF070A3C" action="add">
+      <column_alignment>left</column_alignment>
+      <data_type>integer</data_type>
+      <is_hidden>0</is_hidden>
+      <is_hidden2>0</is_hidden2>
+      <is_indexed>0</is_indexed>
+      <is_keyed>0</is_keyed>
+      <is_multi_valued>0</is_multi_valued>
+      <is_required>0</is_required>
+      <label xml:lang="en">items_count</label>
+      <range_inclusive>0</range_inclusive>
+      <readonly>0</readonly>
+      <sort_order>3840</sort_order>
+      <source_id keyed_name="Synchronization Task Log" type="ItemType" name="Synchronization Task Log">54C626C167FA49AAB11165A79D50A1BB</source_id>
+      <track_history>0</track_history>
+      <name>items_count</name>
+     </Item>
+     <Item type="Property" id="E3909550E85049B19CEC441E09A4723A" action="add">
+      <column_alignment>left</column_alignment>
+      <data_type>text</data_type>
+      <is_hidden>0</is_hidden>
+      <is_hidden2>0</is_hidden2>
+      <is_indexed>0</is_indexed>
+      <is_keyed>0</is_keyed>
+      <is_multi_valued>0</is_multi_valued>
+      <is_required>1</is_required>
+      <label xml:lang="en">message</label>
+      <range_inclusive>0</range_inclusive>
+      <readonly>0</readonly>
+      <sort_order>3584</sort_order>
+      <source_id keyed_name="Synchronization Task Log" type="ItemType" name="Synchronization Task Log">54C626C167FA49AAB11165A79D50A1BB</source_id>
+      <track_history>0</track_history>
+      <name>message</name>
+     </Item>
+     <Item type="Property" id="3A8FB16C96EC4BEFAF596E065860E1E0" action="add">
+      <column_alignment>left</column_alignment>
+      <data_source keyed_name="Log Statuses">F4704F44262C4C178169434DA9705DC1</data_source>
+      <data_type>list</data_type>
+      <is_hidden>0</is_hidden>
+      <is_hidden2>0</is_hidden2>
+      <is_indexed>0</is_indexed>
+      <is_keyed>0</is_keyed>
+      <is_multi_valued>0</is_multi_valued>
+      <is_required>0</is_required>
+      <label xml:lang="en">message_type</label>
+      <range_inclusive>0</range_inclusive>
+      <readonly>0</readonly>
+      <sort_order>3712</sort_order>
+      <source_id keyed_name="Synchronization Task Log" type="ItemType" name="Synchronization Task Log">54C626C167FA49AAB11165A79D50A1BB</source_id>
+      <stored_length>256</stored_length>
+      <track_history>0</track_history>
+      <name>message_type</name>
+     </Item>
+     <Item type="View" id="FA02B3E55AEA4BEF8740911A53DFC168" action="add">
+      <client>js</client>
+      <related_id keyed_name="Synchronization Task Log" type="Form">8CE056ABB4F046D48F12203563ADE13B</related_id>
+      <role keyed_name="World" type="Identity">
+       <Item type="Identity" action="get" select="id">
+        <name>World</name>
+       </Item>
+      </role>
+      <show_ssvc>0</show_ssvc>
+      <sort_order>128</sort_order>
+      <source_id keyed_name="Synchronization Task Log" type="ItemType" name="Synchronization Task Log">54C626C167FA49AAB11165A79D50A1BB</source_id>
+      <type>default</type>
+     </Item>
+    </Relationships>
+   </Item>
+  </relationship_id>
+  <sort_order>128</sort_order>
+  <source_id keyed_name="Synchronization Task" type="ItemType" name="Synchronization Task">94BE76337D6A4ECE941ADCF5451D91E5</source_id>
+  <name>Synchronization Task Log</name>
+ </Item>
+</AML>

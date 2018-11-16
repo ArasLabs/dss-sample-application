@@ -1,0 +1,22 @@
+﻿<AML>
+ <Item type="Method" id="9DEC6EAA27CE475E8523C26D9BC33FD9" action="add">
+  <execution_allowed_to keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</execution_allowed_to>
+  <method_code><![CDATA[
+var syncTaskReq = this.newItem("Synchronization Task","get");
+syncTaskReq.setAttribute("orderBy","created_on");
+syncTaskReq.setAttribute("select","rule_id");
+
+var orSyncTaskReq = syncTaskReq.newOR();
+orSyncTaskReq.setProperty("state","Not Started");
+orSyncTaskReq.setProperty("state","In Progress");
+
+syncTaskReq.setAttribute("select","id,rule_id");
+var resp = syncTaskReq.apply();
+
+return resp;
+
+]]></method_code>
+  <method_type>C#</method_type>
+  <name>Conversion_CheckNewTask</name>
+ </Item>
+</AML>

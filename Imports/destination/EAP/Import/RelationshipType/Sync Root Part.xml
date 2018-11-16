@@ -1,0 +1,59 @@
+﻿<AML>
+ <Item type="RelationshipType" id="B7463AD89F0E4DC9A533A10B1064D0A6" action="add" dependencyLevel="0">
+  <auto_search>1</auto_search>
+  <behavior>float</behavior>
+  <copy_permissions>0</copy_permissions>
+  <create_related>0</create_related>
+  <hide_in_all>0</hide_in_all>
+  <inc_rel_key_name>1</inc_rel_key_name>
+  <inc_related_key_name>1</inc_related_key_name>
+  <is_list_type>0</is_list_type>
+  <label xml:lang="en">Parts</label>
+  <new_show_related>0</new_show_related>
+  <related_id keyed_name="Part" type="ItemType" name="Part">4F1AC04A2B484F3ABA4E20DB63808A88</related_id>
+  <related_notnull>0</related_notnull>
+  <related_option>2</related_option>
+  <relationship_id keyed_name="Sync Root Part" type="ItemType" name="Sync Root Part">
+   <Item type="ItemType" id="B5BFF650F9764ABB9E095A6DC6BAE275" action="add">
+    <allow_private_permission>1</allow_private_permission>
+    <auto_search>0</auto_search>
+    <enforce_discovery>0</enforce_discovery>
+    <hide_where_used>0</hide_where_used>
+    <implementation_type>table</implementation_type>
+    <instance_data>SYNC_ROOT_PART</instance_data>
+    <is_dependent>0</is_dependent>
+    <is_relationship>1</is_relationship>
+    <is_versionable>0</is_versionable>
+    <revisions keyed_name="Default" type="Revision">7FE395DD8B9F4E1090756A34B733D75E</revisions>
+    <show_parameters_tab>1</show_parameters_tab>
+    <structure_view>tabs off</structure_view>
+    <unlock_on_logout>0</unlock_on_logout>
+    <use_src_access>1</use_src_access>
+    <name>Sync Root Part</name>
+    <Relationships>
+     <Item type="Property" id="1C59DC2B82464BD390975014C89DE603" action="add">
+      <column_alignment>left</column_alignment>
+      <data_type>global_version</data_type>
+      <is_hidden>0</is_hidden>
+      <is_hidden2>0</is_hidden2>
+      <is_indexed>0</is_indexed>
+      <is_keyed>0</is_keyed>
+      <is_multi_valued>0</is_multi_valued>
+      <is_required>0</is_required>
+      <range_inclusive>0</range_inclusive>
+      <readonly>1</readonly>
+      <sort_order>3584</sort_order>
+      <source_id keyed_name="Sync Root Part" type="ItemType" name="Sync Root Part">B5BFF650F9764ABB9E095A6DC6BAE275</source_id>
+      <track_history>0</track_history>
+      <name>global_version</name>
+     </Item>
+    </Relationships>
+   </Item>
+  </relationship_id>
+  <sort_order>128</sort_order>
+  <source_id keyed_name="Synchronization Item" type="ItemType" name="Synchronization Item">EAE1BD9EF3E1444FB9E93B80F052A2A6</source_id>
+  <name>Sync Root Part</name>
+ </Item>
+ <Item type="View" action="delete" where="source_id='B5BFF650F9764ABB9E095A6DC6BAE275'" />
+ <Item type="Form" action="delete" where="name='Sync Root Part'" />
+</AML>

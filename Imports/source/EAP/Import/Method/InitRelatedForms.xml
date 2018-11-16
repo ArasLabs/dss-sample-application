@@ -1,0 +1,79 @@
+﻿<AML>
+ <Item type="Method" id="CD2385DA62BA444FA5CC30DA644C0384" action="add">
+  <comments />
+  <execution_allowed_to keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</execution_allowed_to>
+  <method_code><![CDATA[function handleDestinationDatabase() {
+var ddDropdown = getFieldComponentByName("destination_database");
+if(!ddDropdown) {
+     aras.AlertError("Unable to configure 'Destination database'. The control is not found!");
+     return;
+}
+
+disableFilterList(ddDropdown);
+
+var sourceId = document.thisItem.getProperty("destination_system");
+if(!sourceId || sourceId.length === 0) {
+    return;
+}
+
+var innovator = document.thisItem.newInnovator();
+var destinationDBItem = innovator.newItem("Innovator Server Database", "get");
+destinationDBItem.setProperty("source_id", sourceId);
+
+var result = destinationDBItem.apply();
+if(result.isError()) {
+    aras.AlertError("Unable to get database list from selected destination system!");
+    return;
+}
+
+var count = result.getItemCount();
+if(count === 0) {
+    aras.AlertError("Databases not found!");
+    return;
+}
+
+var dbList = [];
+for (var i = 0; i < count; ++i)
+{
+    var item = result.getItemByIndex(i);
+    dbList.push(item.getProperty("database_name"));
+}
+
+initFilterList(ddDropdown, dbList);
+
+var destinationDatabase = document.thisItem.getProperty("destination_database");
+if(destinationDatabase && destinationDatabase.length > 0) {
+    ddDropdown.setValue(destinationDatabase)
+}
+
+function disableFilterList(filterList) {
+    filterList.setValue("");
+    filterList.component.setState({list: []});
+    filterList.setDisabled(true);
+}
+
+function initFilterList(filterList, values) {
+    filterList.component.setState({list: []});
+    
+    for (i = 0; i < values.length; i++) {
+        var opt = values[i];
+        filterList.component.state.list.push({label : opt, value : opt });
+    }
+    
+    filterList.component.state.width = 220;
+    filterList.setDisabled(false);    
+}
+}
+
+handleDestinationDatabase();
+
+setTimeout(function() {
+var dsField = getFieldComponentByName("destination_system");
+var targetInput = dsField.dom.getElementsByTagName("input")[0];
+targetInput.addEventListener('change', handleDestinationDatabase);
+}, 1500);
+]]></method_code>
+  <method_type>JavaScript</method_type>
+  <name>InitRelatedForms</name>
+ </Item>
+</AML>

@@ -1,0 +1,1889 @@
+﻿<AML>
+ <Item type="Method" id="0CB46743E4554D1FA72202D0668D3BBF" action="add">
+  <execution_allowed_to keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</execution_allowed_to>
+  <method_code><![CDATA[IDataAccessLayer dataAccessLayer = new DataAccessLayer(this.getInnovator());
+BusinessLogic businessLogic = new BusinessLogic(dataAccessLayer, CCO);
+return businessLogic.Run(this);
+}
+
+internal enum SyncActions
+{
+	Add,
+	Update,
+	Delete
+}
+
+internal enum SyncStatuses
+{
+	Success,
+	Fail
+}
+
+internal class BusinessLogic
+{
+	private string _syncMapIdForQuery;
+	private Dictionary<string, ItemTypeData> typeIds;
+	private string syncTaskId;
+
+	private SyncRuleModel ruleModel;
+	private ItemSyncModel syncModelByMap;
+
+	private readonly IDataAccessLayer dal;
+	private readonly Aras.Server.Core.CallContext cco;
+	public BusinessLogic(IDataAccessLayer dataAccessLayer, Aras.Server.Core.CallContext cco)
+	{
+		dal = dataAccessLayer;
+		this.cco = cco;
+	}
+
+	[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes")]
+	private Item Main(Item contextItem)
+	{
+		this.ruleModel = DetermineSyncMapForRun(contextItem);
+
+		Synchronization syncService = new Synchronization(this.ruleModel, syncTaskId, cco, typeIds, dal);
+		Item loginResult = dal.NewSimpleResult("LoginToDestinationServer");
+
+		List<Item> itemsToDelete = new List<Item>();
+
+		try
+		{
+			UpdateCurrentStatus("Login to destination server", 0);
+			syncService.LoginToDestinationServer();
+			UpdateCurrentStatus("Login to destination server", 100);
+
+			foreach (var syncMapId in this.ruleModel.SynchronizationMapIds)
+			{
+				_syncMapIdForQuery = syncMapId;
+				SyncForSpecificMap(contextItem, syncService, itemsToDelete);
+			}
+
+			int count = ruleModel.SynchronizationMapIds.Count;
+			string[] ids = new string[count];
+			int i = 0;
+			foreach (var syncMapId in this.ruleModel.SynchronizationMapIds)
+			{
+				ids[i++] = syncMapId;
+			}
+			_syncMapIdForQuery = string.Join(",", ids.Select(id => string.Format(CultureInfo.InvariantCulture, "{0}", id)));
+			DeleteSyncForAllMaps(itemsToDelete, syncService);
+
+			UpdateCurrentStatus("Logout to destination server", 0);
+			syncService.LogoutToDestinationServer();
+			UpdateCurrentStatus("Synchronization completed", 100);
+		}
+		catch (Exception ex)
+		{
+			loginResult = dal.NewError(ex.ToString());
+			AddStatusLoginLogItem(loginResult);
+		}
+
+		return contextItem;
+
+	}
+
+	[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes")]
+	internal Item SyncForSpecificMap(Item contextItem, Synchronization syncService, List<Item> itemsToDelete)
+	{
+		syncModelByMap = new ItemSyncModel();
+		syncModelByMap.InitCollections();
+		SyncStatuses taskStatus = SyncStatuses.Fail;
+		ProcessedItemsInfo processedItemsInfo = new ProcessedItemsInfo() { AddedCount = 0, FailedAddCount = 0, EditedCount = 0, FailedEditCount = 0 };
+		Item methodResult = dal.NewSimpleResult("SyncForSpecificMap");
+
+		//get source items from synchronization map
+		var itemsSourceArray = GetItemSourceFromSyncMap();
+		var itemsSource = Helpers.GetItemsEnumerator(itemsSourceArray);
+		UpdateCurrentStatus("Get information for synchronization", 50);
+
+		//get all items from synchronization status
+		var syncStatusItems = Helpers.GetItemsEnumerator(GetSynchronizationStatusItems());
+		UpdateCurrentStatus("Get information for synchronization", 100);
+
+		try
+		{
+			//determination items which was added/delted/changed
+			//clone & rewrite
+			UpdateCurrentStatus("Synchronization item with", 100);
+			SyncStatuses syncSatatus = SyncStatuses.Fail;
+			ItemSynchronizationLog syncLog;
+			Item syncResult;
+			FilesTransferManager filesTransferManager = new FilesTransferManager(dal, ruleModel.FilesCheckoutPath, typeIds);
+
+			var itemCount = itemsSourceArray.getItemCount();
+
+			for (int index = 0; index < itemsSourceArray.getItemCount(); index++)
+			{
+				var statusMessage = string.Format(CultureInfo.InvariantCulture, "Synchronization  {0} item. Total count: {1}", (index + 1).ToString(CultureInfo.InvariantCulture),
+				itemCount.ToString(CultureInfo.InvariantCulture));
+				UpdateCurrentStatus(statusMessage, 0);
+				var itemSource = itemsSourceArray.getItemByIndex(index);
+				var itemModelForSync = GetItemsForSync(new[] { itemSource }, syncStatusItems);
+				syncModelByMap.UpdateSyncModel(itemModelForSync);
+				UpdateCurrentStatus(statusMessage, 20);
+
+				if (itemModelForSync.HasFiles)
+				{
+					filesTransferManager.TransferFiles(itemSource.node.OuterXml, syncService.ExternalConnection, itemModelForSync);
+				}
+
+				// add
+				var packageToSynDestinationAdded = syncService.PreparePackagesToSync(itemSource, itemModelForSync.Added, "dss_syncAdd", ref processedItemsInfo.AddedCount);
+				syncLog = new ItemSynchronizationLog(packageToSynDestinationAdded, syncTaskId, dal, typeIds);
+				syncLog.RegisterSyncStart(ruleModel.ServerName, SyncActions.Add.ToString());
+
+				syncResult = syncService.ApplySyncItems(packageToSynDestinationAdded, false);
+
+				if (!syncResult.isError())
+				{
+					SyncAdded(itemModelForSync.Added.Values);
+					syncSatatus = SyncStatuses.Success;
+				}
+				else
+				{
+					processedItemsInfo.FailedAddCount = processedItemsInfo.AddedCount;
+					processedItemsInfo.AddedCount = 0;
+					methodResult = syncResult;
+					syncSatatus = SyncStatuses.Fail;
+				}
+
+				//syncLog.RegisterSyncEnd(syncSatatus.ToString());
+				UpdateCurrentStatus(statusMessage, 60);
+
+				//update
+				var packageToSynDestinationChanged = syncService.PreparePackagesToSync(itemSource, itemModelForSync.Changed, "dss_syncUpdate", ref processedItemsInfo.EditedCount);
+				syncLog = new ItemSynchronizationLog(packageToSynDestinationChanged, syncTaskId, dal, typeIds);
+				syncLog.RegisterSyncStart(ruleModel.ServerName, SyncActions.Update.ToString());
+
+				syncResult = syncService.ApplySyncItems(packageToSynDestinationChanged);
+
+				if (!syncResult.isError())
+				{
+					SyncChanged(itemModelForSync.Changed.Values, syncStatusItems);
+					syncSatatus = SyncStatuses.Success;
+				}
+				else
+				{
+					processedItemsInfo.FailedEditCount = processedItemsInfo.EditedCount;
+					processedItemsInfo.EditedCount = 0;
+					methodResult = syncResult;
+					syncSatatus = SyncStatuses.Fail;
+				}
+				SyncUpdateStatus(itemModelForSync.UpdateStatus.Values);
+
+				//syncLog.RegisterSyncEnd(syncSatatus.ToString());
+				UpdateCurrentStatus(statusMessage, 100);
+				Console.Write(syncSatatus.ToString());
+			}
+
+			UpdateCurrentStatus("Collection of deleted items ", 0);
+			var itemModelForDelete = GetItemsForSync(itemsSource, syncStatusItems);
+			if (itemModelForDelete.Deleted.Values.Count != 0)
+			{
+				var itemsForRemove = GetItemsForDelete(itemModelForDelete.Deleted.Values.Reverse(), _syncMapIdForQuery);
+				itemsToDelete.AddRange(itemsForRemove);
+			}
+			UpdateCurrentStatus("Collection of deleted items ", 100);
+			UpdateCurrentStatus("Synchronization completed for current Sync Map ", 100);
+
+			taskStatus = SyncStatuses.Success;
+		}
+		catch (Exception ex)
+		{
+			taskStatus = SyncStatuses.Fail;
+			methodResult = dal.NewError(ex.ToString());
+		}
+		finally
+		{
+			AddStatusTaskLogItem(processedItemsInfo, taskStatus, methodResult, true);
+		}
+
+		return methodResult;
+	}
+
+	[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes")]
+	internal Item DeleteSyncForAllMaps(List<Item> itemsToDelete, Synchronization syncService)
+	{
+		SyncStatuses taskStatus = SyncStatuses.Fail;
+		ProcessedItemsInfo processedItemsInfo = new ProcessedItemsInfo() { DeletedCount = 0, FailedDeleteCount = 0 };
+		Item methodResult = dal.NewSimpleResult("SyncDeletionForAllMaps");
+
+		try
+		{
+			UpdateCurrentStatus("Synchronization of deleted items ", 0);
+			List<Item> deletedItems = new List<Item>();
+			if (itemsToDelete.Count != 0)
+			{
+				deletedItems = syncService.ForceDeleteItemsPerConnection(itemsToDelete, dal, typeIds);
+				processedItemsInfo.DeletedCount = deletedItems.Count;
+				processedItemsInfo.FailedDeleteCount = itemsToDelete.Count - deletedItems.Count;
+				if (deletedItems.Count > 0)
+				{
+					SyncDeleted(deletedItems);
+				}
+			}
+			UpdateCurrentStatus("Synchronization of deleted items ", 100);
+			if (processedItemsInfo.FailedDeleteCount == 0)
+			{
+				taskStatus = SyncStatuses.Success;
+			}
+		}
+		catch (Exception ex)
+		{
+			taskStatus = SyncStatuses.Fail;
+			methodResult = dal.NewError(ex.ToString());
+		}
+		finally
+		{
+			AddStatusTaskLogItem(processedItemsInfo, taskStatus, methodResult, false);
+		}
+		return methodResult;
+	}
+
+	private Item UpdateCurrentStatus(string status, int progress)
+	{
+		var syncTaskRequest = dal.NewItem("Synchronization Task", "edit");
+		syncTaskRequest.setID(this.syncTaskId);
+		syncTaskRequest.setProperty("current_action", status);
+		syncTaskRequest.setProperty("current_action_progress", progress.ToString(CultureInfo.CurrentCulture));
+		return dal.ApplyItem(syncTaskRequest);
+	}
+
+	private SyncRuleModel DetermineSyncMapForRun(Item contextItem)
+	{
+		var syncTaskIdLocal = contextItem.getProperty("syncTaskId");
+		if (syncTaskIdLocal == null)
+		{
+			throw new StringSimpleException("syncTaskId property is missed. Add it when execute Method Synchronization");
+		}
+
+		this.syncTaskId = syncTaskIdLocal;
+
+		var syncRuleId = contextItem.getProperty("syncRuleId");
+		if (syncRuleId == null)
+		{
+			throw new StringSimpleException("syncRuleId property is missed. Add it when execute Method Synchronization");
+		}
+
+		var syncRuleRequest = dal.NewItem("Synchronization Rule", "get");
+		syncRuleRequest.setID(syncRuleId);
+
+		syncRuleRequest.setAttribute("select", "destination_system(id,server_url_pattern,name,temp_database),destination_database(database_id, database_name),files_checkout_path,start_mode, destination_credentials, start_at, is_active ");
+		var syncScopeRelationship = dal.NewItem("Synchronization Scope", string.Empty);
+		syncScopeRelationship.setAttribute("select", "related_id(id, query_defenition)");
+		syncRuleRequest.addRelationship(syncScopeRelationship);
+
+		var syncRuleResponse = dal.ApplyItem(syncRuleRequest);
+
+		var ruleModelLocal = new SyncRuleModel(syncRuleResponse);
+
+		return ruleModelLocal;
+
+	}
+
+	private Item SyncAdded(IEnumerable<Item> items)
+	{
+		if (items == null)
+		{
+			throw new StringSimpleException("argument items cannot be null");
+		}
+
+		XmlDocument amlContainer = Helpers.CreateAmlContainerXmlDoc();
+		foreach (var itemForAdd in items)
+		{
+			var itemAdded = dal.NewItem("Synchronization Status", "add");
+			itemAdded.setProperty("itemtype_id", itemForAdd.getProperty("type_id"));
+			itemAdded.setProperty("item_id", itemForAdd.getID());
+			itemAdded.setProperty("item_keyed_name", itemForAdd.getProperty("keyed_name"));
+			itemAdded.setProperty("synchronized_version", itemForAdd.getProperty("global_version"));
+			itemAdded.setProperty("destination_system", this.ruleModel.ServerId);
+
+			var statusRelationship = itemAdded.createRelationship("Status Synchronization Maps", "add");
+			var syncMap = statusRelationship.createRelatedItem("Synchronization Map", "get");
+			syncMap.setID(_syncMapIdForQuery);
+
+			Helpers.AppendItemToAmlContainerXmlDoc(amlContainer, itemAdded);
+		}
+
+		var syncStatusItemCollection = Helpers.ConvertAmlContainerXmlDocToItem(amlContainer, dal);
+		return ApplySyncItems(syncStatusItemCollection);
+	}
+
+	private Item SyncChanged(IEnumerable<Item> items, IEnumerable<Item> syncStatusItems)
+	{
+		if (items == null)
+		{
+			throw new StringSimpleException("argument items cannot be null");
+		}
+
+		XmlDocument amlContainer = Helpers.CreateAmlContainerXmlDoc();
+		foreach (var itemForChange in items)
+		{
+			var itemChanged = dal.NewItem("Synchronization Status", "edit");
+			var typeIdValue = itemForChange.getProperty("type_id");
+			var itemIdValue = itemForChange.getID();
+			var whereCondition = string.Format(CultureInfo.CurrentCulture, "item_id = '{0}' and itemtype_id = '{1}'", itemIdValue, typeIdValue);
+			itemChanged.setAttribute("where", whereCondition);
+			itemChanged.setProperty("synchronized_version", itemForChange.getProperty("global_version"));
+			itemChanged.setProperty("destination_system", this.ruleModel.ServerId);
+			itemChanged.setProperty("item_keyed_name", itemForChange.getProperty("keyed_name"));
+			Item statusItem = GetStatusItemByItemId(syncStatusItems, itemForChange.getID());
+
+			if (statusItem != null && !IsStatusContainsMap(statusItem))
+			{
+				var statusRelationship = itemChanged.createRelationship("Status Synchronization Maps", "add");
+				var syncMap = statusRelationship.createRelatedItem("Synchronization Map", "get");
+				syncMap.setID(_syncMapIdForQuery);
+			}
+
+			Helpers.AppendItemToAmlContainerXmlDoc(amlContainer, itemChanged);
+		}
+
+		var syncStatusItemCollection = Helpers.ConvertAmlContainerXmlDocToItem(amlContainer, dal);
+		return ApplySyncItems(syncStatusItemCollection);
+	}
+
+	private void SyncDeleted(IEnumerable<Item> items)
+	{
+		string allItemIds = string.Empty;
+		foreach (Item itm in items)
+		{
+			if (string.IsNullOrEmpty(allItemIds))
+			{
+				allItemIds += itm.getID();
+			}
+			else
+			{
+				allItemIds += ", " + itm.getID();
+			}
+		}
+		var syncStatuses = dal.NewItem("Synchronization Status", "delete");
+		syncStatuses.setAttribute("doGetItem", "0");
+		syncStatuses.setAttribute("idlist", allItemIds);
+
+		syncStatuses = dal.ApplyItem(syncStatuses);
+		if (syncStatuses.isError())
+		{
+			throw new ItemException(syncStatuses);
+		}
+	}
+
+	private void SyncUpdateStatus(IEnumerable<Item> statuses)
+	{
+		if (!statuses.Any())
+		{
+			return;
+		}
+
+		string allItemIds = string.Empty;
+		foreach (Item status in statuses)
+		{
+			if (!IsStatusContainsMap(status))
+			{
+				if (string.IsNullOrEmpty(allItemIds))
+				{
+					allItemIds += status.getID();
+				}
+				else
+				{
+					allItemIds += ", " + status.getID();
+				}
+			}
+		}
+		if (string.IsNullOrEmpty(allItemIds))
+		{
+			return;
+		}
+
+		Item syncStatuses = dal.NewItem("Synchronization Status", "edit");
+		syncStatuses.setAttribute("doGetItem", "0");
+		syncStatuses.setAttribute("idlist", allItemIds);
+
+		Item statusRelationship = syncStatuses.createRelationship("Status Synchronization Maps", "add");
+		Item syncMap = statusRelationship.createRelatedItem("Synchronization Map", "get");
+		syncMap.setID(_syncMapIdForQuery);
+
+		syncStatuses = dal.ApplyItem(syncStatuses);
+		if (syncStatuses.isError())
+		{
+			throw new ItemException(syncStatuses);
+		}
+	}
+
+	private bool IsStatusContainsMap(Item status)
+	{
+		Item maps = status.getRelationships("Status Synchronization Maps");
+		int mapsCount = maps.getItemCount();
+		for (int i = 0; i < mapsCount; i++)
+		{
+			Item map = maps.getItemByIndex(i);
+			if (string.Equals(map.getRelatedItem().getID(), _syncMapIdForQuery, StringComparison.OrdinalIgnoreCase))
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+
+	private static Item GetStatusItemByItemId(IEnumerable<Item> items, string itemId)
+	{
+		foreach (var statusItem in items)
+		{
+			if (statusItem.getProperty("item_id").Equals(itemId, StringComparison.OrdinalIgnoreCase))
+			{
+				return statusItem;
+			}
+		}
+		return null;
+	}
+
+	public List<Item> GetItemsForDelete(IEnumerable<Item> syncStatusesResults, string syncMapIdForQuery)
+	{
+		var itemsForDelete = new List<Item>();
+
+		foreach (var syncStatuses in syncStatusesResults)
+		{
+			foreach (var syncStatus in Helpers.GetItemsEnumerator(syncStatuses))
+			{
+				var syncStatusRelationshipMaps = syncStatus.getRelationships("Status Synchronization Maps");
+				int syncStatusRelationshipMapsCount = syncStatusRelationshipMaps.getItemCount();
+				if (syncStatusRelationshipMapsCount > 1)
+				{
+					for (int j = 0; j < syncStatusRelationshipMapsCount; j++)
+					{
+						var syncStatusRelationshipMap = syncStatusRelationshipMaps.getItemByIndex(j);
+						if (syncStatusRelationshipMap.getRelatedItem().getID().Equals(syncMapIdForQuery, StringComparison.OrdinalIgnoreCase))
+						{
+							syncStatusRelationshipMap.setAction("delete");
+							syncStatusRelationshipMap = dal.ApplyItem(syncStatusRelationshipMap);
+
+							if (syncStatusRelationshipMap.isError())
+							{
+								throw new ItemException(syncStatusRelationshipMap);
+							}
+						}
+					}
+				}
+				else
+				{
+					if (syncStatusRelationshipMaps.getItemCount() == 0)
+					{
+						itemsForDelete.Add(syncStatus);
+					}
+
+					if (syncStatusRelationshipMaps.getItemCount() == 1)
+					{
+						var syncStatusRelationshipMap = syncStatusRelationshipMaps.getItemByIndex(0);
+						if (syncStatusRelationshipMap.getRelatedItem().getID().Equals(syncMapIdForQuery, StringComparison.OrdinalIgnoreCase))
+						{
+							itemsForDelete.Add(syncStatus);
+						}
+					}
+				}
+			}
+		}
+		return itemsForDelete;
+	}
+
+	private Item GetItemSourceFromSyncMap()
+	{
+		var requestSyncMap = dal.NewItem("Synchronization Map", "get");
+		requestSyncMap.setID(_syncMapIdForQuery);
+		var selectValue = "query_defenition,Name";
+		requestSyncMap.setAttribute("select", selectValue);
+		var responseSyncMap = dal.ApplyItem(requestSyncMap);
+		Helpers.ThrowExceptionIfError(responseSyncMap);
+
+		var requestQueryDef = dal.NewItem("qry_QueryDefinition", "get");
+		requestQueryDef.setID(responseSyncMap.getProperty("query_defenition"));
+		requestQueryDef.setAttribute("levels", "2");
+		var queryDefWithParams = dal.ApplyItem(requestQueryDef);
+		Helpers.ThrowExceptionIfError(queryDefWithParams);
+
+		var requestSoutrceItem = queryDefWithParams.getItemByIndex(0);
+		requestSoutrceItem.setAction("qry_ExecuteQueryDefinition");
+		var itemsSource = dal.ApplyItem(requestSoutrceItem);
+		Helpers.ThrowExceptionIfError(itemsSource);
+
+		CollectTypeIds(queryDefWithParams);
+
+		return itemsSource;
+	}
+
+	private ItemSyncModel GetItemsForSync(IEnumerable<Item> itemsSourceForSync, IEnumerable<Item> syncStatusItems)
+	{
+		IDictionary<string, Item> itemsForSyncAdded = new Dictionary<string, Item>();
+		IDictionary<string, Item> itemsForSyncChanged = new Dictionary<string, Item>();
+		IDictionary<string, Item> itemsForSyncDeleted = new Dictionary<string, Item>();
+		IDictionary<string, Item> itemsForUpdateStatus = new Dictionary<string, Item>();
+
+		bool firstIteration = true;
+		if (itemsSourceForSync.Count() == 0)
+		{
+			foreach (var syncStatusItem in syncStatusItems)
+			{
+				ItemForDelete(itemsForSyncDeleted, syncStatusItem);
+			}
+		}
+
+		foreach (var itemForSyncTop in itemsSourceForSync)
+		{
+			var itemsWithRelationship = GetItemsFromRelationships(itemForSyncTop);
+			itemsWithRelationship.Add(itemForSyncTop);
+			foreach (var itemForSync in itemsWithRelationship)
+			{
+				var itemId = itemForSync.getID();
+
+				if (string.IsNullOrEmpty(itemId))
+				{
+					continue;
+				}
+
+				var itemTypeId = typeIds[itemForSync.getAttribute("alias")].TypeId;
+				itemForSync.setProperty("type_id", itemTypeId);
+
+				var syncVersion = itemForSync.getProperty("global_version");
+				if (string.IsNullOrEmpty(syncVersion))
+				{
+					continue;
+				}
+
+				bool isNewItem = true;
+
+				foreach (var syncStatusItem in syncStatusItems)
+				{
+					if (firstIteration)
+					{
+						ItemForDelete(itemsForSyncDeleted, syncStatusItem);
+					}
+
+					var itemtypeIdSyncStatus = syncStatusItem.getProperty("itemtype_id");
+					var itemIdSyncStatus = syncStatusItem.getProperty("item_id");
+					var syncVersionSyncStatus = syncStatusItem.getProperty("synchronized_version");
+					if (itemtypeIdSyncStatus == itemTypeId && itemIdSyncStatus == itemId)
+					{
+						if (syncVersion != syncVersionSyncStatus)
+						{
+							var itemIdsync = itemForSync.getID();
+							if (!itemsForSyncChanged.ContainsKey(itemIdsync))
+							{
+								itemsForSyncChanged.Add(itemIdsync, itemForSync);
+							}
+						}
+						else
+						{
+							if (!itemsForUpdateStatus.ContainsKey(syncStatusItem.getID()))
+							{
+								itemsForUpdateStatus.Add(syncStatusItem.getID(), syncStatusItem);
+							}
+						}
+						isNewItem = false;
+						if (itemsForSyncDeleted.ContainsKey(syncStatusItem.getID()))
+						{
+							itemsForSyncDeleted.Remove(syncStatusItem.getID());
+						}
+
+						if (!firstIteration)
+						{
+							break;
+						}
+					}
+				}
+
+				if (firstIteration)
+				{
+					firstIteration = false;
+				}
+
+				if (isNewItem)
+				{
+					var itemIdsync = itemForSync.getID();
+					if (!itemsForSyncAdded.ContainsKey(itemIdsync))
+					{
+						itemsForSyncAdded.Add(itemIdsync, itemForSync);
+					}
+				}
+			}
+
+		}
+
+		var result = new ItemSyncModel
+		{
+			Added = itemsForSyncAdded,
+			Changed = itemsForSyncChanged,
+			Deleted = itemsForSyncDeleted,
+			UpdateStatus = itemsForUpdateStatus
+		};
+		return result;
+	}
+
+	private List<Item> GetItemsFromRelationships(Item item)
+	{
+		var items = new List<Item>();
+		var relationships = Helpers.GetItemsEnumerator(item.getRelationships());
+		foreach (var innerItem in relationships)
+		{
+			if (innerItem.getRelationships().getItemCount() > 0)
+			{
+				var relationshipItems = GetItemsFromRelationships(innerItem);
+				items.AddRange(relationshipItems);
+			}
+			items.Add(innerItem);
+		}
+
+		return items;
+
+	}
+
+	private Item GetSynchronizationStatusItems()
+	{
+		var request = dal.NewItem("Synchronization Status", "get");
+		request.setAttribute("select", "item_id, itemtype_id, synchronized_version");
+
+		var syncMaps = dal.NewItem("Synchronization Map", "get");
+		var syncStatusRelationshipMaps = request.createRelationship("Status Synchronization Maps", "get");
+		syncStatusRelationshipMaps.setAttribute("select", "related_id");
+		syncStatusRelationshipMaps.setRelatedItem(syncMaps);
+
+		var response = dal.ApplyItem(request);
+		Helpers.ThrowExceptionIfError(response);
+		return response;
+	}
+
+	private Dictionary<string, ItemTypeData> CollectTypeIds(Item queryDefWithParams)
+	{
+		if (queryDefWithParams == null)
+		{
+			throw new StringSimpleException("argument cannot be null");
+		}
+
+		if (typeIds == null)
+		{
+			typeIds = new Dictionary<string, ItemTypeData>();
+		}
+		//++ creation of dictionary with alias / type elements which obtains from query defenition params
+		var queryItems = Helpers.GetItemsEnumerator(queryDefWithParams.getRelationships());
+		foreach (var item in queryItems)
+		{
+			var alias = item.getProperty("alias");
+
+			var typeId = item.getProperty("item_type");
+			var typeName = item.getPropertyAttribute("item_type", "name");
+			if (!string.IsNullOrEmpty(alias) && !string.IsNullOrEmpty(typeId))
+			{
+				if (!typeIds.ContainsKey(alias))
+				{
+					typeIds.Add(alias, new ItemTypeData(typeId, typeName));
+				}
+
+			}
+		}
+		//--
+
+		return typeIds;
+	}
+
+	private static void ItemForDelete(IDictionary<string, Item> itemsForSyncDeleted, Item syncStatusItem)
+	{
+		if (!itemsForSyncDeleted.ContainsKey(syncStatusItem.getID()))
+		{
+			itemsForSyncDeleted.Add(syncStatusItem.getID(), syncStatusItem);
+		}
+	}
+
+	private Item ApplySyncItems(Item itemsForApply)
+	{
+		if (itemsForApply == null)
+		{
+			return dal.NewSimpleResult("No items for applying");
+		}
+
+		Item response = null;
+		if (itemsForApply.getItemCount() > 1)
+		{
+			response = dal.ApplyAML(itemsForApply.ToString());
+		}
+		else
+		{
+			response = dal.ApplyItem(itemsForApply);
+		}
+		Helpers.ThrowExceptionIfError(response);
+		return response;
+	}
+
+	private void AddStatusLoginLogItem(Item loginResult)
+	{
+		string message = string.Format(
+		    CultureInfo.InvariantCulture,
+			"Login to Destination Server ID '{0}', Name '{1}' for Synchronization task (ID '{2}') failed",
+			syncTaskId,
+			ruleModel.ServerId,
+			ruleModel.ServerName);
+
+		string messageType = "Error";
+		Item logItem = dal.NewItem("Synchronization Task Log", "add");
+		logItem.setProperty("source_id", syncTaskId);
+		logItem.setProperty("message", message);
+		logItem.setProperty("message_type", messageType);
+		logItem.setProperty("error_message", loginResult.ToString());
+
+		Item result = logItem.apply();
+		if (result.isError())
+		{
+			throw new ItemException(result);
+		}
+	}
+
+	private void AddStatusTaskLogItem(ProcessedItemsInfo itemsCount, SyncStatuses status, Item methodResult, bool isAddRewriteTask)
+	{
+		string message = string.Empty;
+		if (isAddRewriteTask)
+		{
+			message = "Access map (ID '{0}') for Synchronization task (ID '{1}') finished. Destination: ID '{2}', Name '{3}'. " +
+				"Items processed: Added ({4}),Failed to add ({5}), Edited ({6}), Failed to edit ({7}). Status: {10}";
+		}
+		else
+		{
+			message = "Delete operation for all Access maps (IDs '{0}') for Synchronization task (ID '{1}') finished. Destination: ID '{2}', Name '{3}'. " +
+				"Items processed: Deleted ({8}), Failed to delete ({9}). Status: {10}";
+		}
+		message = string.Format(
+			CultureInfo.InvariantCulture, message,
+			_syncMapIdForQuery,
+			syncTaskId,
+			ruleModel.ServerId,
+			ruleModel.ServerName,
+			itemsCount.AddedCount,
+			itemsCount.FailedAddCount,
+			itemsCount.EditedCount,
+			itemsCount.FailedEditCount,
+			itemsCount.DeletedCount,
+			itemsCount.FailedDeleteCount,
+			status);
+
+		string messageType = status == SyncStatuses.Success ? "Info" : "Error";
+
+		Item logItem = dal.NewItem("Synchronization Task Log", "add");
+		logItem.setProperty("source_id", syncTaskId);
+		logItem.setProperty("message", message);
+		logItem.setProperty("message_type", messageType);
+		logItem.setProperty("items_count", itemsCount.Sum().ToString(CultureInfo.InvariantCulture));
+		if (methodResult.isError())
+		{
+			logItem.setProperty("error_message", methodResult.ToString());
+		}
+
+		Item result = logItem.apply();
+		if (result.isError())
+		{
+			throw new ItemException(result);
+		}
+	}
+
+	public Item Run(Item contextItem)
+	{
+		try
+		{
+			return Main(contextItem);
+		}
+		catch (StringSimpleException exception)
+		{
+			return dal.NewError(exception.Message);
+		}
+		catch (ItemException exception)
+		{
+			return exception.ErrorItem;
+		}
+	}
+}
+
+internal struct ProcessedItemsInfo
+{
+	internal int AddedCount;
+	internal int FailedAddCount;
+	internal int EditedCount;
+	internal int FailedEditCount;
+	internal int DeletedCount;
+	internal int FailedDeleteCount;
+
+	internal int Sum()
+	{
+		return AddedCount + EditedCount + DeletedCount;
+	}
+}
+
+internal class FilesTransferManager
+{
+	private const string addActionName = "add";
+
+	private readonly IomFactory iomFactory = new IomFactory();
+	private readonly IDataAccessLayer dal;
+	private readonly string filesStoragePath;
+	private readonly Dictionary<string, ItemTypeData> typeIds;
+
+	internal FilesTransferManager(IDataAccessLayer dal, string filesStoragePath, Dictionary<string, ItemTypeData> typeIds)
+	{
+		this.dal = dal;
+		this.filesStoragePath = filesStoragePath;
+		this.typeIds = typeIds;
+	}
+
+	/// <summary>
+	/// Executes file transferring from the current Innovator server to external Innovator server
+	/// </summary>
+	/// <param name="inputConfiguration">Input configuration. Structure of items containing files</param>
+	/// <param name="externalConnection">Connection setting of external Innovator server</param>
+	/// <param name="syncModel">Sync model</param>
+	/// <param name="numberOfThreads">Number of threads used to transfer files</param>
+	/// <param name="appendActionAdd">Should action "add" be added to the items of type 'File' and 'Located'? (Necessary for checkin manager)</param>
+	public void TransferFiles(string inputConfiguration, HttpServerConnection externalConnection, ItemSyncModel syncModel, int numberOfThreads = 1, bool appendActionAdd = true)
+	{
+		Item configuration = TransformInputConfiguration(inputConfiguration, syncModel, appendActionAdd);
+		configuration = ChangeFileStructure(configuration);
+
+		CheckOut(configuration, numberOfThreads);
+		CheckIn(configuration, externalConnection, numberOfThreads);
+	}
+
+	/// <summary>
+	/// Transforms the input configuration according to file transferring requirements: create root level Item and insert all Files so they all are at the same level
+	/// </summary>
+	/// <param name="configuration">Item containing files that need to be transferred to the server</param>
+	/// <returns></returns>
+	private Item ChangeFileStructure(Item configuration)
+	{
+		Item nodeWithFiles = dal.NewItem("CAD", string.Empty);
+		nodeWithFiles.setNewID();
+
+		Item itemNodes = configuration.getItemsByXPath(".//Item[@type='File']");
+		for (int i = 0, count = itemNodes.getItemCount(); i < count; i++)
+		{
+			Item nodeItem = itemNodes.getItemByIndex(i);
+			Item fileRel = nodeItem.getRelationships();
+			int fileRelCount = fileRel.getItemCount();
+			if (fileRelCount > 1)
+			{
+				for (int j = 0; j < fileRelCount; j++)
+				{
+					Item fileRelItem = fileRel.getItemByIndex(j);
+					if (!fileRelItem.getType().Equals("Located", StringComparison.OrdinalIgnoreCase))
+					{
+						nodeItem.removeRelationship(fileRelItem);
+					}
+				}
+			}
+			if (!IsFileExists(nodeWithFiles, nodeItem))
+			{
+				nodeWithFiles.addRelationship(nodeItem);
+			}
+		}
+		return nodeWithFiles;
+	}
+
+	private static bool IsFileExists(Item nodeWithFiles, Item nodeItem)
+	{
+		Item files = nodeWithFiles.getRelationships();
+		int filesCount = files.getItemCount();
+		for (int i = 0; i < filesCount; i++)
+		{
+			Item file = files.getItemByIndex(i);
+			if (file.getID() == nodeItem.getID())
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+
+	/// <summary>
+	/// Transforms the input configuration according to file transferring requirements
+	/// </summary>
+	/// <param name="configurationItem">Input configuration. Structure of items containing files</param>
+	/// <param name="syncModel">Sync model</param>
+	/// <param name="appendActionAdd">Should action "add" be added to the items of type 'File' and 'Located'? (Necessary for checkin manager)</param>
+	/// <returns></returns>
+	[System.Diagnostics.CodeAnalysis.SuppressMessage("Aras.Security", "Aras024:Improper escaping of Special Elements used in an AML Query", Justification = "Fix pending", Scope = "member", Target = "~M:Aras.Server.Replication.VaultResponseProcessor.#ctor(System.Xml.XmlDocument,Aras.Server.Core.IApplyAml,Aras.Server.Core.IApplyItem,Aras.Server.Core.ICacheInnovatorVariables,Aras.Server.Core.IInnovatorContext,Aras.Server.Core.IDatabase,Aras.IOM.IServerConnection,Aras.Server.Core.IErrorLookup,Aras.Server.Core.ILogger)")]
+	private Item TransformInputConfiguration(string configurationItem, ItemSyncModel syncModel, bool appendActionAdd = true)
+	{
+		Item outputItem = dal.NewItem();
+		outputItem.loadAML(configurationItem);
+		outputItem.removeAttribute("action");
+
+		Item itemNodes = outputItem.getItemsByXPath("//Item");
+		for (int i = 0; i < itemNodes.getItemCount(); i++)
+		{
+			Item nodeItem = itemNodes.getItemByIndex(i);
+			string alias = nodeItem.getAttribute("alias");
+
+			string nodeItemType = typeIds[alias].TypeName;
+			nodeItem.setType(nodeItemType);
+
+			string id = nodeItem.getProperty("id");
+			nodeItem.setID(id);
+
+			if (nodeItemType.Equals("File", StringComparison.OrdinalIgnoreCase) || nodeItemType.Equals("Located", StringComparison.OrdinalIgnoreCase))
+			{
+				if (nodeItemType.Equals("File", StringComparison.OrdinalIgnoreCase) && !syncModel.FileIdsForAdded.Contains(id))
+				{
+					nodeItem.removeProperty("Relationships");
+					continue;
+				}
+
+
+				if (appendActionAdd && !nodeItem.getAction().Equals(addActionName, StringComparison.OrdinalIgnoreCase))
+				{
+
+					nodeItem.setAction(addActionName);
+				}
+
+				if (nodeItemType.Equals("File", StringComparison.OrdinalIgnoreCase))
+				{
+					string fileName = nodeItem.getProperty("filename");
+					nodeItem.setProperty("actual_filename", System.IO.Path.Combine(filesStoragePath, fileName));
+				}
+
+			}
+		}
+
+		return outputItem;
+	}
+
+	/// <summary>
+	/// Makes the checkout process
+	/// </summary>
+	/// <param name="configurationItem">Configuration for checkout</param>
+	/// <param name="numberOfThreads">Number of threads</param>
+	private void CheckOut(Item configurationItem, int numberOfThreads)
+	{
+		Aras.IOME.CheckoutManager checkoutManager = iomFactory.CreateCheckoutManager(configurationItem);
+		checkoutManager.DownloadFiles(filesStoragePath, numberOfThreads);
+	}
+
+	/// <summary>
+	/// Passes all files from the 'contextItem' to the target server
+	/// </summary>
+	/// <param name="configurationItem">Item containing files that need to be transferred to the server</param>
+	/// <param name="externalConnection">Connection settings of the target server</param>
+	/// <param name="numberOfThreads">Number of threads</param>
+	[System.Diagnostics.CodeAnalysis.SuppressMessage("Aras.Security", "Aras024:Improper escaping of Special Elements used in an AML Query", Justification = "Fix pending", Scope = "member", Target = "~M:Aras.Server.Replication.VaultResponseProcessor.#ctor(System.Xml.XmlDocument,Aras.Server.Core.IApplyAml,Aras.Server.Core.IApplyItem,Aras.Server.Core.ICacheInnovatorVariables,Aras.Server.Core.IInnovatorContext,Aras.Server.Core.IDatabase,Aras.IOM.IServerConnection,Aras.Server.Core.IErrorLookup,Aras.Server.Core.ILogger)")]
+	public void CheckIn(Item configurationItem, HttpServerConnection externalConnection, int numberOfThreads = 1)
+	{
+		Item configuration = IomFactory.CreateInnovator(externalConnection).newItem();
+		configuration.loadAML(configurationItem.dom.OuterXml);
+
+		Aras.IOME.CheckinManager checkinManager = iomFactory.CreateCheckinManager(configuration);
+		checkinManager.Checkin(numberOfThreads);
+	}
+}
+
+internal class ItemSynchronizationLog
+{
+	private IDataAccessLayer dal;
+	private IList<Item> syncItems = new List<Item>();
+	private string taskId;
+	private string destination;
+	private string syncAction;
+	private DateTime syncStart;
+	private DateTime syncEnd;
+	private string status;
+	private Dictionary<string, ItemTypeData> typeIds;
+
+	[System.Diagnostics.CodeAnalysis.SuppressMessage("Aras.Security", "Aras024:Improper escaping of Special Elements used in an AML Query", Justification = "Fix pending", Scope = "member", Target = "~M:Aras.Server.Replication.VaultResponseProcessor.#ctor(System.Xml.XmlDocument,Aras.Server.Core.IApplyAml,Aras.Server.Core.IApplyItem,Aras.Server.Core.ICacheInnovatorVariables,Aras.Server.Core.IInnovatorContext,Aras.Server.Core.IDatabase,Aras.IOM.IServerConnection,Aras.Server.Core.IErrorLookup,Aras.Server.Core.ILogger)")]
+	internal ItemSynchronizationLog(IEnumerable<Item> syncItems, string taskId, IDataAccessLayer dal, Dictionary<string, ItemTypeData> typeIds)
+	{
+		Init(taskId, dal, typeIds);
+		for (int i = 0; i < syncItems.Count(); i++)
+		{
+			Item itm = dal.NewItem();
+			itm.loadAML(syncItems.ElementAt(i).node.OuterXml);
+			AddItems(itm);
+		}
+	}
+
+	internal ItemSynchronizationLog(Item syncItems, string taskId, IDataAccessLayer dal, Dictionary<string, ItemTypeData> typeIds)
+	{
+		Init(taskId, dal, typeIds);
+		AddItems(syncItems);
+	}
+
+	private void AddItems(Item targetItem)
+	{
+		Item allItems = targetItem.getItemsByXPath("//Item");
+		for (int i = 0; i < allItems.getItemCount(); i++)
+		{
+			syncItems.Add(allItems.getItemByIndex(i));
+		}
+	}
+
+	internal void RegisterSyncStart(string dest, string syncAct)
+	{
+		RegisterSyncStart(dest, syncAct, DateTime.UtcNow);
+	}
+
+	internal void RegisterSyncStart(string dest, string syncAct, DateTime syncStartDate)
+	{
+		this.destination = dest;
+		this.syncAction = syncAct;
+		this.syncStart = syncStartDate;
+	}
+
+	internal void RegisterSyncEnd(string syncStatus)
+	{
+		this.status = syncStatus;
+		syncEnd = DateTime.UtcNow;
+
+		AddHistory();
+	}
+
+	internal void RegisterSyncEndForDelete(string _status)
+	{
+		this.status = _status;
+		syncEnd = DateTime.UtcNow;
+
+		AddHistoryForDelete();
+	}
+
+	private void AddHistory()
+	{
+		if (!syncItems.Any())
+		{
+			return;
+		}
+
+		StringBuilder sb = new StringBuilder();
+		sb.Append("<AML>");
+
+		foreach (Item syncItem in syncItems)
+		{
+			string itemId;
+			string typeId;
+			string alias = syncItem.getAttribute("alias");
+
+			if (!string.IsNullOrWhiteSpace(alias))
+			{
+				itemId = syncItem.getID();
+				typeId = typeIds[alias].TypeId;
+			}
+			else
+			{
+				itemId = syncItem.getProperty("item_id");
+				typeId = syncItem.getProperty("itemtype_id");
+			}
+
+			string historyItemAml = GetItemHistoryAml(itemId, typeId);
+			sb.Append(historyItemAml);
+		}
+
+		sb.Append("</AML>");
+
+		Item result = dal.ApplyAML(sb.ToString());
+		if (result.isError())
+		{
+			throw new ItemException(result);
+		}
+	}
+
+	private void AddHistoryForDelete()
+	{
+		foreach (Item syncItem in syncItems)
+		{
+			string itemId;
+			string typeId;
+			string alias = syncItem.getAttribute("alias");
+
+			if (!string.IsNullOrWhiteSpace(alias))
+			{
+				itemId = syncItem.getID();
+				typeId = typeIds[alias].TypeId;
+			}
+			else
+			{
+				itemId = syncItem.getProperty("item_id");
+				typeId = syncItem.getProperty("itemtype_id");
+			}
+
+			if (!string.IsNullOrEmpty(itemId))
+			{
+				AddItemHistory(itemId, typeId);
+			}
+		}
+	}
+
+	private void AddItemHistory(string itemId, string typeId)
+	{
+		Item historyItem = dal.NewItem();
+
+		historyItem.setAction("AddHistory");
+		historyItem.setID(itemId);
+		historyItem.setAttribute("typeId", typeId);
+		historyItem.setProperty("action", "synchronize");
+		historyItem.setProperty("syncAction", syncAction);
+		historyItem.setProperty("taskId", taskId);
+		historyItem.setProperty("destination", destination);
+		historyItem.setProperty("syncStart", syncStart.ToString(CultureInfo.InvariantCulture));
+		historyItem.setProperty("syncEnd", syncEnd.ToString(CultureInfo.InvariantCulture));
+		historyItem.setProperty("status", status);
+
+		try
+		{
+			Item result = dal.ApplyItem(historyItem);
+			if (result.isError())
+			{
+				throw new ItemException(result);
+			}
+		}
+		catch (Aras.Server.Core.ItemNotFoundException)
+		{
+		}
+	}
+
+	private string GetItemHistoryAml(string itemId, string typeId)
+	{
+		Item historyItem = dal.NewItem();
+
+		historyItem.setAction("AddHistory");
+		historyItem.setID(itemId);
+		historyItem.setAttribute("typeId", typeId);
+		historyItem.setProperty("action", "synchronize");
+		historyItem.setProperty("syncAction", syncAction);
+		historyItem.setProperty("taskId", taskId);
+		historyItem.setProperty("destination", destination);
+		historyItem.setProperty("syncStart", syncStart.ToString(CultureInfo.InvariantCulture));
+		historyItem.setProperty("syncEnd", syncEnd.ToString(CultureInfo.InvariantCulture));
+		historyItem.setProperty("status", status);
+
+		return historyItem.node.OuterXml;
+	}
+
+	private void Init(string _taskId, IDataAccessLayer dataAcc, Dictionary<string, ItemTypeData> _typeIds)
+	{
+		this.taskId = _taskId;
+		this.dal = dataAcc;
+		this.typeIds = _typeIds;
+	}
+}
+
+internal interface IDataAccessLayer
+{
+	Item NewItem();
+	Item NewItem(string type, string action);
+	Item ApplyItem(Item item);
+	Item ApplyAML(string aml);
+	Item NewError(string errorMessage);
+	Item ApplyItemWithGrantIdentity(Item item, string identityName);
+	Item NewSimpleResult(string textMessage);
+	Item ApplySQL(string sql);
+}
+
+internal interface ISynchronisation
+{
+
+}
+
+internal class DataAccessLayer : IDataAccessLayer
+{
+	private Innovator inn;
+
+	internal DataAccessLayer(Innovator innovator)
+	{
+		this.inn = innovator;
+	}
+
+	public Item NewItem()
+	{
+		return inn.newItem();
+	}
+
+	public Item NewItem(string type, string action)
+	{
+		return inn.newItem(type, action);
+	}
+
+	public Item NewError(string errorMessage)
+	{
+		return inn.newError(errorMessage);
+	}
+
+	public Item ApplyItem(Item item)
+	{
+		return item.apply();
+	}
+	
+	public Item ApplySQL(string sql)
+	{
+	    return inn.applySQL(sql);
+	}
+
+	[System.Diagnostics.CodeAnalysis.SuppressMessage("Aras.Security", "Aras024:Improper escaping of Special Elements used in an AML Query", Justification = "Fix pending", Scope = "member", Target = "~M:Aras.Server.Replication.VaultResponseProcessor.#ctor(System.Xml.XmlDocument,Aras.Server.Core.IApplyAml,Aras.Server.Core.IApplyItem,Aras.Server.Core.ICacheInnovatorVariables,Aras.Server.Core.IInnovatorContext,Aras.Server.Core.IDatabase,Aras.IOM.IServerConnection,Aras.Server.Core.IErrorLookup,Aras.Server.Core.ILogger)")]
+	public Item ApplyAML(string aml)
+	{
+		return inn.applyAML(aml);
+	}
+
+	public Item ApplyItemWithGrantIdentity(Item item, string identityName)
+	{
+		Aras.Server.Security.Identity identityForGrant = Aras.Server.Security.Identity.GetByName(identityName);
+		bool permissionWasGranted = false;
+		try
+		{
+			permissionWasGranted = Aras.Server.Security.Permissions.GrantIdentity(identityForGrant);
+			return item.apply();
+		}
+		finally
+		{
+			if (permissionWasGranted)
+			{
+				Aras.Server.Security.Permissions.RevokeIdentity(identityForGrant);
+			}
+		}
+	}
+
+	public Item NewSimpleResult(string textMessage)
+	{
+		return inn.newResult(textMessage);
+	}
+}
+
+internal class SyncRuleModel
+{
+	private Item syncRule;
+	public SyncRuleModel(Item syncRule)
+	{
+		this.syncRule = syncRule;
+		ParseContext();
+	}
+
+	private void ParseContext()
+	{
+		var syncRuleLocal = this.syncRule;
+
+		var destSystem = syncRuleLocal.getPropertyItem("destination_system");
+		if (destSystem != null)
+		{
+			ServerId = destSystem.getID();
+			ServerName = destSystem.getProperty("name");
+			ServerUrl = destSystem.getProperty("server_url");
+			DestinationDatabase = destSystem.getProperty("temp_database");
+		}
+
+		DestinationDatabase = syncRuleLocal.getProperty("destination_database");
+
+		StartMode = syncRuleLocal.getProperty("start_mode");
+		UserId = syncRuleLocal.getProperty("destination_credentials");
+		FilesCheckoutPath = syncRuleLocal.getProperty("files_checkout_path");
+		StartAt = syncRuleLocal.getProperty("start_at");
+		IsActive = syncRuleLocal.getProperty("is_active");
+
+		var syncScopeItems = syncRuleLocal.getRelationships();
+		SynchronizationMapIds = new List<string>();
+		for (int relationshipIndex = 0; relationshipIndex < syncScopeItems.getItemCount(); relationshipIndex++)
+		{
+			var relationshipSyncScope = syncScopeItems.getItemByIndex(relationshipIndex);
+			var syncMapId = relationshipSyncScope.getRelatedItemID();
+			SynchronizationMapIds.Add(syncMapId);
+		}
+
+	}
+
+	public string ServerId { get; set; }
+	public string ServerName { get; set; }
+	public string ServerUrl { get; set; }
+	public string DestinationDatabase { get; set; }
+	public string StartMode { get; set; }
+	public string UserId { get; set; }
+	public string FilesCheckoutPath { get; set; }
+	public string StartAt { get; set; }
+	public string IsActive { get; set; }
+
+	public ICollection<string> SynchronizationMapIds { get; private set; }
+}
+
+internal class Synchronization : ISynchronisation
+{
+	private IDataAccessLayer dal;
+	private readonly Aras.Server.Core.CallContext cco;
+	private HttpServerConnection connection;
+	private bool disposed = false;
+	private SyncRuleModel syncRule;
+	private string syncTaskId;
+	private Dictionary<string, ItemTypeData> typeIds;
+	private string[] itemPropertiesToCheck;
+	private List<string> typeIdDontNeedToClone;
+	private const string CADTypeId = "CCF205347C814DD1AF056875E0A880AC";
+	private const string FileTypeId = "8052A558B9084D41B9F11805E464F443";
+	private const string LocatedTypeId = "5698BACD2A7A45D6AC3FA60EAB3E6566";
+
+	internal HttpServerConnection ExternalConnection
+	{
+		get
+		{
+			return connection;
+		}
+	}
+
+	public Synchronization(SyncRuleModel syncRule, string syncTaskId, Aras.Server.Core.CallContext cco, Dictionary<string, ItemTypeData> typeIds, IDataAccessLayer innerDal)
+	{
+		this.syncRule = syncRule;
+		this.syncTaskId = syncTaskId;
+		this.cco = cco;
+		var externalConnectionToInnovator = CreateConectionToExternalServer(innerDal);
+		this.dal = new DataAccessLayer(externalConnectionToInnovator);
+		this.typeIds = typeIds;
+
+		this.typeIdDontNeedToClone = new List<string>();
+		typeIdDontNeedToClone.Add(FileTypeId);
+		typeIdDontNeedToClone.Add(LocatedTypeId);
+		itemPropertiesToCheck = new[]
+		{
+		"related_id",
+		"ts_configuration_expression"
+	};
+	}
+
+	[System.Diagnostics.CodeAnalysis.SuppressMessage("Aras.Security", "Aras024:Improper escaping of Special Elements used in an AML Query", Justification = "Fix pending", Scope = "member", Target = "~M:Aras.Server.Replication.VaultResponseProcessor.#ctor(System.Xml.XmlDocument,Aras.Server.Core.IApplyAml,Aras.Server.Core.IApplyItem,Aras.Server.Core.ICacheInnovatorVariables,Aras.Server.Core.IInnovatorContext,Aras.Server.Core.IDatabase,Aras.IOM.IServerConnection,Aras.Server.Core.IErrorLookup,Aras.Server.Core.ILogger)")]
+	public Item PreparePackagesToSync(Item rootItem, IDictionary<string, Item> syncModel, string action, ref int actionsCount)
+	{
+		var copyRoot = dal.NewItem(string.Empty, string.Empty);
+		copyRoot.loadAML(rootItem.node.OuterXml);
+		IDictionary<string, Item> localSyncModel = new Dictionary<string, Item>(syncModel);
+		SetActionToItem(ref copyRoot, localSyncModel, action, ref actionsCount);
+
+		return copyRoot;
+	}
+
+	public Item DeleteItem(IEnumerable<Item> items)
+	{
+		if (items == null)
+		{
+			throw new StringSimpleException("argument items cannot be null");
+		}
+
+		XmlDocument amlContainer = Helpers.CreateAmlContainerXmlDoc();
+		foreach (var itemForDelete in items)
+		{
+			var itemDeleted = dal.NewItem(string.Empty, string.Empty);
+			itemDeleted.setAction("purge");
+			var itemId = itemForDelete.getProperty("item_id");
+			var itemTypeId = itemForDelete.getProperty("itemtype_id");
+
+			itemDeleted.setID(itemId);
+			itemDeleted.setAttribute("typeId", itemTypeId);
+			foreach (ItemTypeData itemTypeData in typeIds.Values)
+			{
+				if (itemTypeData.TypeId.Equals(itemTypeId, StringComparison.OrdinalIgnoreCase))
+				{
+					string typeName = itemTypeData.TypeName;
+					itemDeleted.setType(typeName);
+					break;
+				}
+			}
+
+			Helpers.AppendItemToAmlContainerXmlDoc(amlContainer, itemDeleted);
+		}
+
+		var deleteItemsCollection = Helpers.ConvertAmlContainerXmlDocToItem(amlContainer, dal);
+		return ApplySyncItems(deleteItemsCollection, false);
+	}
+
+	public List<Item> ForceDeleteItemsPerConnection(IEnumerable<Item> items, IDataAccessLayer innerDal, Dictionary<string, ItemTypeData> _typeIds)
+	{
+		Queue<Item> queueFoDeletion = new Queue<Item>(items);
+		List<Item> deletedItems = new List<Item>();
+		int failNumbers = 0;
+		DateTime startDeletion = DateTime.UtcNow;
+		while (queueFoDeletion.Count > 0 && queueFoDeletion.Count > failNumbers)
+		{
+			var itemForDeletion = queueFoDeletion.Dequeue();
+			var syncService = new Synchronization(this.syncRule, syncTaskId, cco, _typeIds, innerDal);
+
+
+			Item resultOfDeletion = syncService.DeleteItem(new[] { itemForDeletion });
+			if (resultOfDeletion.isError())
+			{
+				failNumbers++;
+				queueFoDeletion.Enqueue(itemForDeletion);
+			}
+			else
+			{
+				failNumbers = 0;
+				deletedItems.Add(itemForDeletion);
+			}
+		}
+
+		//AddDeletedHistory(deletedItems, innerDal, _typeIds, SyncStatuses.Success.ToString(), startDeletion);
+		//AddDeletedHistory(queueFoDeletion, innerDal, _typeIds, SyncStatuses.Fail.ToString(), startDeletion);
+
+		return deletedItems;
+	}
+
+	private void AddDeletedHistory(IEnumerable<Item> processedItems, IDataAccessLayer innerDal,
+		Dictionary<string, ItemTypeData> _typeIds, string status, DateTime startDeletion)
+	{
+		ItemSynchronizationLog syncLog = new ItemSynchronizationLog(processedItems, syncTaskId, innerDal, _typeIds);
+		syncLog.RegisterSyncStart(syncRule.ServerName, SyncActions.Delete.ToString(), startDeletion);
+		syncLog.RegisterSyncEndForDelete(status);
+	}
+
+	private void SetActionToItem(ref Item item, IDictionary<string, Item> syncModel, string action, ref int actionsCount)
+	{
+
+		var relationships = item.getRelationships();
+		for (int index = 0; index < relationships.getItemCount(); index++)
+		{
+			var innerItem = relationships.getItemByIndex(index);
+			SetActionToItem(ref innerItem, syncModel, action, ref actionsCount);
+		}
+
+		var itemId = item.getID();
+		if (string.IsNullOrEmpty(itemId))
+		{
+			if (item.getParentItem() != null)
+			{
+				item.getParentItem().removeRelationship(item);
+			}
+
+			return;
+		}
+
+
+		item.setAttribute("id", itemId);
+
+		var typeId = item.getProperty("type_id");
+
+		if (string.IsNullOrEmpty(typeId))
+		{
+			return;
+		}
+
+		Dictionary<string, string> idsForProperties = new Dictionary<string, string>();
+		foreach (string propertyName in itemPropertiesToCheck)
+		{
+			var propertyItemId = item.getProperty(propertyName, string.Empty);
+			if (!string.IsNullOrEmpty(propertyItemId))
+			{
+				idsForProperties[propertyItemId] = propertyName;
+			}
+		}
+		string globalVersion = item.getProperty("global_version");
+		if (syncModel.ContainsKey(itemId) && globalVersion != null && !string.IsNullOrEmpty(globalVersion))
+		{
+			if (!typeIdDontNeedToClone.Contains(typeId))
+			{
+				actionsCount++;
+				item.setAction(action);
+				syncModel.Remove(itemId);
+			}
+		}
+		else
+		{
+			var countProperties = item.node.ChildNodes.Count;
+
+			var propertiesName = new List<string>();
+			for (int indexProperty = 0; indexProperty < countProperties; indexProperty++)
+			{
+				string propertyName = item.node.ChildNodes[indexProperty].Name;
+				propertiesName.Add(propertyName);
+			}
+
+			for (int indexPropertyName = 0; indexPropertyName < propertiesName.Count; indexPropertyName++)
+			{
+				string propertyNameForDelete = propertiesName[indexPropertyName];
+				if (!propertyNameForDelete.Equals("Relationships", StringComparison.OrdinalIgnoreCase))
+				{
+					item.removeProperty(propertyNameForDelete);
+				}
+
+			}
+
+		}
+
+		Item currentItemRelationships = item.getRelationships();
+		int currentItemRelationshipsCount = currentItemRelationships.getItemCount();
+		if (idsForProperties.Count != 0 && currentItemRelationshipsCount > 0)
+		{
+			for (int relationshipIndex = 0; relationshipIndex < currentItemRelationshipsCount; relationshipIndex++)
+			{
+				Item possiblePropertyItem = currentItemRelationships.getItemByIndex(relationshipIndex);
+				string possiblePropertyItemId = possiblePropertyItem.getID();
+				if (idsForProperties.ContainsKey(possiblePropertyItemId))
+				{
+					item.removeRelationship(possiblePropertyItem);
+					item.setPropertyItem(idsForProperties[possiblePropertyItemId], possiblePropertyItem);
+					idsForProperties.Remove(possiblePropertyItemId);
+					if (idsForProperties.Count == 0)
+					{
+						break;
+					}
+				}
+			}
+
+			currentItemRelationships = item.getRelationships();
+			currentItemRelationshipsCount = currentItemRelationships.getItemCount();
+			if (currentItemRelationshipsCount == 0)
+			{
+				item.removeProperty("Relationships");
+			}
+		}
+
+		item.setAttribute("typeId", typeId);
+
+		if (item.getAttribute("typeId").Equals(CADTypeId, StringComparison.OrdinalIgnoreCase))
+		{
+			Item fileRelationships = item.getRelationships();
+			for (int i = 0, count = fileRelationships.getItemCount(); i < count; i++)
+			{
+				Item representation = fileRelationships.getItemByIndex(i);
+				if (representation.getAttribute("typeId").Equals(FileTypeId, StringComparison.OrdinalIgnoreCase))
+				{
+					item.removeRelationship(representation);
+					break;
+				}
+			}
+		}
+	}
+
+	internal Item InitiateRecalculationOfCOP()
+	{
+		Item recalcItem = dal.NewItem("Method", "RecalculateAccessLocatorsFull");
+		return recalcItem.apply();
+	}
+
+	public Item LoginToDestinationServer()
+	{
+		Item loginResult = this.connection.Login();
+		if (loginResult.isError())
+		{
+			throw new StringSimpleException("Unable to login to Destination Server. Error: " + loginResult.getErrorString());
+		}
+		return loginResult;
+	}
+
+	public void LogoutToDestinationServer()
+	{
+		if (!disposed)
+		{
+			connection.Logout();
+			disposed = true;
+		}
+
+	}
+
+
+	protected Innovator CreateConectionToExternalServer(IDataAccessLayer innerDal)
+	{
+		KeyValuePair<string, string> creds = GetUserCredentials(syncRule.UserId, innerDal);
+
+		HttpServerConnection connectionLocal = IomFactory.CreateHttpServerConnection(
+			syncRule.ServerUrl,
+			syncRule.DestinationDatabase,
+			creds.Key,
+			creds.Value);
+		this.connection = connectionLocal;
+		Innovator innovator = new Innovator(connectionLocal);
+		return innovator;
+	}
+	
+
+	private KeyValuePair<string, string> GetUserCredentials(string userId, IDataAccessLayer innerDal)
+	{
+		string token = this.cco.TokenProtectedFunctions.FunctionProtectionToken;
+
+		string sql = string.Format(
+			CultureInfo.InvariantCulture,
+			"SELECT [LOGIN_NAME], [PASSWORD] FROM [tokenprotected].[USER]('{0}') where ID='{1}'",
+			token,
+			userId);
+
+		var result = innerDal.ApplySQL(sql);
+		if (result.isError())
+		{
+			throw new ItemException(result);
+		}
+
+		return new KeyValuePair<string, string>(result.getProperty("login_name"), result.getProperty("password"));
+	}
+
+	public Item ApplySyncItems(Item itemsForApply, bool throwExceptionIfError = true)
+	{
+		if (itemsForApply == null)
+		{
+			return dal.NewSimpleResult("No items for applying");
+		}
+
+		Item response = null;
+		if (itemsForApply.getItemCount() > 1)
+		{
+			response = dal.ApplyAML(itemsForApply.ToString());
+		}
+		else
+		{
+			response = dal.ApplyItem(itemsForApply);
+		}
+
+		if (throwExceptionIfError)
+		{
+			Helpers.ThrowExceptionIfError(response);
+		}
+
+		return response;
+	}
+
+	public void Dispose()
+	{
+		LogoutToDestinationServer();
+	}
+
+}
+
+internal class ItemSyncModel
+{
+	private ICollection<string> fileIdsForAdded;
+	private ICollection<string> locatedIdsForAdded;
+
+	private const string fileTypeId = "8052A558B9084D41B9F11805E464F443";
+	private const string locatedTypeId = "5698BACD2A7A45D6AC3FA60EAB3E6566";
+
+	internal IDictionary<string, Item> Added { get; set; }
+	internal IDictionary<string, Item> Changed { get; set; }
+	internal IDictionary<string, Item> Deleted { get; set; }
+	internal IDictionary<string, Item> UpdateStatus { get; set; }
+
+	internal void InitCollections()
+	{
+		Added = new Dictionary<string, Item>();
+		Changed = new Dictionary<string, Item>();
+		Deleted = new Dictionary<string, Item>();
+		UpdateStatus = new Dictionary<string, Item>();
+	}
+
+	internal void UpdateSyncModel(ItemSyncModel syncModel)
+	{
+		IDictionary<string, Item> tempCollection = new Dictionary<string, Item>(syncModel.Added);
+		foreach (KeyValuePair<string, Item> modelItem in syncModel.Added)
+		{
+			if (!Added.ContainsKey(modelItem.Key))
+			{
+				Added.Add(modelItem);
+			}
+			else
+			{
+				tempCollection.Remove(modelItem.Key);
+			}
+		}
+		syncModel.Added = new Dictionary<string, Item>(tempCollection);
+
+		tempCollection = new Dictionary<string, Item>(syncModel.Changed);
+		foreach (KeyValuePair<string, Item> modelItem in syncModel.Changed)
+		{
+			if (!Changed.ContainsKey(modelItem.Key))
+			{
+				Changed.Add(modelItem);
+			}
+			else
+			{
+				tempCollection.Remove(modelItem.Key);
+			}
+		}
+		syncModel.Changed = tempCollection;
+
+		tempCollection = new Dictionary<string, Item>(syncModel.Deleted);
+		foreach (KeyValuePair<string, Item> modelItem in syncModel.Deleted)
+		{
+			if (!Deleted.ContainsKey(modelItem.Key))
+			{
+				Deleted.Add(modelItem);
+			}
+			else
+			{
+				tempCollection.Remove(modelItem.Key);
+			}
+		}
+		syncModel.Deleted = tempCollection;
+	}
+
+
+	[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+	internal ICollection<string> FileIdsForAdded
+	{
+        get
+        {
+            if (fileIdsForAdded == null)
+			{
+				GetFileAndLocatedIds();
+			}
+
+			return fileIdsForAdded;
+        }
+
+        private set
+        {
+            fileIdsForAdded = value;
+        }
+	}
+
+	[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+	internal ICollection<string> LocatedIdsForAdded
+	{
+        get
+        {
+            if (locatedIdsForAdded == null)
+			{
+				GetFileAndLocatedIds();
+			}
+
+			return locatedIdsForAdded;
+        }
+
+        private set
+        {
+            locatedIdsForAdded = value;
+        }
+	}
+
+
+	internal bool HasFiles
+	{
+		get
+		{
+			if (fileIdsForAdded == null)
+			{
+				GetFileAndLocatedIds();
+			}
+
+			if (fileIdsForAdded.Count > 0)
+			{
+				return true;
+			}
+
+			return false;
+		}
+	}
+
+	[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Globalization", "CA1309:UseOrdinalStringComparison", MessageId = "System.String.Equals(System.String,System.StringComparison)")]
+	private void GetFileAndLocatedIds()
+	{
+		if (Added == null)
+		{
+			return;
+		}
+
+		fileIdsForAdded = new List<string>();
+		locatedIdsForAdded = new List<string>();
+		foreach (var item in Added)
+		{
+			var value = item.Value;
+
+			string typeId = value.getProperty("type_id");
+			string id = null;
+			if (!string.IsNullOrEmpty(typeId) && fileTypeId.Equals(typeId, StringComparison.InvariantCulture))
+			{
+				id = value.getProperty("id");
+				fileIdsForAdded.Add(id);
+			}
+
+			if (!string.IsNullOrEmpty(typeId) && locatedTypeId.Equals(typeId, StringComparison.InvariantCulture))
+			{
+				id = value.getProperty("id");
+				locatedIdsForAdded.Add(id);
+			}
+
+		}
+
+	}
+
+}
+
+internal class ItemTypeData
+{
+	public ItemTypeData()
+	{
+
+	}
+
+	public ItemTypeData(string typeId, string typeName)
+	{
+		TypeId = typeId;
+		TypeName = typeName;
+	}
+
+	public string TypeId { get; set; }
+	public string TypeName { get; set; }
+
+}
+
+internal static class Helpers
+{
+	internal static IEnumerable<Item> GetItemsEnumerator(Item items)
+	{
+		for (int index = 0, count = items.getItemCount(); index < count; index++)
+		{
+			Item currentItem = items.getItemByIndex(index);
+			yield return currentItem;
+		}
+	}
+
+	internal static void ThrowExceptionIfError(Item item)
+	{
+		if (item == null)
+		{
+			throw new StringSimpleException("argument item cannot be null");
+		}
+
+		if (item.isError() && !item.isEmpty())
+		{
+			throw new ItemException(item);
+		}
+	}
+
+	internal static XmlDocument CreateAmlContainerXmlDoc() 
+	{
+       XmlDocument amlContainer = Aras.Server.Core.XML.CreateNewXMLDocument();
+       amlContainer.AppendChild(amlContainer.CreateElement("AML"));
+       return amlContainer;
+	}
+
+	internal static void AppendItemToAmlContainerXmlDoc(XmlDocument amlContainer, Item item)
+	{
+        XmlNode itemAddedNode = amlContainer.ImportNode(item.node, true);
+        amlContainer.FirstChild.AppendChild(itemAddedNode);
+	}
+
+	internal static Item ConvertAmlContainerXmlDocToItem(XmlDocument amlContainer, IDataAccessLayer dal)
+	{
+		Item item = null;
+		if (amlContainer.FirstChild.ChildNodes.Count != 0)
+		{
+			item = dal.NewItem(string.Empty, string.Empty);
+			item.loadAML(amlContainer.OuterXml);
+		}
+		return item;
+	}
+}
+
+[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2237:MarkISerializableTypesWithSerializable")]
+[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1032:ImplementStandardExceptionConstructors")]
+[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1064:ExceptionsShouldBePublic")]
+internal class StringSimpleException : Exception
+{
+	internal StringSimpleException(string descriptionMessage)
+	: base(descriptionMessage)
+	{
+	}
+}
+
+[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2237:MarkISerializableTypesWithSerializable")]
+[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1032:ImplementStandardExceptionConstructors")]
+[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1064:ExceptionsShouldBePublic")]
+internal class ItemException : Exception
+{
+	internal Item ErrorItem { get; private set; }
+	internal ItemException(Item errorItem)
+	: base(errorItem.getErrorString())
+	{
+		ErrorItem = errorItem;
+	}
+]]></method_code>
+  <method_type>C#</method_type>
+  <name>Synchronization</name>
+ </Item>
+</AML>

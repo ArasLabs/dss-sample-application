@@ -1,0 +1,19 @@
+﻿<AML>
+ <Item type="List" id="95F3D2AB91384EECA4270E3B62BD608E" action="add">
+  <name>SynchronizationModes</name>
+  <Relationships>
+   <Item type="Value" id="EB4577178F0A40B3ADAD3594F94D6EC9" action="add">
+    <label xml:lang="en">Manual</label>
+    <sort_order>1</sort_order>
+    <source_id keyed_name="SynchronizationModes" type="List">95F3D2AB91384EECA4270E3B62BD608E</source_id>
+    <value>Manual</value>
+   </Item>
+   <Item type="Value" id="FCF43A22078742F89040887CE1C899F2" action="add">
+    <label xml:lang="en">Scheduled</label>
+    <sort_order>2</sort_order>
+    <source_id keyed_name="SynchronizationModes" type="List">95F3D2AB91384EECA4270E3B62BD608E</source_id>
+    <value>Scheduled</value>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

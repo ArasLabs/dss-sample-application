@@ -1,0 +1,7 @@
+﻿<imports>
+	<package name="EAP" path="EAP\Import" >
+	</package>
+	<package name="EAP_Items" path="EAP_Items\Import" >
+		<dependson name="EAP" />
+	</package>
+</imports>

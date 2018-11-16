@@ -1,0 +1,27 @@
+﻿<AML>
+ <Item type="RelationshipType" id="C40317E258D146F89DC0FD9455B5D32F" action="edit">
+  <relationship_id keyed_name="CAD Instance" type="ItemType" name="CAD Instance">
+   <Item type="ItemType" id="DCCABB44A13C400F9B24D3929D2E4F68">
+    <Relationships>
+     <Item type="Property" id="2167E372ED274688A3BCFE209750D1E8" action="add">
+      <column_alignment>left</column_alignment>
+      <data_type>global_version</data_type>
+      <is_hidden>1</is_hidden>
+      <is_hidden2>1</is_hidden2>
+      <is_indexed>0</is_indexed>
+      <is_keyed>0</is_keyed>
+      <is_multi_valued>0</is_multi_valued>
+      <is_required>0</is_required>
+      <label xml:lang="en">global_version</label>
+      <range_inclusive>0</range_inclusive>
+      <readonly>1</readonly>
+      <sort_order>4224</sort_order>
+      <source_id keyed_name="CAD Instance" type="ItemType" name="CAD Instance">DCCABB44A13C400F9B24D3929D2E4F68</source_id>
+      <track_history>0</track_history>
+      <name>global_version</name>
+     </Item>
+    </Relationships>
+   </Item>
+  </relationship_id>
+ </Item>
+</AML>

@@ -1,0 +1,289 @@
+﻿<AML>
+ <Item type="List" id="34A69CF05F8F4DEA96461670505C5463" action="add">
+  <name>RangeOfHalfOfHours</name>
+  <Relationships>
+   <Item type="Value" id="6C4AA22273D4452F9425128BD71F23E5" action="add">
+    <label xml:lang="en">00:00</label>
+    <sort_order>1</sort_order>
+    <source_id keyed_name="RangeOfHalfOfHours" type="List">34A69CF05F8F4DEA96461670505C5463</source_id>
+    <value>00:00</value>
+   </Item>
+   <Item type="Value" id="7CCC9D83DAD248A5B4E49590BFE23621" action="add">
+    <label xml:lang="en">00:30</label>
+    <sort_order>2</sort_order>
+    <source_id keyed_name="RangeOfHalfOfHours" type="List">34A69CF05F8F4DEA96461670505C5463</source_id>
+    <value>00:30</value>
+   </Item>
+   <Item type="Value" id="23FDB75835184213BA4A504A71E51555" action="add">
+    <label xml:lang="en">01:00</label>
+    <sort_order>3</sort_order>
+    <source_id keyed_name="RangeOfHalfOfHours" type="List">34A69CF05F8F4DEA96461670505C5463</source_id>
+    <value>01:00</value>
+   </Item>
+   <Item type="Value" id="974830799D9B4689A2771232F1752DF4" action="add">
+    <label xml:lang="en">01:30</label>
+    <sort_order>4</sort_order>
+    <source_id keyed_name="RangeOfHalfOfHours" type="List">34A69CF05F8F4DEA96461670505C5463</source_id>
+    <value>01:30</value>
+   </Item>
+   <Item type="Value" id="4B44F210A98348BBBE8E6E42D60FCEEA" action="add">
+    <label xml:lang="en">02:00</label>
+    <sort_order>5</sort_order>
+    <source_id keyed_name="RangeOfHalfOfHours" type="List">34A69CF05F8F4DEA96461670505C5463</source_id>
+    <value>02:00</value>
+   </Item>
+   <Item type="Value" id="A7283BD243C04C188302CC0C1DC1A639" action="add">
+    <label xml:lang="en">02:30</label>
+    <sort_order>6</sort_order>
+    <source_id keyed_name="RangeOfHalfOfHours" type="List">34A69CF05F8F4DEA96461670505C5463</source_id>
+    <value>02:30</value>
+   </Item>
+   <Item type="Value" id="C0C0B311E52F404DB161F9AAD93F6E37" action="add">
+    <label xml:lang="en">03:00</label>
+    <sort_order>7</sort_order>
+    <source_id keyed_name="RangeOfHalfOfHours" type="List">34A69CF05F8F4DEA96461670505C5463</source_id>
+    <value>03:00</value>
+   </Item>
+   <Item type="Value" id="4D24F83C70A840ADADEED7384DE3623D" action="add">
+    <label xml:lang="en">03:30</label>
+    <sort_order>8</sort_order>
+    <source_id keyed_name="RangeOfHalfOfHours" type="List">34A69CF05F8F4DEA96461670505C5463</source_id>
+    <value>03:30</value>
+   </Item>
+   <Item type="Value" id="56E84C882393424582D7D4EDF5530D76" action="add">
+    <label xml:lang="en">04:00</label>
+    <sort_order>9</sort_order>
+    <source_id keyed_name="RangeOfHalfOfHours" type="List">34A69CF05F8F4DEA96461670505C5463</source_id>
+    <value>04:00</value>
+   </Item>
+   <Item type="Value" id="C0E765F1D9E24E2797F23CEE8ABB0D2E" action="add">
+    <label xml:lang="en">04:30</label>
+    <sort_order>10</sort_order>
+    <source_id keyed_name="RangeOfHalfOfHours" type="List">34A69CF05F8F4DEA96461670505C5463</source_id>
+    <value>04:30</value>
+   </Item>
+   <Item type="Value" id="BCE8C3F9E8554E6286E2CB974DBC5E5E" action="add">
+    <label xml:lang="en">05:00</label>
+    <sort_order>11</sort_order>
+    <source_id keyed_name="RangeOfHalfOfHours" type="List">34A69CF05F8F4DEA96461670505C5463</source_id>
+    <value>05:00</value>
+   </Item>
+   <Item type="Value" id="664D99E417EB41F3B5C703C5B535BADC" action="add">
+    <label xml:lang="en">05:30</label>
+    <sort_order>12</sort_order>
+    <source_id keyed_name="RangeOfHalfOfHours" type="List">34A69CF05F8F4DEA96461670505C5463</source_id>
+    <value>05:30</value>
+   </Item>
+   <Item type="Value" id="94C6AA734AF04C1698C718927C65477C" action="add">
+    <label xml:lang="en">06:00</label>
+    <sort_order>13</sort_order>
+    <source_id keyed_name="RangeOfHalfOfHours" type="List">34A69CF05F8F4DEA96461670505C5463</source_id>
+    <value>06:00</value>
+   </Item>
+   <Item type="Value" id="BA68FABE2D644BB89E3B12F7095886FA" action="add">
+    <label xml:lang="en">06:30</label>
+    <sort_order>14</sort_order>
+    <source_id keyed_name="RangeOfHalfOfHours" type="List">34A69CF05F8F4DEA96461670505C5463</source_id>
+    <value>06:30</value>
+   </Item>
+   <Item type="Value" id="D60D9104214543849AB3EBA3F0CF5C4C" action="add">
+    <label xml:lang="en">07:00</label>
+    <sort_order>15</sort_order>
+    <source_id keyed_name="RangeOfHalfOfHours" type="List">34A69CF05F8F4DEA96461670505C5463</source_id>
+    <value>07:00</value>
+   </Item>
+   <Item type="Value" id="86BDB65CC5B84999AF8B05B7ABB62E36" action="add">
+    <label xml:lang="en">07:30</label>
+    <sort_order>16</sort_order>
+    <source_id keyed_name="RangeOfHalfOfHours" type="List">34A69CF05F8F4DEA96461670505C5463</source_id>
+    <value>07:30</value>
+   </Item>
+   <Item type="Value" id="9B1A6595FD3748D2A858F8C9F858F362" action="add">
+    <label xml:lang="en">08:00</label>
+    <sort_order>17</sort_order>
+    <source_id keyed_name="RangeOfHalfOfHours" type="List">34A69CF05F8F4DEA96461670505C5463</source_id>
+    <value>08:00</value>
+   </Item>
+   <Item type="Value" id="B4A2CBE064CD466998E53BE967DA4986" action="add">
+    <label xml:lang="en">08:30</label>
+    <sort_order>18</sort_order>
+    <source_id keyed_name="RangeOfHalfOfHours" type="List">34A69CF05F8F4DEA96461670505C5463</source_id>
+    <value>08:30</value>
+   </Item>
+   <Item type="Value" id="BBC2D9140EB741C5A7F09CDD896F6958" action="add">
+    <label xml:lang="en">09:00</label>
+    <sort_order>19</sort_order>
+    <source_id keyed_name="RangeOfHalfOfHours" type="List">34A69CF05F8F4DEA96461670505C5463</source_id>
+    <value>09:00</value>
+   </Item>
+   <Item type="Value" id="7271012C8ECB4F5C80B52B4A8705C093" action="add">
+    <label xml:lang="en">09:30</label>
+    <sort_order>20</sort_order>
+    <source_id keyed_name="RangeOfHalfOfHours" type="List">34A69CF05F8F4DEA96461670505C5463</source_id>
+    <value>09:30</value>
+   </Item>
+   <Item type="Value" id="2CEB78B521054E26BCB5361C5CB334D1" action="add">
+    <label xml:lang="en">10:00</label>
+    <sort_order>21</sort_order>
+    <source_id keyed_name="RangeOfHalfOfHours" type="List">34A69CF05F8F4DEA96461670505C5463</source_id>
+    <value>10:00</value>
+   </Item>
+   <Item type="Value" id="5740DDE556E04212A11173749354D3E9" action="add">
+    <label xml:lang="en">10:30</label>
+    <sort_order>22</sort_order>
+    <source_id keyed_name="RangeOfHalfOfHours" type="List">34A69CF05F8F4DEA96461670505C5463</source_id>
+    <value>10:30</value>
+   </Item>
+   <Item type="Value" id="60BECB03C80645E4891F7F10E7199102" action="add">
+    <label xml:lang="en">11:00</label>
+    <sort_order>23</sort_order>
+    <source_id keyed_name="RangeOfHalfOfHours" type="List">34A69CF05F8F4DEA96461670505C5463</source_id>
+    <value>11:00</value>
+   </Item>
+   <Item type="Value" id="E48ECE47AAFE4277BEB37C4748262971" action="add">
+    <label xml:lang="en">11:30</label>
+    <sort_order>24</sort_order>
+    <source_id keyed_name="RangeOfHalfOfHours" type="List">34A69CF05F8F4DEA96461670505C5463</source_id>
+    <value>11:30</value>
+   </Item>
+   <Item type="Value" id="3E63ACA224C84591B9B5CF2934782404" action="add">
+    <label xml:lang="en">12:00</label>
+    <sort_order>25</sort_order>
+    <source_id keyed_name="RangeOfHalfOfHours" type="List">34A69CF05F8F4DEA96461670505C5463</source_id>
+    <value>12:00</value>
+   </Item>
+   <Item type="Value" id="6F58DEEB6CEC48DF810B1106D85FB5A3" action="add">
+    <label xml:lang="en">12:30</label>
+    <sort_order>26</sort_order>
+    <source_id keyed_name="RangeOfHalfOfHours" type="List">34A69CF05F8F4DEA96461670505C5463</source_id>
+    <value>12:30</value>
+   </Item>
+   <Item type="Value" id="448BD8F93BD14B94A9E650F00EEB15C9" action="add">
+    <label xml:lang="en">13:00</label>
+    <sort_order>27</sort_order>
+    <source_id keyed_name="RangeOfHalfOfHours" type="List">34A69CF05F8F4DEA96461670505C5463</source_id>
+    <value>13:00</value>
+   </Item>
+   <Item type="Value" id="E62BB6A067E845ECB4748E1223473B6D" action="add">
+    <label xml:lang="en">13:30</label>
+    <sort_order>28</sort_order>
+    <source_id keyed_name="RangeOfHalfOfHours" type="List">34A69CF05F8F4DEA96461670505C5463</source_id>
+    <value>13:30</value>
+   </Item>
+   <Item type="Value" id="4B79C0710B564FF99C7A74FBE46C40FE" action="add">
+    <label xml:lang="en">14:00</label>
+    <sort_order>29</sort_order>
+    <source_id keyed_name="RangeOfHalfOfHours" type="List">34A69CF05F8F4DEA96461670505C5463</source_id>
+    <value>14:00</value>
+   </Item>
+   <Item type="Value" id="3B2237F7D3314588AC6788CB525C3068" action="add">
+    <label xml:lang="en">14:30</label>
+    <sort_order>30</sort_order>
+    <source_id keyed_name="RangeOfHalfOfHours" type="List">34A69CF05F8F4DEA96461670505C5463</source_id>
+    <value>14:30</value>
+   </Item>
+   <Item type="Value" id="B1B7A9665C8F43F4BF24DCE52DAAF3A0" action="add">
+    <label xml:lang="en">15:00</label>
+    <sort_order>31</sort_order>
+    <source_id keyed_name="RangeOfHalfOfHours" type="List">34A69CF05F8F4DEA96461670505C5463</source_id>
+    <value>15:00</value>
+   </Item>
+   <Item type="Value" id="8775F21DC5F74E4B8D9A0158495265A5" action="add">
+    <label xml:lang="en">15:30</label>
+    <sort_order>32</sort_order>
+    <source_id keyed_name="RangeOfHalfOfHours" type="List">34A69CF05F8F4DEA96461670505C5463</source_id>
+    <value>15:30</value>
+   </Item>
+   <Item type="Value" id="E627030E89CA45B0A9DA1B936557663C" action="add">
+    <label xml:lang="en">16:00</label>
+    <sort_order>33</sort_order>
+    <source_id keyed_name="RangeOfHalfOfHours" type="List">34A69CF05F8F4DEA96461670505C5463</source_id>
+    <value>16:00</value>
+   </Item>
+   <Item type="Value" id="1C21FB965FE647479E3C34C0794E47AF" action="add">
+    <label xml:lang="en">16:30</label>
+    <sort_order>34</sort_order>
+    <source_id keyed_name="RangeOfHalfOfHours" type="List">34A69CF05F8F4DEA96461670505C5463</source_id>
+    <value>16:30</value>
+   </Item>
+   <Item type="Value" id="7B276D81CB094CD4803057412D4ED019" action="add">
+    <label xml:lang="en">17:00</label>
+    <sort_order>35</sort_order>
+    <source_id keyed_name="RangeOfHalfOfHours" type="List">34A69CF05F8F4DEA96461670505C5463</source_id>
+    <value>17:00</value>
+   </Item>
+   <Item type="Value" id="863DBD33F1144E2DB88CBBD1F8C97095" action="add">
+    <label xml:lang="en">17:30</label>
+    <sort_order>36</sort_order>
+    <source_id keyed_name="RangeOfHalfOfHours" type="List">34A69CF05F8F4DEA96461670505C5463</source_id>
+    <value>17:30</value>
+   </Item>
+   <Item type="Value" id="9AD3B0841976492D97674D047D867E30" action="add">
+    <label xml:lang="en">18:00</label>
+    <sort_order>37</sort_order>
+    <source_id keyed_name="RangeOfHalfOfHours" type="List">34A69CF05F8F4DEA96461670505C5463</source_id>
+    <value>18:00</value>
+   </Item>
+   <Item type="Value" id="62D7334E9F9A4918BC36B14DB09CBACC" action="add">
+    <label xml:lang="en">18:30</label>
+    <sort_order>38</sort_order>
+    <source_id keyed_name="RangeOfHalfOfHours" type="List">34A69CF05F8F4DEA96461670505C5463</source_id>
+    <value>18:30</value>
+   </Item>
+   <Item type="Value" id="327C8AB29FAC4F6EA44E05F87AFDACED" action="add">
+    <label xml:lang="en">19:00</label>
+    <sort_order>39</sort_order>
+    <source_id keyed_name="RangeOfHalfOfHours" type="List">34A69CF05F8F4DEA96461670505C5463</source_id>
+    <value>19:00</value>
+   </Item>
+   <Item type="Value" id="0C74582DF54A4F869E3DEE920069C87B" action="add">
+    <label xml:lang="en">19:30</label>
+    <sort_order>40</sort_order>
+    <source_id keyed_name="RangeOfHalfOfHours" type="List">34A69CF05F8F4DEA96461670505C5463</source_id>
+    <value>19:30</value>
+   </Item>
+   <Item type="Value" id="048B5F95CB354E859B1E89A65671AEE6" action="add">
+    <label xml:lang="en">20:00</label>
+    <sort_order>41</sort_order>
+    <source_id keyed_name="RangeOfHalfOfHours" type="List">34A69CF05F8F4DEA96461670505C5463</source_id>
+    <value>20:00</value>
+   </Item>
+   <Item type="Value" id="FCDEA622434647E485243FCF134599E7" action="add">
+    <label xml:lang="en">20:30</label>
+    <sort_order>42</sort_order>
+    <source_id keyed_name="RangeOfHalfOfHours" type="List">34A69CF05F8F4DEA96461670505C5463</source_id>
+    <value>20:30</value>
+   </Item>
+   <Item type="Value" id="58741A9555B24A0EBD2DEDDED30BCD51" action="add">
+    <label xml:lang="en">21:00</label>
+    <sort_order>43</sort_order>
+    <source_id keyed_name="RangeOfHalfOfHours" type="List">34A69CF05F8F4DEA96461670505C5463</source_id>
+    <value>21:00</value>
+   </Item>
+   <Item type="Value" id="DF1425CE08104DF3A90C8A433B87F860" action="add">
+    <label xml:lang="en">21:30</label>
+    <sort_order>44</sort_order>
+    <source_id keyed_name="RangeOfHalfOfHours" type="List">34A69CF05F8F4DEA96461670505C5463</source_id>
+    <value>21:30</value>
+   </Item>
+   <Item type="Value" id="83FB2778B1BB473FAC9B129948D8012D" action="add">
+    <label xml:lang="en">22:30</label>
+    <sort_order>45</sort_order>
+    <source_id keyed_name="RangeOfHalfOfHours" type="List">34A69CF05F8F4DEA96461670505C5463</source_id>
+    <value>22:30</value>
+   </Item>
+   <Item type="Value" id="7FE169995B5A419E87E9157B6A16C18E" action="add">
+    <label xml:lang="en">23:00</label>
+    <sort_order>46</sort_order>
+    <source_id keyed_name="RangeOfHalfOfHours" type="List">34A69CF05F8F4DEA96461670505C5463</source_id>
+    <value>23:00</value>
+   </Item>
+   <Item type="Value" id="12478569D3B341688BD6629E6ADAEDE5" action="add">
+    <label xml:lang="en">23:30</label>
+    <sort_order>47</sort_order>
+    <source_id keyed_name="RangeOfHalfOfHours" type="List">34A69CF05F8F4DEA96461670505C5463</source_id>
+    <value>23:30</value>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

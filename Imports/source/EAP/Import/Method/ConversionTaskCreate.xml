@@ -1,0 +1,143 @@
+﻿<AML>
+ <Item type="Method" id="D25782E7AE6947EA9DA02D6A422733A4" action="add">
+  <execution_allowed_to keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</execution_allowed_to>
+  <method_code><![CDATA[	IDataAccessLayer dataAccessLayer = new DataAccessLayer(this.getInnovator(), CCO);
+
+	BaseMode mode = new BaseMode(dataAccessLayer, this);
+	mode.CreateConversionTask();
+
+	return this;
+}
+
+#region Business Logic
+
+internal class BaseMode
+{
+	protected readonly Item _contextItem;
+	protected readonly IDataAccessLayer _dataAccessLayer;
+	protected const string ConversionTaskRuleId = "D84FDA7F45474487B12AFF8201811A33"; // LauncherSynchronizationRule
+
+	public BaseMode(IDataAccessLayer dataAccessLayer, Item contextItem)
+	{
+		_dataAccessLayer = dataAccessLayer;
+		_contextItem = contextItem;
+	}
+
+	#region ConversionTask Helper
+
+	public void CreateConversionTask()
+	{
+		Aras.ConversionFramework.Models.ConversionRule copRule = CreateConversionRuleModel();
+		Aras.ConversionFramework.Management.InnovatorConversionManager cm = _dataAccessLayer.CreateConversionManager();
+		string taskData = CreateTaskData(_contextItem);
+
+		_dataAccessLayer.GrantIdentity("Conversion Manager");
+		try
+		{
+			cm.CreateConversionTask(copRule, task => task.UserData = taskData);
+		}
+		finally
+		{
+			_dataAccessLayer.RevokeIdentity();
+		}
+	}
+
+	private Aras.ConversionFramework.Models.ConversionRule CreateConversionRuleModel()
+	{
+		Item ruleItem = _dataAccessLayer.NewItem("ConversionRule", "get");
+		ruleItem.setID(ConversionTaskRuleId);
+		ruleItem.setAttribute("levels", "1");
+
+		Item result = _dataAccessLayer.ApplyItem(ruleItem);
+		if (result.isError())
+		{
+			throw new InvalidOperationException("Unable to get rule Item. Error: " + result.getErrorString());
+		}
+		return new Aras.ConversionFramework.Models.ConversionRule { Item = result };
+	}
+
+	private static string CreateTaskData(Item item)
+	{
+		Dictionary<string, string> taskData = new Dictionary<string, string>() {
+			{ "previous_task_id", item.getID() }
+		};
+
+		return JsonWrapper.ConvertDictionaryToJson(taskData);
+	}
+
+	#endregion // ConversionTask Helper
+}
+
+
+internal static class JsonWrapper
+{
+	private static System.Web.Script.Serialization.JavaScriptSerializer serializer = new System.Web.Script.Serialization.JavaScriptSerializer();
+
+	public static string ConvertDictionaryToJson(Dictionary<string, string> dictionary)
+	{
+		string result = serializer.Serialize(dictionary);
+		return result;
+	}
+}
+
+#endregion // Business Logic
+
+
+internal interface IDataAccessLayer
+{
+	Item NewError(string error);
+	Item NewItem(string type, string action);
+	Item ApplyItem(Item item);
+	void GrantIdentity(string identityName);
+	void RevokeIdentity();
+	Aras.ConversionFramework.Management.InnovatorConversionManager CreateConversionManager();
+}
+
+internal class DataAccessLayer: IDataAccessLayer
+{
+	private Innovator inn;
+	private Aras.Server.Security.Identity identity;
+	private bool permissionWasSet = false;
+
+	internal DataAccessLayer(Innovator innovator, Aras.Server.Core.CallContext callContext)
+	{
+		this.inn = innovator;
+	}
+
+	public Item NewError(string error)
+	{
+		return inn.newError(error);
+	}
+
+	public Item NewItem(string type, string action)
+	{
+		return inn.newItem(type, action);
+	}
+
+	public Item ApplyItem(Item item)
+	{
+		return item.apply();
+	}
+
+	public void GrantIdentity(string identityName)
+	{
+		identity = Aras.Server.Security.Identity.GetByName(identityName);
+		permissionWasSet = Aras.Server.Security.Permissions.GrantIdentity(identity);
+	}
+
+	public void RevokeIdentity()
+	{
+		if (permissionWasSet && identity != null)
+		{
+			Aras.Server.Security.Permissions.RevokeIdentity(identity);
+		}
+	}
+
+	public Aras.ConversionFramework.Management.InnovatorConversionManager CreateConversionManager()
+	{
+		return new Aras.ConversionFramework.Management.InnovatorConversionManager(inn.getConnection());
+	}]]></method_code>
+  <method_type>C#</method_type>
+  <name>ConversionTaskCreate</name>
+ </Item>
+</AML>

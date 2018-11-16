@@ -1,0 +1,124 @@
+﻿<AML>
+ <Item type="Method" id="A1504821B36549EB94606D9F9C5354FF" action="add">
+  <comments>Updates has file flag for Document Item Type</comments>
+  <execution_allowed_to keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</execution_allowed_to>
+  <method_code><![CDATA[	BusinessLogic businessLogic = new BusinessLogic(new DataAccessLayer(this.getInnovator()));
+	return businessLogic.Run(this);
+}
+
+#region Business Logic
+
+internal class BusinessLogic
+{
+	private readonly IDataAccessLayer _dataAccessLayer;
+
+	public BusinessLogic(IDataAccessLayer dataAccessLayer)
+	{
+		_dataAccessLayer = dataAccessLayer;
+	}
+
+	internal Item Run(Item contextItem)
+	{
+	    try
+		{
+		    string documentID = contextItem.getID();
+		    string hasFilesFlag = "0";
+		    
+		    Item contextDocumentFiles = contextItem.getRelationships("Document File");
+		    if(contextItem.getAction() == "add")
+		    {
+		        if(contextDocumentFiles.getItemCount() > 0)
+		        {
+		            hasFilesFlag = "1";
+		        }
+		    }
+		    else
+		    {
+		       hasFilesFlag = GetHasFilesFlagForUpdateAction(documentID, contextDocumentFiles);
+		    }
+    
+		    contextItem.setProperty("has_files", hasFilesFlag);
+			return contextItem;
+		}
+		catch (InvalidOperationException ex)
+		{
+			return _dataAccessLayer.NewError(ex.Message);
+		}
+	}
+	
+	private string GetHasFilesFlagForUpdateAction(string documentID, Item contextDocumentFiles)
+	{
+	    int filesForDelete = 0;
+		  
+		Item document = _dataAccessLayer.NewItem("Document","get");
+		document.setID(documentID);
+		Item documentFiles = document.createRelationship("Document File","get");
+		document = _dataAccessLayer.ApplyItem(document);
+		if(document.isError())
+		{
+		    throw new InvalidOperationException("Failed to update document: " + document.getErrorString());
+		}
+		
+		documentFiles = document.getRelationships("Document File");
+		int contextDocumentFilesCount = contextDocumentFiles.getItemCount();
+		int documentFilesCount = documentFiles.getItemCount();
+		
+		for(int i = 0; i < contextDocumentFilesCount; i++)
+		{
+		   Item contextDocumentFile = contextDocumentFiles.getItemByIndex(i);
+		   if(contextDocumentFile.getAction() == "delete")
+		   {
+		       filesForDelete++;
+		   }
+		   else
+		   {
+		      return "1";
+		   }
+		}
+		  
+		if(filesForDelete < documentFilesCount)
+		{
+		    return "1";
+		}
+	    return "0";
+    }
+}
+
+#endregion // Business Logic
+
+internal interface IDataAccessLayer
+{
+	Item NewError(string error);
+	Item NewItem(string type, string action);
+	Item ApplyItem(Item itm);
+}
+
+internal class DataAccessLayer : IDataAccessLayer
+{
+	private Innovator _inn;
+
+	internal DataAccessLayer(Innovator innovator)
+	{
+		this._inn = innovator;
+	}
+
+	public Item NewError(string error)
+	{
+		return _inn.newError(error);
+	}
+
+	public Item NewItem(string type, string action)
+	{
+		return _inn.newItem(type, action);
+	}
+
+	public Item ApplyItem(Item itm)
+	{
+		return itm.apply();
+	}
+
+]]></method_code>
+  <method_type>C#</method_type>
+  <name>UpdateHasFileProperty</name>
+ </Item>
+</AML>

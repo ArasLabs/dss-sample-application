@@ -1,0 +1,17 @@
+﻿<AML>
+<Item type="Permission" id="3CA0FD33C589477397D2DBE1BDD855D4" action="edit">
+	<name>File Restriction</name>
+	<Relationships>
+		<Item type="Access" id="3B3DF900AF6E49D387E76324834703F2" action="add">
+			<can_change_access>1</can_change_access>
+			<can_discover>1</can_discover>
+			<related_id>63346296585E4BA7AD2E4B99C4530817</related_id>
+			<source_id keyed_name="File Restriction">3CA0FD33C589477397D2DBE1BDD855D4</source_id>
+			<can_get>1</can_get>
+			<can_update>1</can_update>
+			<can_delete>1</can_delete>
+		</Item>
+	</Relationships>
+	<fed_css/>
+</Item>
+</AML>

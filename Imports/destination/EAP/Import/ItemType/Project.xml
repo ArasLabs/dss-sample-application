@@ -1,0 +1,7 @@
+﻿<AML>
+ <Item type="ItemType" id="02184EDAA80D499CB6EC94B159966DBE" action="edit">
+	<Relationships>
+		<Item type="Server Event" typeId="8214ECDE53F04AFC95243E10B2C7BBD4" id="056FB55413D24AE6BC340E47FF8319AE" action="delete"/>
+	</Relationships>
+ </Item>
+</AML>

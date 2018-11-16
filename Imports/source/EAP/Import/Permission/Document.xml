@@ -1,0 +1,17 @@
+﻿<AML>
+ <Item type="Permission"  id="F0E3A6D242FC4889A9A119EEBC8EC79E" action="edit">
+    <name>New Document</name>
+    <Relationships>
+	  <Item type="Access" id="AD32FC1701DB4756A85CDADB9874BC5E" action="add">
+		<can_change_access>1</can_change_access>
+		<can_discover>1</can_discover>
+		<related_id>63346296585E4BA7AD2E4B99C4530817</related_id>
+		<source_id keyed_name="New Document">F0E3A6D242FC4889A9A119EEBC8EC79E</source_id>
+		<can_get>1</can_get>
+		<can_update>1</can_update>
+		<can_delete>1</can_delete>
+	  </Item>
+    </Relationships>
+    <fed_css/>
+  </Item>
+</AML>

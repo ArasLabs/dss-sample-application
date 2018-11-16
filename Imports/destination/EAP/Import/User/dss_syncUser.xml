@@ -1,0 +1,10 @@
+﻿<AML>
+ <Item type="User" id="2BFD2AE051744E6E8D0A72EBFA9C5605" action="add">
+  <default_vault keyed_name="Default" type="Vault">67BBB9204FE84A8981ED8313049BA06C</default_vault>
+  <login_name>dss_syncUser</login_name>
+  <logon_enabled>1</logon_enabled>
+  <first_name>dss_syncUser</first_name>
+  <last_name>dss_syncUser</last_name>
+  <password>c4ca4238a0b923820dcc509a6f75849b</password>
+ </Item>
+</AML>

@@ -1,0 +1,15 @@
+﻿<AML>
+ <Item type="RelationshipType" id="C9C5E2E1B9F34CBFACCDD4FA2E8BCE35" action="edit" >
+  <relationship_id keyed_name="BOM Instance" type="ItemType" name="BOM Instance">
+   <Item type="ItemType" id="41FA648728234F97AEB1D5CEFE36F871" action="edit">
+    <Relationships>
+	 <Item type="Allowed Permission" id="0B49D325334641178DFE17473F4ABEA7" action="add">
+		<is_default>1</is_default>
+		<related_id>A9E8279B32184CC9855ED825992FB42B</related_id>
+		<source_id keyed_name="BOM Instance">41FA648728234F97AEB1D5CEFE36F871</source_id>
+	 </Item>
+    </Relationships>
+   </Item>
+  </relationship_id>
+ </Item>
+</AML>

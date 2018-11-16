@@ -1,0 +1,6 @@
+﻿<AML>
+ <Item type="Synchronization Map" id="C709F0328D4746918BCB281D24246B5C" action="add">
+  <name>Part Sync Map</name>
+  <query_defenition keyed_name="Part Synchronization" type="qry_QueryDefinition">9E4DAD6CCC4B4232A087E624F49F18F2</query_defenition>
+ </Item>
+</AML>

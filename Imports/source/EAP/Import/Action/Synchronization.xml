@@ -1,0 +1,16 @@
+﻿<AML>
+ <Item type="Action" id="C019E99228FB4F8F8467E37EF9BC63B0" action="add">
+  <body>&lt;rule_id&gt;9D868C7A8EA84F88889AB75176986B1D&lt;/rule_id&gt;</body>
+  <item_query />
+  <location>server</location>
+  <method keyed_name="SyncTaskCreate" type="Method">
+   <Item type="Method" action="get" select="id">
+    <name>SyncTaskCreate</name>
+   </Item>
+  </method>
+  <target>none</target>
+  <type>generic</type>
+  <name>Synchronization</name>
+  <label>Synchronize</label>
+ </Item>
+</AML>

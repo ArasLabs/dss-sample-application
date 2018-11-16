@@ -1,0 +1,15 @@
+﻿<AML>
+ <Item type="RelationshipType" id="D118B38457DB4E57A8660CF2CCA13122" action="edit">
+  <relationship_id keyed_name="fr_Representation" type="ItemType" name="fr_Representation">
+   <Item type="ItemType" id="7AD385D642CA4B2184AB5401A3F6D99F">
+    <Relationships>
+	 <Item type="Allowed Permission" id="6B49D325334641178DFE17473F4ABEA7" action="add">
+		<is_default>1</is_default>
+		<related_id>A9E8279B32184CC9855ED825992FB42B</related_id>
+		<source_id keyed_name="fr_Representation">7AD385D642CA4B2184AB5401A3F6D99F</source_id>
+	 </Item>
+    </Relationships>
+   </Item>
+  </relationship_id>
+ </Item>
+</AML>

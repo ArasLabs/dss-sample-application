@@ -1,0 +1,192 @@
+﻿<AML>
+ <Item type="Report" id="DD212C55FF6F4F579282E2895D4410D5" action="add">
+  <description>Displays a report about results of Synchronization Tasks</description>
+  <location>server</location>
+  <report_query><![CDATA[<Item type="Synchronization Task Log" action="get" orderBy="created_on">
+		<source_id>
+			<Item type="Synchronization Task" action="get">
+			</Item>
+		</source_id>
+</Item>]]></report_query>
+  <target>window</target>
+  <type>generic</type>
+  <xsl_stylesheet><![CDATA[<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:user="urn:user-scripts" xmlns:aras="http://www.aras.com" version="1.0">
+	<parsererror xmlns="http://www.w3.org/1999/xhtml" style="display: block; white-space: pre; border: 2px solid #c77; padding: 0 1em 0 1em; margin: 1em; background-color: #fdd; color: black">
+		<h3>This page contains the following errors:</h3>
+		<div style="font-family:monospace;font-size:12px">
+			error on line 155 at column 58: attributes construct error
+		</div>
+		<h3>Below is a rendering of the page up to the first error.</h3>
+	</parsererror>
+	<parsererror xmlns="http://www.w3.org/1999/xhtml" style="display: block; white-space: pre; border: 2px solid #c77; padding: 0 1em 0 1em; margin: 1em; background-color: #fdd; color: black">
+		<h3>This page contains the following errors:</h3>
+		<div style="font-family:monospace;font-size:12px">
+			error on line 165 at column 1: Extra content at the end of the document
+		</div>
+		<h3>Below is a rendering of the page up to the first error.</h3>
+	</parsererror>
+	  <xsl:output method="html" omit-xml-declaration="yes" standalone="yes" indent="yes" cdata-section-elements="script msxsl:script"/>
+	  <xsl:template match="/">
+		    <html>
+			      <head>      </head>
+			      <style type="text/css" userData="Global">
+				.cellSolid {
+				border-top:1px #000000 solid;
+				border-right:1px #000000 solid;
+				border-bottom:1px #000000 solid;
+				border-left:1px #000000 solid;
+				}
+				.cellSolidTopRight {
+				border-top:1px #000000 solid;
+				border-right:1px #000000 solid;
+				}
+				.cellSolidTopLeft {
+				border-top:1px #000000 solid;
+				border-left:1px #000000 solid;
+				}
+				.cellSolidRightBottom {
+				border-right:1px #000000 solid;
+				border-bottom:1px #000000 solid;
+				}
+				.cellSolidBottomLeft {
+				border-bottom:1px #000000 solid;
+				border-left:1px #000000 solid;
+				}
+				.cellSolidTop {
+				border-top:1px #000000 solid;
+				}
+				.cellSolidRight {
+				border-right:1px #000000 solid;
+				}
+				.cellSolidBottom {
+				border-bottom:1px #000000 solid;
+				}
+				.cellSolidLeft {
+				border-left:1px #000000 solid;
+				}
+				.cellDashed {
+				border-top:1px #666666 dashed;
+				border-right:1px #666666 dashed;
+				border-bottom:1px #666666 dashed;
+				border-left:1px #666666 dashed;
+				}
+				.cellDashedTopRight {
+				border-top:1px #666666 dashed;
+				border-right:1px #666666 dashed;
+				}
+				.cellDashedTopLeft {
+				border-top:1px #666666 dashed;
+				border-left:1px #666666 dashed;
+				}
+				.cellDashedBottomRight {
+				border-bottom:1px #666666 dashed;
+				border-right:1px #666666 dashed;
+				}
+				.cellDashedBottomLeft {
+				border-bottom:1px #666666 dashed;
+				border-left:1px #666666 dashed;
+				}
+				.cellDashedTop {
+				border-top:1px #666666 dashed;
+				}
+				.cellDashedRight {
+				border-right:1px #666666 dashed;
+				}
+				.cellDashedBottom {
+				border-bottom:1px #666666 dashed;
+				}
+				.cellDashedLeft {
+				border-left:1px #666666 dashed;
+				}
+				.cellHeader {
+				background-color:#CCCCCC;
+				border-top:1px #000000 solid;
+				border-right:1px #000000 solid;
+				border-bottom:1px #000000 solid;
+				padding:2px;
+				text-align:center;
+				text-transform:capitalize;
+				text-align:center;
+				font-family:helvetica;
+				font-weight:bold;
+				font-size:8pt;
+				}
+				.cellHeaderVertBT {
+				background-color:#CCCCCC;
+				border-top:1px #000000 solid;
+				border-right:1px #000000 solid;
+				border-bottom:1px #000000 solid;
+				border-left:1px #000000 solid;
+				padding:2px;
+				writing-mode:tb-rl;filter: flipv fliph;
+				text-align:center;
+				text-transform:capitalize;
+				text-align:center;
+				font-family:helvetica;
+				font-weight:bold;
+				font-size:8pt;
+				}
+				.cellHeaderVertTB {
+				background-color:#CCCCCC;
+				border-top:1px #000000 solid;
+				border-right:1px #000000 solid;
+				border-bottom:1px #000000 solid;
+				border-left:1px #000000 solid;
+				padding:2px;
+				writing-mode:tb-rl;filter: flipv flipv;
+				text-align:center;
+				text-transform:capitalize;
+				text-align:center;
+				font-family:helvetica;
+				font-weight:bold;
+				font-size:8pt;
+				}
+				td {
+				padding: 4px;
+				}
+			</style>
+			<body topmargin="50" leftmargin="50">
+				<h3>Synchronization Task Log</h3>
+				<table border="0" cellspacing="0" cellpadding="0" width="875">
+					<thead>
+						<tr>
+							<th class="cellHeader cellSolid" style="width:15%;">Date</th>
+							<th class="cellHeader cellSolid" style="width:20%;">Task Id</th>
+							<th class="cellHeader cellSolid" style="width:40%;">Message</th>
+							<th class="cellHeader cellSolid" style="width:10%;">Sync Start</th>
+							<th class="cellHeader cellSolid" style="width:10%;">Sync End</th>
+							<th class="cellHeader cellSolid" style="width:5%;">Status</th>
+						</tr>
+					</thead>
+					<tbody style="font-family:helvetica; font-size:8pt;">
+						<xsl:for-each select="//Item[@type='Synchronization Task Log']">
+							<tr>
+								<td class="cellSolid">
+									<xsl:value-of select="created_on"/>
+								</td>
+								<td class="cellSolid">
+									<xsl:value-of select="source_id/@keyed_name"/>
+								</td>
+								<td class="cellSolid">
+									<xsl:value-of select="message"/>
+								</td>
+								<td class="cellSolid">
+									<xsl:value-of select="source_id/Item/started_on"/>
+								</td>
+								<td class="cellSolid">
+									<xsl:value-of select="source_id/Item/finished_on"/>
+								</td>
+								<td class="cellSolid">
+									<xsl:value-of select="message_type"/>
+								</td>
+							</tr>
+						</xsl:for-each>
+					</tbody>
+				</table>
+			</body>
+		</html>
+	</xsl:template>
+</xsl:stylesheet>]]></xsl_stylesheet>
+  <name>Synchronization Task Log</name>
+ </Item>
+</AML>

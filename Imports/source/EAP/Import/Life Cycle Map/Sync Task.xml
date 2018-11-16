@@ -1,0 +1,73 @@
+﻿<AML>
+ <Item type="Life Cycle Map" id="22A686F2F13F42E8AE0019D923C0708F" action="add">
+  <description>Life Cycle Map for Synchronization Task </description>
+  <start_state keyed_name="Not Started" type="Life Cycle State">52BF5AED8C364605BCEB03F1E17CD584</start_state>
+  <name>Sync Task</name>
+  <Relationships>
+   <Item type="Life Cycle State" id="CFA4FB6E891C465683119636EA1F571C" action="add">
+    <image>../images/LifeCycleState.svg</image>
+    <set_is_released>0</set_is_released>
+    <set_not_lockable>0</set_not_lockable>
+    <sort_order>384</sort_order>
+    <source_id keyed_name="Sync Task" type="Life Cycle Map">22A686F2F13F42E8AE0019D923C0708F</source_id>
+    <x>229</x>
+    <y>128</y>
+    <name>Failed</name>
+   </Item>
+   <Item type="Life Cycle State" id="38F4509D6952433F9B6D3D3D95450632" action="add">
+    <image>../images/LifeCycleState.svg</image>
+    <set_is_released>0</set_is_released>
+    <set_not_lockable>0</set_not_lockable>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="Sync Task" type="Life Cycle Map">22A686F2F13F42E8AE0019D923C0708F</source_id>
+    <x>232</x>
+    <y>45</y>
+    <name>In Progress</name>
+   </Item>
+   <Item type="Life Cycle State" id="52BF5AED8C364605BCEB03F1E17CD584" action="add">
+    <image>../images/LifeCycleState.svg</image>
+    <set_is_released>0</set_is_released>
+    <set_not_lockable>0</set_not_lockable>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Sync Task" type="Life Cycle Map">22A686F2F13F42E8AE0019D923C0708F</source_id>
+    <x>92</x>
+    <y>46</y>
+    <name>Not Started</name>
+   </Item>
+   <Item type="Life Cycle State" id="AB9BDB0366FD43C68B4CFA12E3B62FF1" action="add">
+    <image>../images/LifeCycleState.svg</image>
+    <set_is_released>0</set_is_released>
+    <set_not_lockable>0</set_not_lockable>
+    <sort_order>512</sort_order>
+    <source_id keyed_name="Sync Task" type="Life Cycle Map">22A686F2F13F42E8AE0019D923C0708F</source_id>
+    <x>352</x>
+    <y>43</y>
+    <name>Succeeded</name>
+   </Item>
+   <Item type="Life Cycle Transition" id="41AD41B72ED8468E87535B8889B9701E" action="add">
+    <from_state keyed_name="In Progress" type="Life Cycle State">38F4509D6952433F9B6D3D3D95450632</from_state>
+    <get_comment>0</get_comment>
+    <role keyed_name="Administrators" type="Identity">2618D6F5A90949BAA7E920D1B04C7EE1</role>
+    <sort_order>384</sort_order>
+    <source_id keyed_name="Sync Task" type="Life Cycle Map">22A686F2F13F42E8AE0019D923C0708F</source_id>
+    <to_state keyed_name="Succeeded" type="Life Cycle State">AB9BDB0366FD43C68B4CFA12E3B62FF1</to_state>
+   </Item>
+   <Item type="Life Cycle Transition" id="E99AB2C5AC57459E964AC5FD77E3176C" action="add">
+    <from_state keyed_name="In Progress" type="Life Cycle State">38F4509D6952433F9B6D3D3D95450632</from_state>
+    <get_comment>0</get_comment>
+    <role keyed_name="Administrators" type="Identity">2618D6F5A90949BAA7E920D1B04C7EE1</role>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="Sync Task" type="Life Cycle Map">22A686F2F13F42E8AE0019D923C0708F</source_id>
+    <to_state keyed_name="Failed" type="Life Cycle State">CFA4FB6E891C465683119636EA1F571C</to_state>
+   </Item>
+   <Item type="Life Cycle Transition" id="9A9BD4301F9F4862959F4BEA9613CD1C" action="add">
+    <from_state keyed_name="Not Started" type="Life Cycle State">52BF5AED8C364605BCEB03F1E17CD584</from_state>
+    <get_comment>0</get_comment>
+    <role keyed_name="Administrators" type="Identity">2618D6F5A90949BAA7E920D1B04C7EE1</role>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Sync Task" type="Life Cycle Map">22A686F2F13F42E8AE0019D923C0708F</source_id>
+    <to_state keyed_name="In Progress" type="Life Cycle State">38F4509D6952433F9B6D3D3D95450632</to_state>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

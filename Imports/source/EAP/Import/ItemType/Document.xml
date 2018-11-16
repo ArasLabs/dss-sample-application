@@ -1,0 +1,47 @@
+﻿<AML>
+ <Item type="ItemType" id="B88C14B99EF449828C5D926E39EE8B89" action="edit">
+  <Relationships>
+   <Item type="Property" id="DCEDB44BE40E492F9D9D8CC2F1DB6C3B" action="add">
+    <column_alignment>left</column_alignment>
+    <data_type>global_version</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">global_version</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>1</readonly>
+    <sort_order>104224</sort_order>
+    <source_id keyed_name="Document" type="ItemType" name="Document">B88C14B99EF449828C5D926E39EE8B89</source_id>
+    <track_history>0</track_history>
+    <name>global_version</name>
+   </Item>
+   <Item type="Server Event" id="414108ABC1A34AC59EB3F6F88E21838E" action="add">
+    <event_version>version_1</event_version>
+    <is_required>0</is_required>
+    <related_id keyed_name="UpdateHasFileProperty" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>UpdateHasFileProperty</name>
+     </Item>
+    </related_id>
+    <server_event>onBeforeAdd</server_event>
+    <sort_order>1920</sort_order>
+    <source_id keyed_name="Document" type="ItemType" name="Document">B88C14B99EF449828C5D926E39EE8B89</source_id>
+   </Item>
+   <Item type="Server Event" id="1D1DE11FE1014DD497BBDBFB00BEE956" action="add">
+    <event_version>version_1</event_version>
+    <is_required>0</is_required>
+    <related_id keyed_name="UpdateHasFileProperty" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>UpdateHasFileProperty</name>
+     </Item>
+    </related_id>
+    <server_event>onBeforeUpdate</server_event>
+    <sort_order>1792</sort_order>
+    <source_id keyed_name="Document" type="ItemType" name="Document">B88C14B99EF449828C5D926E39EE8B89</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+ </AML>

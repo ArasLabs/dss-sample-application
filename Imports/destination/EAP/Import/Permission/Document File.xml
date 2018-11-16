@@ -1,0 +1,11 @@
+﻿<AML>
+ <Item type="ItemType" id="653C8EE5DDDF4932B75E5CDF04F0CD42" action="edit">
+  <Relationships>
+   <Item type="Allowed Permission" id="5B49D325334641178DFE17473F4ABEA7" action="add">
+		<is_default>1</is_default>
+		<related_id>A9E8279B32184CC9855ED825992FB42B</related_id>
+		<source_id keyed_name="Document File">653C8EE5DDDF4932B75E5CDF04F0CD42</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

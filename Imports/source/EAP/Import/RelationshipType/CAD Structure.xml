@@ -1,0 +1,27 @@
+﻿<AML>
+ <Item type="RelationshipType" id="70A43676987743D9B82A1751A314C2C8" action="edit">
+  <relationship_id keyed_name="CAD Structure" type="ItemType" name="CAD Structure">
+   <Item type="ItemType" id="2812BEB188644E7FB3BEE526FD62032A" action="edit">
+    <Relationships>
+     <Item type="Property" id="70C763D7D9ED47DB847832D09ED3EE50" action="add">
+      <column_alignment>left</column_alignment>
+      <data_type>global_version</data_type>
+      <is_hidden>1</is_hidden>
+      <is_hidden2>1</is_hidden2>
+      <is_indexed>0</is_indexed>
+      <is_keyed>0</is_keyed>
+      <is_multi_valued>0</is_multi_valued>
+      <is_required>0</is_required>
+      <label xml:lang="en">global_version</label>
+      <range_inclusive>0</range_inclusive>
+      <readonly>1</readonly>
+      <sort_order>3840</sort_order>
+      <source_id keyed_name="CAD Structure" type="ItemType" name="CAD Structure">2812BEB188644E7FB3BEE526FD62032A</source_id>
+      <track_history>0</track_history>
+      <name>global_version</name>
+     </Item>
+    </Relationships>
+   </Item>
+  </relationship_id>
+ </Item>
+</AML>

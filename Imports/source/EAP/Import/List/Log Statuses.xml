@@ -1,0 +1,20 @@
+﻿<AML>
+ <Item type="List" id="F4704F44262C4C178169434DA9705DC1" action="add">
+  <description>Contains statuses of log records</description>
+  <name>Log Statuses</name>
+  <Relationships>
+   <Item type="Value" id="67F70B4A77074A22A1DCBF795B7F45E2" action="add">
+    <label xml:lang="en">Info</label>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Log Statuses" type="List">F4704F44262C4C178169434DA9705DC1</source_id>
+    <value>Info</value>
+   </Item>
+   <Item type="Value" id="21FE6D617535438C8B0BB4BC2A871C26" action="add">
+    <label xml:lang="en">Error</label>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="Log Statuses" type="List">F4704F44262C4C178169434DA9705DC1</source_id>
+    <value>Error</value>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

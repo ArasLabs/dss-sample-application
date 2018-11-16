@@ -1,0 +1,226 @@
+﻿<AML>
+ <Item type="Method" id="F71BDD0A62A64F2F9D5A80DB559FAE14" action="add">
+  <execution_allowed_to keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</execution_allowed_to>
+  <method_code><![CDATA[BusinessLogic businessLogic = new BusinessLogic(new DataAccessLayer(this.getInnovator()), CCO);
+
+	return businessLogic.Run(this);
+
+}
+
+#region Business Logic
+
+internal class BusinessLogic
+{
+	private IDataAccessLayer _dataAccessLayer;
+	private readonly Aras.Server.Core.CallContext _CCO;
+
+	public BusinessLogic(IDataAccessLayer dataAccessLayer, Aras.Server.Core.CallContext CCO)
+	{
+		_dataAccessLayer = dataAccessLayer;
+		_CCO = CCO;
+	}
+
+	internal Item Run(Item contextItem)
+	{
+		string url = _CCO.Request.Url.ToString();
+		string database = _CCO.DB.DatabaseName;
+		string user = _CCO.Request.Headers["AUTHUSER"];
+		string password = _CCO.Request.Headers["AUTHPASSWORD"];
+        user = "admin";
+        password = "607920b64fe136f9ab2389e371852af2";
+        
+		System.Threading.Tasks.Task.Factory.StartNew(() =>
+		{
+
+			HttpServerConnection connection = IomFactory.CreateHttpServerConnection(
+				url,
+				database,
+				user,
+				password
+			);
+			Innovator innovator = new Innovator(connection);
+			_dataAccessLayer = new DataAccessLayer(innovator);
+
+			try
+			{
+				Item loginResult = connection.Login();
+				if (loginResult.isError())
+				{
+					throw new InvalidOperationException("Unable to call recalculation. Error: " + loginResult.getErrorString());
+				}
+
+			   
+				var newSyncTask = _dataAccessLayer.NewItem("Method", "Conversion_CheckNewTask");
+				newSyncTask = _dataAccessLayer.ApplyItem(newSyncTask);
+				if(newSyncTask.isError())
+				{
+					OnConvertCompleted(contextItem.getID());
+					return;
+				}
+				
+				newSyncTask = newSyncTask.getItemByIndex(0);
+				var syncTaskId = newSyncTask.getID();
+				var syncPartRequest = _dataAccessLayer.NewItem("Method", "Synchronization");
+				syncPartRequest.setProperty("syncRuleId", newSyncTask.getProperty("rule_id"));
+				syncPartRequest.setProperty("syncTaskId", syncTaskId);
+				syncPartRequest.setProperty("syncMapType","Part");
+
+				UpdateSyncTaskStatus(syncTaskId, "In Progress");
+				var syncPartResponse=_dataAccessLayer.ApplyItem(syncPartRequest);
+
+				if(syncPartResponse.isError())
+				{
+				   // UpdateSyncTaskStatus(syncTaskId, "Failed");
+					OnConvertFailed(contextItem.getID(),new Exception(contextItem.getErrorString()));
+					UpdateCurrentStatus(syncTaskId, "Last synchronization attempt was failed", 0);
+					contextItem = syncPartResponse;
+					return;
+				}
+				UpdateSyncTaskStatus(syncTaskId, "Succeeded");
+				OnConvertCompleted(contextItem.getID());
+			}
+			catch (InvalidOperationException ex)
+			{
+				OnConvertFailed(contextItem.getID(),ex);
+				contextItem = _dataAccessLayer.NewError(ex.Message);
+			}
+			catch(Exception ex)
+			{
+			  	OnConvertFailed(contextItem.getID(),ex);
+			}
+			finally
+			{
+				connection.Logout();
+			}
+		});
+		return contextItem;
+	}
+
+	internal void OnConvertCompleted(string taskId)
+	{
+		Item ruleItem = _dataAccessLayer.NewItem("ConversionRule", "get");
+		Item ctaskItem = _dataAccessLayer.NewItem("ConversionTask", "get");
+		ctaskItem.setAttribute("levels", "1");
+		ctaskItem.setProperty("id", taskId);
+		ctaskItem.setPropertyItem("rule_id", ruleItem);
+		ctaskItem = _dataAccessLayer.ApplyItem(ctaskItem);
+
+		Aras.ConversionFramework.Models.ConversionTask ctask = new Aras.ConversionFramework.Models.ConversionTask();
+		ctask.Item = ctaskItem;
+
+		Aras.ConversionFramework.Models.ConversionResult result;
+		result = new Aras.ConversionFramework.Models.ConversionResult(new List<Aras.ConversionFramework.Converter.FileConversionResult>());
+		ctask.OnConvertCompleted(result);
+	}
+	
+	internal void OnConvertFailed(string taskId,Exception ex)
+	{
+		Item ruleItem = _dataAccessLayer.NewItem("ConversionRule", "get");
+		Item ctaskItem = _dataAccessLayer.NewItem("ConversionTask", "get");
+		ctaskItem.setAttribute("levels", "1");
+		ctaskItem.setProperty("id", taskId);
+		ctaskItem.setPropertyItem("rule_id", ruleItem);
+		ctaskItem = _dataAccessLayer.ApplyItem(ctaskItem);
+
+		Aras.ConversionFramework.Models.ConversionTask ctask = new Aras.ConversionFramework.Models.ConversionTask();
+		ctask.Item = ctaskItem;
+
+		Aras.ConversionFramework.Models.ConversionResult result;
+		result = new Aras.ConversionFramework.Models.ConversionResult(ex);
+		ctask.OnConvertCompleted(result);
+	}
+	
+	
+	private void UpdateSyncTaskStatus(string taskId, string status)
+	{
+		
+		var requestGet = _dataAccessLayer.NewItem("Synchronization Task","get");
+		requestGet.setID(taskId);
+		requestGet.setAttribute("select","state");
+		var responseGet =  _dataAccessLayer.ApplyItem(requestGet);
+		if(responseGet.isError())
+		{
+			throw new InvalidOperationException(responseGet.getErrorString());	
+		}
+		
+		if(responseGet.getProperty("state") == status)
+		{
+			return;
+		}
+		
+		
+		var request = _dataAccessLayer.NewItem("Synchronization Task","promoteItem");
+		request.setID(taskId);
+		request.setProperty("state", status);
+
+		var response = _dataAccessLayer.ApplyItem(request);
+		if(response.isError())
+		{
+			throw new InvalidOperationException(response.getErrorString());	
+		}
+		
+	}
+	
+	private Item UpdateCurrentStatus(string taskId, string status, int progress)
+	{
+		var syncTaskRequest = _dataAccessLayer.NewItem("Synchronization Task", "edit");
+		syncTaskRequest.setID(taskId);
+		syncTaskRequest.setProperty("current_action", status);
+		syncTaskRequest.setProperty("current_action_progress", progress.ToString(CultureInfo.InvariantCulture));
+		return _dataAccessLayer.ApplyItem(syncTaskRequest);
+	}
+	
+	private string GetDateNow()
+	{
+		var DateTimeFormat = Aras.I18NUtils.DateTimeConverter.DATETIME_NEUTRAL_FORMAT;
+		string dateTime = DateTime.Now.ToString(DateTimeFormat, CultureInfo.InvariantCulture);
+		string neutralDateTime = _dataAccessLayer.ConvertToNeutralDateTime(dateTime, DateTimeFormat);
+		return neutralDateTime;
+	}
+
+}
+
+
+
+#endregion // Business Logic
+
+internal interface IDataAccessLayer
+{
+	Item NewError(string error);
+	Item NewItem(string type, string action);
+	Item ApplyItem(Item item);
+	string ConvertToNeutralDateTime(string date, string format);
+}
+
+internal class DataAccessLayer: IDataAccessLayer
+{
+	private Innovator inn;
+
+	internal DataAccessLayer(Innovator innovator)
+	{
+		this.inn = innovator;
+	}
+
+	public Item NewError(string error)
+	{
+		return inn.newError(error);
+	}
+
+	public Item NewItem(string type, string action)
+	{
+		return inn.newItem(type, action);
+	}
+	
+	public string ConvertToNeutralDateTime(string date, string format)
+	{
+	   return this.inn.getI18NSessionContext().ConvertUtcDateTimeToNeutral(date, format);
+	}
+
+	public Item ApplyItem(Item item)
+	{
+		return item.apply();
+	}]]></method_code>
+  <method_type>C#</method_type>
+  <name>SyncLauncher</name>
+ </Item>
+</AML>

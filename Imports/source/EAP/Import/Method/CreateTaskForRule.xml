@@ -1,0 +1,48 @@
+﻿<AML>
+ <Item type="Method" id="D8C61151312F4F2A9013E27B3C1347EF" action="add">
+  <execution_allowed_to keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</execution_allowed_to>
+  <method_code><![CDATA[	Item syncRule = this.newItem("Synchronization Rule", "get");
+	syncRule.setProperty("is_active", "1");
+	syncRule.setProperty("start_mode", "Scheduled");
+	syncRule.setAttribute("select", "start_at");
+	Item syncRuleResults = syncRule.apply();
+	if (syncRuleResults.isError())
+	{
+		if (syncRuleResults.isEmpty())
+			return this;
+		else
+			return syncRuleResults;
+	}
+
+	for (int i = 0, count = syncRuleResults.getItemCount(); i < count; i++)
+	{
+		Item currentSyncRule = syncRuleResults.getItemByIndex(i);
+		if (IsCurrentTimeBigger(currentSyncRule.getProperty("start_at")))
+		{
+			Item res = this.newItem("Method", "SyncTaskCreate");
+			res.setProperty("rule_id", currentSyncRule.getID());
+			res = res.apply();
+			if (res.isError())
+			{
+				return res;
+			}
+		}
+	}
+	return this;
+}
+
+internal static bool IsCurrentTimeBigger(string valueToCheck)
+{
+	DateTime currentUtcDate = DateTime.UtcNow;
+
+	valueToCheck = String.Format(CultureInfo.InvariantCulture, "{0}/{1}/{2} {3}:00", currentUtcDate.Month, currentUtcDate.Day, currentUtcDate.Year, valueToCheck);
+	DateTime valueToCheckDate = Convert.ToDateTime(valueToCheck, CultureInfo.InvariantCulture);
+
+	if (DateTime.Compare(currentUtcDate, valueToCheckDate) >= 0)
+		return true;
+	else
+		return false;]]></method_code>
+  <method_type>C#</method_type>
+  <name>CreateTaskForRule</name>
+ </Item>
+</AML>

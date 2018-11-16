@@ -1,0 +1,18 @@
+﻿<AML>
+ <Item type="RelationshipType" id="018E1EE724D343C5BD4488197C0C4E80" action="edit" dependencyLevel="0">
+  <relationship_id keyed_name="Project Part" type="ItemType" name="Project Part">
+   <Item type="ItemType" id="06BDA3A0ED4F4DA2935A431D82278A30" action="edit">
+    <Relationships>
+	 <Item type="Allowed Permission" id="DEFAD325334641178DFE17473F4ABEA7" action="add">
+		<is_default>1</is_default>
+		<related_id>A9E8279B32184CC9855ED825992FB42B</related_id>
+		<source_id keyed_name="Project Part">06BDA3A0ED4F4DA2935A431D82278A30</source_id>
+	 </Item>
+    </Relationships>
+   </Item>
+  </relationship_id>
+  <sort_order>260</sort_order>
+  <source_id keyed_name="Project" type="ItemType" name="Project">02184EDAA80D499CB6EC94B159966DBE</source_id>
+  <name>Project Part</name>
+ </Item>
+</AML>

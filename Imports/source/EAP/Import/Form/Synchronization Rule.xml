@@ -1,0 +1,226 @@
+﻿<AML>
+ <Item type="Form" id="1F84116911C947CA9D786D76CA1ED261" action="add">
+  <category_form>0</category_form>
+  <height>234</height>
+  <stylesheet><![CDATA[../styles/default.css]]></stylesheet>
+  <width>699</width>
+  <name>Synchronization Rule</name>
+  <Relationships>
+   <Item type="Body" id="4D817831295945ECA4016730B3B7F05B" action="add">
+    <bg_color>#FFFFFF</bg_color>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Synchronization Rule" type="Form">1F84116911C947CA9D786D76CA1ED261</source_id>
+    <Relationships>
+     <Item type="Field" id="045F4A12BA234C45ACF66BAEBDEAD968" action="add">
+      <border_width>0</border_width>
+      <display_length_unit>px</display_length_unit>
+      <field_type>dropdown</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Destination Authentication Type</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <propertytype_id keyed_name="destination_authentication_type" type="Property">BB544E8D534F4FD5A3B7A4E8443E0199</propertytype_id>
+      <sort_order>384</sort_order>
+      <source_id keyed_name="4D817831295945ECA4016730B3B7F05B" type="Body">4D817831295945ECA4016730B3B7F05B</source_id>
+      <tab_index>3328</tab_index>
+      <tab_stop>1</tab_stop>
+      <x>190</x>
+      <y>90</y>
+      <name>destination_authentication_type</name>
+     </Item>
+     <Item type="Field" id="2A4202C9C9D746B79D3350A1172A0D4A" action="add">
+      <border_width>0</border_width>
+      <display_length_unit>px</display_length_unit>
+      <field_type>item</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Destination Credentials</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <propertytype_id keyed_name="destination_credentials" type="Property">DAFEDA4198FD48AF860C5D5E1D9DA9AC</propertytype_id>
+      <sort_order>512</sort_order>
+      <source_id keyed_name="4D817831295945ECA4016730B3B7F05B" type="Body">4D817831295945ECA4016730B3B7F05B</source_id>
+      <tab_index>3456</tab_index>
+      <tab_stop>1</tab_stop>
+      <x>190</x>
+      <y>130</y>
+      <name>destination_credentials</name>
+     </Item>
+     <Item type="Field" id="CEC7205019844DAABD749CB33733686F" action="add">
+      <border_width>0</border_width>
+      <css />
+      <display_length_unit>px</display_length_unit>
+      <field_type>dropdown</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Destination Database</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <propertytype_id keyed_name="destination_database" type="Property">C10A2FFC77B744389488A4AD11D731AA</propertytype_id>
+      <sort_order>256</sort_order>
+      <source_id keyed_name="4D817831295945ECA4016730B3B7F05B" type="Body">4D817831295945ECA4016730B3B7F05B</source_id>
+      <tab_index>3200</tab_index>
+      <tab_stop>1</tab_stop>
+      <x>190</x>
+      <y>50</y>
+      <name>destination_database</name>
+     </Item>
+     <Item type="Field" id="1122EDB3007C4A799FAA4F3A52CDF086" action="add">
+      <border_width>0</border_width>
+      <display_length_unit>px</display_length_unit>
+      <field_type>item</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Destination System</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <propertytype_id keyed_name="destination_system" type="Property">07945D37E122492D9A7C59A4966ED5BF</propertytype_id>
+      <sort_order>128</sort_order>
+      <source_id keyed_name="4D817831295945ECA4016730B3B7F05B" type="Body">4D817831295945ECA4016730B3B7F05B</source_id>
+      <tab_index>3072</tab_index>
+      <tab_stop>1</tab_stop>
+      <x>191</x>
+      <y>10</y>
+      <name>destination_system</name>
+     </Item>
+     <Item type="Field" id="CDD4A972097147E0A1345B3B92934330" action="add">
+      <border_width>0</border_width>
+      <display_length>512</display_length>
+      <display_length_unit>px</display_length_unit>
+      <field_type>text</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Files Checkout Path</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <propertytype_id keyed_name="files_checkout_path" type="Property">4D74758141C341489452B13E14700DD3</propertytype_id>
+      <sort_order>1152</sort_order>
+      <source_id keyed_name="4D817831295945ECA4016730B3B7F05B" type="Body">4D817831295945ECA4016730B3B7F05B</source_id>
+      <tab_stop>1</tab_stop>
+      <x>190</x>
+      <y>170</y>
+      <name>files_checkout_path</name>
+     </Item>
+     <Item type="Field" id="53794E6F40364F9E9864491B9097E787" action="add">
+      <border_width>0</border_width>
+      <display_length_unit>px</display_length_unit>
+      <field_type>checkbox</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Is Active</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <propertytype_id keyed_name="is_active" type="Property">FBE934457B074532B4E0BD31E70DF0FA</propertytype_id>
+      <sort_order>896</sort_order>
+      <source_id keyed_name="4D817831295945ECA4016730B3B7F05B" type="Body">4D817831295945ECA4016730B3B7F05B</source_id>
+      <tab_index>3840</tab_index>
+      <tab_stop>1</tab_stop>
+      <x>190</x>
+      <y>290</y>
+      <name>is_active</name>
+     </Item>
+     <Item type="Field" id="80E9B140FC664BCFB15A3E83B5853463" action="add">
+      <display_length_unit>px</display_length_unit>
+      <field_type>html</field_type>
+      <html_code><![CDATA[<span id='ITEM_INFO_INTERNAL_SPAN'/>
+<script>
+  populate_ITEM_INFO_INTERNAL_SPAN = function()
+  {
+    document.getElementById('ITEM_INFO_INTERNAL_SPAN').innerHTML = aras.uiGetItemInfoTable(document.itemType);
+  }
+  window.addEventListener('load', populate_ITEM_INFO_INTERNAL_SPAN);
+</script>]]></html_code>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <list_no_blank>0</list_no_blank>
+      <sort_order>1024</sort_order>
+      <source_id keyed_name="4D817831295945ECA4016730B3B7F05B" type="Body">4D817831295945ECA4016730B3B7F05B</source_id>
+      <tab_stop>0</tab_stop>
+      <x>0</x>
+      <y>0</y>
+      <name>item_info</name>
+     </Item>
+     <Item type="Field" id="5213EB2C7F14450FBFE7F11B50E2C91D" action="add">
+      <border_width>0</border_width>
+      <display_length_unit>px</display_length_unit>
+      <field_type>dropdown</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Start At</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <propertytype_id keyed_name="start_at" type="Property">0B0DA54FF5CB40239C13D4A33ED7B1BB</propertytype_id>
+      <sort_order>768</sort_order>
+      <source_id keyed_name="4D817831295945ECA4016730B3B7F05B" type="Body">4D817831295945ECA4016730B3B7F05B</source_id>
+      <tab_index>3712</tab_index>
+      <tab_stop>1</tab_stop>
+      <x>190</x>
+      <y>250</y>
+      <name>start_at</name>
+     </Item>
+     <Item type="Field" id="7D9E1971153F4911B51730FE016C2521" action="add">
+      <border_width>0</border_width>
+      <display_length_unit>px</display_length_unit>
+      <field_type>dropdown</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Start Mode</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <propertytype_id keyed_name="start_mode" type="Property">5BB9334E5CD24CE6A494BAA37D0A8CB9</propertytype_id>
+      <sort_order>640</sort_order>
+      <source_id keyed_name="4D817831295945ECA4016730B3B7F05B" type="Body">4D817831295945ECA4016730B3B7F05B</source_id>
+      <tab_index>3584</tab_index>
+      <tab_stop>1</tab_stop>
+      <x>190</x>
+      <y>210</y>
+      <name>start_mode</name>
+     </Item>
+    </Relationships>
+   </Item>
+   <Item type="Form Event" id="C0A2CA6C3181424BA066255F3A1970E2" action="add">
+    <form_event>onload</form_event>
+    <related_id keyed_name="InitRelatedForms" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>InitRelatedForms</name>
+     </Item>
+    </related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Synchronization Rule" type="Form">1F84116911C947CA9D786D76CA1ED261</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

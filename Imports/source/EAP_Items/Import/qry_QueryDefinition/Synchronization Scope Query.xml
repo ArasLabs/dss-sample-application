@@ -1,0 +1,1630 @@
+﻿<AML>
+ <Item type="qry_QueryDefinition" id="9E4DAD6CCC4B4232A087E624F49F18F2" action="add">
+  <name>Synchronization Scope Query</name>
+  <Relationships>
+   <Item type="qry_QueryItem" id="083E9675B38244598F78F571B397B4A2" action="add">
+    <item_type keyed_name="Sync Root" type="ItemType" name="Sync Root">EAE1BD9EF3E1444FB9E93B80F052A2A6</item_type>
+    <ref_id>EEEDAB6B5E88473089CEC35CA33EF769</ref_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Synchronization Scope Query" type="qry_QueryDefinition">9E4DAD6CCC4B4232A087E624F49F18F2</source_id>
+    <alias>Sync Root</alias>
+    <Relationships>
+     <Item type="qry_QueryItemSelectProperty" id="2A4A7A407DC94E129473F23E7EC7A3B5" action="add">
+      <property_name>config_id</property_name>
+      <sort_order>128</sort_order>
+      <source_id keyed_name="Sync Root" type="qry_QueryItem">083E9675B38244598F78F571B397B4A2</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="E6FEA3F3647043228E70147953AA672E" action="add">
+      <property_name>generation</property_name>
+      <sort_order>256</sort_order>
+      <source_id keyed_name="Sync Root" type="qry_QueryItem">083E9675B38244598F78F571B397B4A2</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="8F2C453F77C1447687575FA89A53881A" action="add">
+      <property_name>major_rev</property_name>
+      <sort_order>384</sort_order>
+      <source_id keyed_name="Sync Root" type="qry_QueryItem">083E9675B38244598F78F571B397B4A2</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="03B63E00C6FB4CA39694D94736E957B6" action="add">
+      <property_name>id</property_name>
+      <sort_order>512</sort_order>
+      <source_id keyed_name="Sync Root" type="qry_QueryItem">083E9675B38244598F78F571B397B4A2</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="3B50B4D0B30D4A1BA14740FE4C40007E" action="add">
+      <property_name>global_version</property_name>
+      <sort_order>640</sort_order>
+      <source_id keyed_name="Sync Root" type="qry_QueryItem">083E9675B38244598F78F571B397B4A2</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="113A0661DE8D402D8C5BD1751B81DB94" action="add">
+      <property_name>classification</property_name>
+      <sort_order>768</sort_order>
+      <source_id keyed_name="Sync Root" type="qry_QueryItem">083E9675B38244598F78F571B397B4A2</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="2152752D7F784875830BEE61D7FBE37B" action="add">
+      <property_name>created_by_id</property_name>
+      <sort_order>1024</sort_order>
+      <source_id keyed_name="Sync Root" type="qry_QueryItem">083E9675B38244598F78F571B397B4A2</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="C072177E9F8F4ADA83467DAEDBFC7E0B" action="add">
+      <property_name>created_on</property_name>
+      <sort_order>1152</sort_order>
+      <source_id keyed_name="Sync Root" type="qry_QueryItem">083E9675B38244598F78F571B397B4A2</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="8BBC5E685D444F76A492CC8D323001F4" action="add">
+      <property_name>css</property_name>
+      <sort_order>1280</sort_order>
+      <source_id keyed_name="Sync Root" type="qry_QueryItem">083E9675B38244598F78F571B397B4A2</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="8D42018A17C94495B684D525B0637FB1" action="add">
+      <property_name>current_state</property_name>
+      <sort_order>1408</sort_order>
+      <source_id keyed_name="Sync Root" type="qry_QueryItem">083E9675B38244598F78F571B397B4A2</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="3563FE23E15943329C8DAACFA9B60520" action="add">
+      <property_name>is_released</property_name>
+      <sort_order>2816</sort_order>
+      <source_id keyed_name="Sync Root" type="qry_QueryItem">083E9675B38244598F78F571B397B4A2</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="824C766CADCA4D619C51C3FAD2F3673B" action="add">
+      <property_name>keyed_name</property_name>
+      <sort_order>2944</sort_order>
+      <source_id keyed_name="Sync Root" type="qry_QueryItem">083E9675B38244598F78F571B397B4A2</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="507464AD4E9A477993E4851066AD13C5" action="add">
+      <property_name>managed_by_id</property_name>
+      <sort_order>3072</sort_order>
+      <source_id keyed_name="Sync Root" type="qry_QueryItem">083E9675B38244598F78F571B397B4A2</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="AF98E508DC4745EAB8E6846FAF5B4407" action="add">
+      <property_name>minor_rev</property_name>
+      <sort_order>3200</sort_order>
+      <source_id keyed_name="Sync Root" type="qry_QueryItem">083E9675B38244598F78F571B397B4A2</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="71740B2D0C7A42B08634EC0E88646607" action="add">
+      <property_name>modified_by_id</property_name>
+      <sort_order>3328</sort_order>
+      <source_id keyed_name="Sync Root" type="qry_QueryItem">083E9675B38244598F78F571B397B4A2</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="8E46F4F55FB84BDBA4BF710F6A3D9BCF" action="add">
+      <property_name>modified_on</property_name>
+      <sort_order>3456</sort_order>
+      <source_id keyed_name="Sync Root" type="qry_QueryItem">083E9675B38244598F78F571B397B4A2</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="1A7D1D0C71694774BE7DEAA3178505A7" action="add">
+      <property_name>not_lockable</property_name>
+      <sort_order>3584</sort_order>
+      <source_id keyed_name="Sync Root" type="qry_QueryItem">083E9675B38244598F78F571B397B4A2</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="0BE7993D38C940D19E400D591E7019C4" action="add">
+      <property_name>owned_by_id</property_name>
+      <sort_order>3712</sort_order>
+      <source_id keyed_name="Sync Root" type="qry_QueryItem">083E9675B38244598F78F571B397B4A2</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="D95BB8CBFCEA4C0A8A6C0C5CE3C7B5D5" action="add">
+      <property_name>name</property_name>
+      <sort_order>5120</sort_order>
+      <source_id keyed_name="Sync Root" type="qry_QueryItem">083E9675B38244598F78F571B397B4A2</source_id>
+     </Item>
+    </Relationships>
+   </Item>
+   <Item type="qry_QueryItem" id="220371F9B48B423EB1048B45A8B3E167" action="add">
+    <filter_xml><![CDATA[<condition>
+	<gt>
+		<count>
+			<query_reference_path>C7174F6BC1D24F4A8527BD7C4195DDAA</query_reference_path>
+		</count>
+		<constant>0</constant>
+	</gt>
+</condition>]]></filter_xml>
+    <item_type keyed_name="Sync Root Part" type="ItemType" name="Sync Root Part">B5BFF650F9764ABB9E095A6DC6BAE275</item_type>
+    <ref_id>FB46908E4DF343D68847D014F5454CD7</ref_id>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="Synchronization Scope Query" type="qry_QueryDefinition">9E4DAD6CCC4B4232A087E624F49F18F2</source_id>
+    <alias>Sync Root Part</alias>
+    <Relationships>
+     <Item type="qry_QueryItemSelectProperty" id="14DD4788B85A4E77B488D2E413C7F8CD" action="add">
+      <property_name>id</property_name>
+      <sort_order>128</sort_order>
+      <source_id keyed_name="Sync Root Part" type="qry_QueryItem">220371F9B48B423EB1048B45A8B3E167</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="4A993D6A3FB64667A6F4EFE3A772ECA8" action="add">
+      <property_name>config_id</property_name>
+      <sort_order>256</sort_order>
+      <source_id keyed_name="Sync Root Part" type="qry_QueryItem">220371F9B48B423EB1048B45A8B3E167</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="DEDA0BDF131C4C2287EED37B6481EFFB" action="add">
+      <property_name>major_rev</property_name>
+      <sort_order>384</sort_order>
+      <source_id keyed_name="Sync Root Part" type="qry_QueryItem">220371F9B48B423EB1048B45A8B3E167</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="1690034965314A35AA24CF9465AA62C0" action="add">
+      <property_name>generation</property_name>
+      <sort_order>512</sort_order>
+      <source_id keyed_name="Sync Root Part" type="qry_QueryItem">220371F9B48B423EB1048B45A8B3E167</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="6D8329C9B26A4F568F2AC2DE98986981" action="add">
+      <property_name>global_version</property_name>
+      <sort_order>640</sort_order>
+      <source_id keyed_name="Sync Root Part" type="qry_QueryItem">220371F9B48B423EB1048B45A8B3E167</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="AF5D91733FD24CC98426B2A058664A05" action="add">
+      <property_name>behavior</property_name>
+      <sort_order>768</sort_order>
+      <source_id keyed_name="Sync Root Part" type="qry_QueryItem">220371F9B48B423EB1048B45A8B3E167</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="B999269AF97F4343A5DE067000DCD639" action="add">
+      <property_name>classification</property_name>
+      <sort_order>896</sort_order>
+      <source_id keyed_name="Sync Root Part" type="qry_QueryItem">220371F9B48B423EB1048B45A8B3E167</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="4EC0FFA39765463380DF1AB30B461095" action="add">
+      <property_name>created_by_id</property_name>
+      <sort_order>1024</sort_order>
+      <source_id keyed_name="Sync Root Part" type="qry_QueryItem">220371F9B48B423EB1048B45A8B3E167</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="E940BC3B94E74433A5A932004D000E64" action="add">
+      <property_name>created_on</property_name>
+      <sort_order>1152</sort_order>
+      <source_id keyed_name="Sync Root Part" type="qry_QueryItem">220371F9B48B423EB1048B45A8B3E167</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="F3FA3FE6EFB84E929021D3D9C46FF187" action="add">
+      <property_name>css</property_name>
+      <sort_order>1280</sort_order>
+      <source_id keyed_name="Sync Root Part" type="qry_QueryItem">220371F9B48B423EB1048B45A8B3E167</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="5832DD76579B4D75BCBCF255EF4BD13B" action="add">
+      <property_name>current_state</property_name>
+      <sort_order>1408</sort_order>
+      <source_id keyed_name="Sync Root Part" type="qry_QueryItem">220371F9B48B423EB1048B45A8B3E167</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="E1C6104CCD194D239F98ED9640274E33" action="add">
+      <property_name>is_released</property_name>
+      <sort_order>1536</sort_order>
+      <source_id keyed_name="Sync Root Part" type="qry_QueryItem">220371F9B48B423EB1048B45A8B3E167</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="435520181FD440FDB85FC9C48FEAD1DB" action="add">
+      <property_name>keyed_name</property_name>
+      <sort_order>1664</sort_order>
+      <source_id keyed_name="Sync Root Part" type="qry_QueryItem">220371F9B48B423EB1048B45A8B3E167</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="83AC789FB9BB46FDBBBB8367CDB8C169" action="add">
+      <property_name>managed_by_id</property_name>
+      <sort_order>1792</sort_order>
+      <source_id keyed_name="Sync Root Part" type="qry_QueryItem">220371F9B48B423EB1048B45A8B3E167</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="88FAA3FDE3424A619CC4BB7C398EF5AE" action="add">
+      <property_name>minor_rev</property_name>
+      <sort_order>1920</sort_order>
+      <source_id keyed_name="Sync Root Part" type="qry_QueryItem">220371F9B48B423EB1048B45A8B3E167</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="16B2C59DED1D4558A7899A0ECDD71CE4" action="add">
+      <property_name>modified_by_id</property_name>
+      <sort_order>2048</sort_order>
+      <source_id keyed_name="Sync Root Part" type="qry_QueryItem">220371F9B48B423EB1048B45A8B3E167</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="356B151A26344ED7A9C87469E3580005" action="add">
+      <property_name>modified_on</property_name>
+      <sort_order>2176</sort_order>
+      <source_id keyed_name="Sync Root Part" type="qry_QueryItem">220371F9B48B423EB1048B45A8B3E167</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="D48506D8AB0349658F69045F4853C3A6" action="add">
+      <property_name>not_lockable</property_name>
+      <sort_order>2304</sort_order>
+      <source_id keyed_name="Sync Root Part" type="qry_QueryItem">220371F9B48B423EB1048B45A8B3E167</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="DF213CAD235843A08C8A8C11B5E979FD" action="add">
+      <property_name>owned_by_id</property_name>
+      <sort_order>2432</sort_order>
+      <source_id keyed_name="Sync Root Part" type="qry_QueryItem">220371F9B48B423EB1048B45A8B3E167</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="06C1234FF7544FF889445F800E80802F" action="add">
+      <property_name>related_id</property_name>
+      <sort_order>2560</sort_order>
+      <source_id keyed_name="Sync Root Part" type="qry_QueryItem">220371F9B48B423EB1048B45A8B3E167</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="46F64C7B2D7A482FB3BE673D108F730B" action="add">
+      <property_name>sort_order</property_name>
+      <sort_order>2688</sort_order>
+      <source_id keyed_name="Sync Root Part" type="qry_QueryItem">220371F9B48B423EB1048B45A8B3E167</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="E65C22B404F94C50BBC1360FA0746D38" action="add">
+      <property_name>source_id</property_name>
+      <sort_order>2816</sort_order>
+      <source_id keyed_name="Sync Root Part" type="qry_QueryItem">220371F9B48B423EB1048B45A8B3E167</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="AD6834EED1DB43489B8D3861472B5FB1" action="add">
+      <property_name>team_id</property_name>
+      <sort_order>3072</sort_order>
+      <source_id keyed_name="Sync Root Part" type="qry_QueryItem">220371F9B48B423EB1048B45A8B3E167</source_id>
+     </Item>
+    </Relationships>
+   </Item>
+   <Item type="qry_QueryItem" id="2951BD0FB8F54C8AB83DD52B7E40867F" action="add">
+    <filter_xml><![CDATA[<condition>
+	<ne>
+		<property name="is_internal" />
+		<constant>1</constant>
+	</ne>
+</condition>]]></filter_xml>
+    <item_type keyed_name="Part" type="ItemType" name="Part">4F1AC04A2B484F3ABA4E20DB63808A88</item_type>
+    <ref_id>05422CF4FBE14892B12D943DA42D0750</ref_id>
+    <sort_order>384</sort_order>
+    <source_id keyed_name="Synchronization Scope Query" type="qry_QueryDefinition">9E4DAD6CCC4B4232A087E624F49F18F2</source_id>
+    <alias>Part</alias>
+    <Relationships>
+     <Item type="qry_QueryItemSelectProperty" id="69D47F6EB714456BB850FDCDDEC42434" action="add">
+      <property_name>classification</property_name>
+      <sort_order>128</sort_order>
+      <source_id keyed_name="Part" type="qry_QueryItem">2951BD0FB8F54C8AB83DD52B7E40867F</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="D0FB5336FBB848DA9182606E67C6AEE3" action="add">
+      <property_name>config_id</property_name>
+      <sort_order>256</sort_order>
+      <source_id keyed_name="Part" type="qry_QueryItem">2951BD0FB8F54C8AB83DD52B7E40867F</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="CF1268066219488F829392C5698523A7" action="add">
+      <property_name>cost</property_name>
+      <sort_order>384</sort_order>
+      <source_id keyed_name="Part" type="qry_QueryItem">2951BD0FB8F54C8AB83DD52B7E40867F</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="50A735F6ABDE40728BE720E0C7E4212E" action="add">
+      <property_name>cost_basis</property_name>
+      <sort_order>512</sort_order>
+      <source_id keyed_name="Part" type="qry_QueryItem">2951BD0FB8F54C8AB83DD52B7E40867F</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="FBF3014A1CFE47B897AC12631F2AF713" action="add">
+      <property_name>current_state</property_name>
+      <sort_order>640</sort_order>
+      <source_id keyed_name="Part" type="qry_QueryItem">2951BD0FB8F54C8AB83DD52B7E40867F</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="01431BA6F75B4ECAA4459DBE0E727525" action="add">
+      <property_name>description</property_name>
+      <sort_order>768</sort_order>
+      <source_id keyed_name="Part" type="qry_QueryItem">2951BD0FB8F54C8AB83DD52B7E40867F</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="D10F4AD8FA4B4EAFAFB2D2572E4382C1" action="add">
+      <property_name>effective_date</property_name>
+      <sort_order>896</sort_order>
+      <source_id keyed_name="Part" type="qry_QueryItem">2951BD0FB8F54C8AB83DD52B7E40867F</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="EC452BBC8FCC4CB1937F220224CAFF70" action="add">
+      <property_name>external_id</property_name>
+      <sort_order>1024</sort_order>
+      <source_id keyed_name="Part" type="qry_QueryItem">2951BD0FB8F54C8AB83DD52B7E40867F</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="4DFC311126E042B5836A097C50C8396A" action="add">
+      <property_name>external_owner</property_name>
+      <sort_order>1152</sort_order>
+      <source_id keyed_name="Part" type="qry_QueryItem">2951BD0FB8F54C8AB83DD52B7E40867F</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="D38E459D014C41B5B01290CD06058422" action="add">
+      <property_name>external_type</property_name>
+      <sort_order>1280</sort_order>
+      <source_id keyed_name="Part" type="qry_QueryItem">2951BD0FB8F54C8AB83DD52B7E40867F</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="E6F7119A7DF04E22BEB4A89A57F422CF" action="add">
+      <property_name>generation</property_name>
+      <sort_order>1408</sort_order>
+      <source_id keyed_name="Part" type="qry_QueryItem">2951BD0FB8F54C8AB83DD52B7E40867F</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="8505C7B22BF14EEDBE19E5607C670214" action="add">
+      <property_name>global_version</property_name>
+      <sort_order>1536</sort_order>
+      <source_id keyed_name="Part" type="qry_QueryItem">2951BD0FB8F54C8AB83DD52B7E40867F</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="67CAEEE235214273A0C778782E755359" action="add">
+      <property_name>has_change_pending</property_name>
+      <sort_order>1664</sort_order>
+      <source_id keyed_name="Part" type="qry_QueryItem">2951BD0FB8F54C8AB83DD52B7E40867F</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="0CA0613A5E18449DB837BF4AF0BF2AF8" action="add">
+      <property_name>id</property_name>
+      <sort_order>1792</sort_order>
+      <source_id keyed_name="Part" type="qry_QueryItem">2951BD0FB8F54C8AB83DD52B7E40867F</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="D7C2E36C7EF649419626359C8DB3F14A" action="add">
+      <property_name>is_released</property_name>
+      <sort_order>1920</sort_order>
+      <source_id keyed_name="Part" type="qry_QueryItem">2951BD0FB8F54C8AB83DD52B7E40867F</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="18C6C230208449A6BE410B105101475D" action="add">
+      <property_name>keyed_name</property_name>
+      <sort_order>2048</sort_order>
+      <source_id keyed_name="Part" type="qry_QueryItem">2951BD0FB8F54C8AB83DD52B7E40867F</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="6D72D035116145299374B775FE9DCFC7" action="add">
+      <property_name>major_rev</property_name>
+      <sort_order>2176</sort_order>
+      <source_id keyed_name="Part" type="qry_QueryItem">2951BD0FB8F54C8AB83DD52B7E40867F</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="C0E5BB4EA6E6429B9B30AE4F44BFB9C6" action="add">
+      <property_name>make_buy</property_name>
+      <sort_order>2304</sort_order>
+      <source_id keyed_name="Part" type="qry_QueryItem">2951BD0FB8F54C8AB83DD52B7E40867F</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="2CCFD2396D5F47E0A41322E15A299FF5" action="add">
+      <property_name>managed_by_id</property_name>
+      <sort_order>2432</sort_order>
+      <source_id keyed_name="Part" type="qry_QueryItem">2951BD0FB8F54C8AB83DD52B7E40867F</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="981DDD437CED4FE7A97A81E9801A0A27" action="add">
+      <property_name>minor_rev</property_name>
+      <sort_order>2560</sort_order>
+      <source_id keyed_name="Part" type="qry_QueryItem">2951BD0FB8F54C8AB83DD52B7E40867F</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="07F870764D7C42BEA6FBFAA431B65656" action="add">
+      <property_name>created_by_id</property_name>
+      <sort_order>2688</sort_order>
+      <source_id keyed_name="Part" type="qry_QueryItem">2951BD0FB8F54C8AB83DD52B7E40867F</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="9ABCC5F17F5040CE8FC0F3FA8AE61CA7" action="add">
+      <property_name>created_on</property_name>
+      <sort_order>2816</sort_order>
+      <source_id keyed_name="Part" type="qry_QueryItem">2951BD0FB8F54C8AB83DD52B7E40867F</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="DFA87317562C4EC3954CB677CCFFA385" action="add">
+      <property_name>modified_by_id</property_name>
+      <sort_order>2944</sort_order>
+      <source_id keyed_name="Part" type="qry_QueryItem">2951BD0FB8F54C8AB83DD52B7E40867F</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="786A73535D684F4DBC71DD3400D11B77" action="add">
+      <property_name>modified_on</property_name>
+      <sort_order>3072</sort_order>
+      <source_id keyed_name="Part" type="qry_QueryItem">2951BD0FB8F54C8AB83DD52B7E40867F</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="04280713AAC84A7AB9B5766226A8F2A8" action="add">
+      <property_name>name</property_name>
+      <sort_order>3200</sort_order>
+      <source_id keyed_name="Part" type="qry_QueryItem">2951BD0FB8F54C8AB83DD52B7E40867F</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="30A0E3F4F0D146238D12D357952880FE" action="add">
+      <property_name>not_lockable</property_name>
+      <sort_order>3328</sort_order>
+      <source_id keyed_name="Part" type="qry_QueryItem">2951BD0FB8F54C8AB83DD52B7E40867F</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="C07F388F17F042E3957E627A73C4EA6E" action="add">
+      <property_name>owned_by_id</property_name>
+      <sort_order>3456</sort_order>
+      <source_id keyed_name="Part" type="qry_QueryItem">2951BD0FB8F54C8AB83DD52B7E40867F</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="ADD6D8EAAE1346B282129A922FE5CEB8" action="add">
+      <property_name>release_date</property_name>
+      <sort_order>3584</sort_order>
+      <source_id keyed_name="Part" type="qry_QueryItem">2951BD0FB8F54C8AB83DD52B7E40867F</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="58CB1DD91CE446BEA01945F746FC55DC" action="add">
+      <property_name>superseded_date</property_name>
+      <sort_order>3840</sort_order>
+      <source_id keyed_name="Part" type="qry_QueryItem">2951BD0FB8F54C8AB83DD52B7E40867F</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="EBE756E66ABF42F1B17853CEC3E058D0" action="add">
+      <property_name>team_id</property_name>
+      <sort_order>3968</sort_order>
+      <source_id keyed_name="Part" type="qry_QueryItem">2951BD0FB8F54C8AB83DD52B7E40867F</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="E21479F49D464028BFA29448B3436D69" action="add">
+      <property_name>unit</property_name>
+      <sort_order>4224</sort_order>
+      <source_id keyed_name="Part" type="qry_QueryItem">2951BD0FB8F54C8AB83DD52B7E40867F</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="897EBEDE655D4222B506F03130270B8F" action="add">
+      <property_name>weight</property_name>
+      <sort_order>4352</sort_order>
+      <source_id keyed_name="Part" type="qry_QueryItem">2951BD0FB8F54C8AB83DD52B7E40867F</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="2D8FE61C5666428695AB59CFDE41BF07" action="add">
+      <property_name>weight_basis</property_name>
+      <sort_order>4480</sort_order>
+      <source_id keyed_name="Part" type="qry_QueryItem">2951BD0FB8F54C8AB83DD52B7E40867F</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="0AEA61F643DB42C3AEE7CCC2C4884DBA" action="add">
+      <property_name>item_number</property_name>
+      <sort_order>4608</sort_order>
+      <source_id keyed_name="Part" type="qry_QueryItem">2951BD0FB8F54C8AB83DD52B7E40867F</source_id>
+     </Item>
+    </Relationships>
+   </Item>
+   <Item type="qry_QueryItem" id="2F2C822BBC974B258C21202E3BC9F69F" action="add">
+    <item_type keyed_name="Part CAD" type="ItemType" name="Part CAD">935DF68BCFD849EBB5C3A528F04C5B5B</item_type>
+    <ref_id>1A2DEBA97EB9468CB7A96BE2F0AD03BC</ref_id>
+    <sort_order>512</sort_order>
+    <source_id keyed_name="Synchronization Scope Query" type="qry_QueryDefinition">9E4DAD6CCC4B4232A087E624F49F18F2</source_id>
+    <alias>Part CAD</alias>
+    <Relationships>
+     <Item type="qry_QueryItemSelectProperty" id="2004934025184B1FBF11B5D0B47CB779" action="add">
+      <property_name>behavior</property_name>
+      <sort_order>128</sort_order>
+      <source_id keyed_name="Part CAD" type="qry_QueryItem">2F2C822BBC974B258C21202E3BC9F69F</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="74D8E34A75DB4175ADE4002982190CC7" action="add">
+      <property_name>classification</property_name>
+      <sort_order>256</sort_order>
+      <source_id keyed_name="Part CAD" type="qry_QueryItem">2F2C822BBC974B258C21202E3BC9F69F</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="810F83FED28B41D7BC2A71AB2AC7562C" action="add">
+      <property_name>config_id</property_name>
+      <sort_order>384</sort_order>
+      <source_id keyed_name="Part CAD" type="qry_QueryItem">2F2C822BBC974B258C21202E3BC9F69F</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="7E11D252C87F48D1973F691B7991D113" action="add">
+      <property_name>created_by_id</property_name>
+      <sort_order>512</sort_order>
+      <source_id keyed_name="Part CAD" type="qry_QueryItem">2F2C822BBC974B258C21202E3BC9F69F</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="BCEF904294A443FCB4167CF2BF9D03A1" action="add">
+      <property_name>created_on</property_name>
+      <sort_order>640</sort_order>
+      <source_id keyed_name="Part CAD" type="qry_QueryItem">2F2C822BBC974B258C21202E3BC9F69F</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="F77EA8E109054895AAD0056EBE49D2E1" action="add">
+      <property_name>css</property_name>
+      <sort_order>768</sort_order>
+      <source_id keyed_name="Part CAD" type="qry_QueryItem">2F2C822BBC974B258C21202E3BC9F69F</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="B6A040DBAEB64F899351F91AAF4A0134" action="add">
+      <property_name>current_state</property_name>
+      <sort_order>896</sort_order>
+      <source_id keyed_name="Part CAD" type="qry_QueryItem">2F2C822BBC974B258C21202E3BC9F69F</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="17C272FC55034B259F99E2E042A6AEC8" action="add">
+      <property_name>external_id</property_name>
+      <sort_order>1024</sort_order>
+      <source_id keyed_name="Part CAD" type="qry_QueryItem">2F2C822BBC974B258C21202E3BC9F69F</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="8E1189A1A4CC46EBB79090759FE03566" action="add">
+      <property_name>external_owner</property_name>
+      <sort_order>1152</sort_order>
+      <source_id keyed_name="Part CAD" type="qry_QueryItem">2F2C822BBC974B258C21202E3BC9F69F</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="307A5BE9AABE407988E8CFDB3AFD40F9" action="add">
+      <property_name>external_type</property_name>
+      <sort_order>1280</sort_order>
+      <source_id keyed_name="Part CAD" type="qry_QueryItem">2F2C822BBC974B258C21202E3BC9F69F</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="9F5F0EF9AB38452490156EDBC5B4F5EB" action="add">
+      <property_name>generation</property_name>
+      <sort_order>1408</sort_order>
+      <source_id keyed_name="Part CAD" type="qry_QueryItem">2F2C822BBC974B258C21202E3BC9F69F</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="FD7D9FB431974985A6E7846C08688983" action="add">
+      <property_name>global_version</property_name>
+      <sort_order>1536</sort_order>
+      <source_id keyed_name="Part CAD" type="qry_QueryItem">2F2C822BBC974B258C21202E3BC9F69F</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="E0244468C9474F10A736670ABD101D33" action="add">
+      <property_name>id</property_name>
+      <sort_order>1664</sort_order>
+      <source_id keyed_name="Part CAD" type="qry_QueryItem">2F2C822BBC974B258C21202E3BC9F69F</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="339796D9D3AD41CDA7F9FC41461B3412" action="add">
+      <property_name>is_released</property_name>
+      <sort_order>1792</sort_order>
+      <source_id keyed_name="Part CAD" type="qry_QueryItem">2F2C822BBC974B258C21202E3BC9F69F</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="ED787AB56B434500A2B6D2DBD352EC1E" action="add">
+      <property_name>keyed_name</property_name>
+      <sort_order>1920</sort_order>
+      <source_id keyed_name="Part CAD" type="qry_QueryItem">2F2C822BBC974B258C21202E3BC9F69F</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="F9EB45EEA65147D984933A1F4E7B20D6" action="add">
+      <property_name>major_rev</property_name>
+      <sort_order>2048</sort_order>
+      <source_id keyed_name="Part CAD" type="qry_QueryItem">2F2C822BBC974B258C21202E3BC9F69F</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="F0B193C7EBFE42E9B32BD236BAACC5C5" action="add">
+      <property_name>managed_by_id</property_name>
+      <sort_order>2176</sort_order>
+      <source_id keyed_name="Part CAD" type="qry_QueryItem">2F2C822BBC974B258C21202E3BC9F69F</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="C8A424A51BEB49DC9EB9EBE807DCA298" action="add">
+      <property_name>minor_rev</property_name>
+      <sort_order>2304</sort_order>
+      <source_id keyed_name="Part CAD" type="qry_QueryItem">2F2C822BBC974B258C21202E3BC9F69F</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="F400A333EC5040F088360B401E5B35A0" action="add">
+      <property_name>modified_by_id</property_name>
+      <sort_order>2432</sort_order>
+      <source_id keyed_name="Part CAD" type="qry_QueryItem">2F2C822BBC974B258C21202E3BC9F69F</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="EDF04D39924E4127961C3CD66E6B83EE" action="add">
+      <property_name>modified_on</property_name>
+      <sort_order>2560</sort_order>
+      <source_id keyed_name="Part CAD" type="qry_QueryItem">2F2C822BBC974B258C21202E3BC9F69F</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="BD74417652C64BFA9FF46E3865F52E37" action="add">
+      <property_name>not_lockable</property_name>
+      <sort_order>2688</sort_order>
+      <source_id keyed_name="Part CAD" type="qry_QueryItem">2F2C822BBC974B258C21202E3BC9F69F</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="AC598A3354E6438A8204B9F3065D4367" action="add">
+      <property_name>owned_by_id</property_name>
+      <sort_order>2816</sort_order>
+      <source_id keyed_name="Part CAD" type="qry_QueryItem">2F2C822BBC974B258C21202E3BC9F69F</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="0B28BA5DDD3A45718F589D5C4EC0E4D7" action="add">
+      <property_name>related_id</property_name>
+      <sort_order>2944</sort_order>
+      <source_id keyed_name="Part CAD" type="qry_QueryItem">2F2C822BBC974B258C21202E3BC9F69F</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="689D492A3E16454993F396A2666E6BAC" action="add">
+      <property_name>sort_order</property_name>
+      <sort_order>3072</sort_order>
+      <source_id keyed_name="Part CAD" type="qry_QueryItem">2F2C822BBC974B258C21202E3BC9F69F</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="3EF399FBC63D4E21B5124700385247B4" action="add">
+      <property_name>source_id</property_name>
+      <sort_order>3200</sort_order>
+      <source_id keyed_name="Part CAD" type="qry_QueryItem">2F2C822BBC974B258C21202E3BC9F69F</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="15B88041DEBF47F0AC6A5AB4CBA0B8C6" action="add">
+      <property_name>team_id</property_name>
+      <sort_order>3456</sort_order>
+      <source_id keyed_name="Part CAD" type="qry_QueryItem">2F2C822BBC974B258C21202E3BC9F69F</source_id>
+     </Item>
+    </Relationships>
+   </Item>
+   <Item type="qry_QueryItem" id="9F5D08CE9E804BC198BA0F6B627099D0" action="add">
+    <item_type keyed_name="CAD" type="ItemType" name="CAD">CCF205347C814DD1AF056875E0A880AC</item_type>
+    <ref_id>E1E49D0C7E934D2AB6FFA3B449AF6B45</ref_id>
+    <sort_order>640</sort_order>
+    <source_id keyed_name="Synchronization Scope Query" type="qry_QueryDefinition">9E4DAD6CCC4B4232A087E624F49F18F2</source_id>
+    <alias>CAD</alias>
+    <Relationships>
+     <Item type="qry_QueryItemSelectProperty" id="1144976F260540BE9AE75DAB79F8AE32" action="add">
+      <property_name>authoring_tool</property_name>
+      <sort_order>128</sort_order>
+      <source_id keyed_name="CAD" type="qry_QueryItem">9F5D08CE9E804BC198BA0F6B627099D0</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="3CBD1DCDF07744C5A5552B8A6E7C8370" action="add">
+      <property_name>authoring_tool_version</property_name>
+      <sort_order>256</sort_order>
+      <source_id keyed_name="CAD" type="qry_QueryItem">9F5D08CE9E804BC198BA0F6B627099D0</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="B9E0A8E041A0477596009E80EEBABF0C" action="add">
+      <property_name>classification</property_name>
+      <sort_order>384</sort_order>
+      <source_id keyed_name="CAD" type="qry_QueryItem">9F5D08CE9E804BC198BA0F6B627099D0</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="A3200C975E174DD09FD3FD777246A2B2" action="add">
+      <property_name>config_id</property_name>
+      <sort_order>512</sort_order>
+      <source_id keyed_name="CAD" type="qry_QueryItem">9F5D08CE9E804BC198BA0F6B627099D0</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="3992D4CDA20B417796E76CC82ACEC12B" action="add">
+      <property_name>created_by_id</property_name>
+      <sort_order>640</sort_order>
+      <source_id keyed_name="CAD" type="qry_QueryItem">9F5D08CE9E804BC198BA0F6B627099D0</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="2D27A25C40F64DD88BA5F5D14F0A19FA" action="add">
+      <property_name>created_on</property_name>
+      <sort_order>768</sort_order>
+      <source_id keyed_name="CAD" type="qry_QueryItem">9F5D08CE9E804BC198BA0F6B627099D0</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="210B5318082D4520A9B49922A5FE3538" action="add">
+      <property_name>css</property_name>
+      <sort_order>896</sort_order>
+      <source_id keyed_name="CAD" type="qry_QueryItem">9F5D08CE9E804BC198BA0F6B627099D0</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="74C8805B90C94D63A6651363D00250C6" action="add">
+      <property_name>current_state</property_name>
+      <sort_order>1024</sort_order>
+      <source_id keyed_name="CAD" type="qry_QueryItem">9F5D08CE9E804BC198BA0F6B627099D0</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="B42033A31FA146E39F61A997F7C27109" action="add">
+      <property_name>description</property_name>
+      <sort_order>1152</sort_order>
+      <source_id keyed_name="CAD" type="qry_QueryItem">9F5D08CE9E804BC198BA0F6B627099D0</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="BFFF4A8415A3477FA49A7D6A45E0C5AB" action="add">
+      <property_name>effective_date</property_name>
+      <sort_order>1280</sort_order>
+      <source_id keyed_name="CAD" type="qry_QueryItem">9F5D08CE9E804BC198BA0F6B627099D0</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="4D6E2E9916C84D8D8A6A9FD9348E72ED" action="add">
+      <property_name>external_owner</property_name>
+      <sort_order>1408</sort_order>
+      <source_id keyed_name="CAD" type="qry_QueryItem">9F5D08CE9E804BC198BA0F6B627099D0</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="F753A05BABDD4B94AD53C7BD8187144D" action="add">
+      <property_name>external_id</property_name>
+      <sort_order>1536</sort_order>
+      <source_id keyed_name="CAD" type="qry_QueryItem">9F5D08CE9E804BC198BA0F6B627099D0</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="E0BE203BE97F47B6A369C6FC881688BD" action="add">
+      <property_name>external_type</property_name>
+      <sort_order>1664</sort_order>
+      <source_id keyed_name="CAD" type="qry_QueryItem">9F5D08CE9E804BC198BA0F6B627099D0</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="239BAC794D3A46899DF10A2A83CD0EC8" action="add">
+      <property_name>from_template</property_name>
+      <sort_order>1792</sort_order>
+      <source_id keyed_name="CAD" type="qry_QueryItem">9F5D08CE9E804BC198BA0F6B627099D0</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="71708595A7AE417BB34EC6839068A2C9" action="add">
+      <property_name>global_version</property_name>
+      <sort_order>1920</sort_order>
+      <source_id keyed_name="CAD" type="qry_QueryItem">9F5D08CE9E804BC198BA0F6B627099D0</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="615E8DB6C372491D94665FCD22DE76E0" action="add">
+      <property_name>generation</property_name>
+      <sort_order>2048</sort_order>
+      <source_id keyed_name="CAD" type="qry_QueryItem">9F5D08CE9E804BC198BA0F6B627099D0</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="465BAA594FE04D71B57712B6238DED8D" action="add">
+      <property_name>id</property_name>
+      <sort_order>2176</sort_order>
+      <source_id keyed_name="CAD" type="qry_QueryItem">9F5D08CE9E804BC198BA0F6B627099D0</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="C8BB3B2E78F64A21BFA2B55FBDE17669" action="add">
+      <property_name>has_change_pending</property_name>
+      <sort_order>2304</sort_order>
+      <source_id keyed_name="CAD" type="qry_QueryItem">9F5D08CE9E804BC198BA0F6B627099D0</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="CD09E3FE13564888B46530D4EBE2DC2A" action="add">
+      <property_name>is_released</property_name>
+      <sort_order>2432</sort_order>
+      <source_id keyed_name="CAD" type="qry_QueryItem">9F5D08CE9E804BC198BA0F6B627099D0</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="629AC5FB668548B6BCCB7388C203E649" action="add">
+      <property_name>is_standard</property_name>
+      <sort_order>2560</sort_order>
+      <source_id keyed_name="CAD" type="qry_QueryItem">9F5D08CE9E804BC198BA0F6B627099D0</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="956BDDDF410B409582A34598E70EB816" action="add">
+      <property_name>is_template</property_name>
+      <sort_order>2688</sort_order>
+      <source_id keyed_name="CAD" type="qry_QueryItem">9F5D08CE9E804BC198BA0F6B627099D0</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="C114A7FF92C04F57B86D152E9008A6B9" action="add">
+      <property_name>keyed_name</property_name>
+      <sort_order>2816</sort_order>
+      <source_id keyed_name="CAD" type="qry_QueryItem">9F5D08CE9E804BC198BA0F6B627099D0</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="EC870C763EDB47BFA33D34DE41EC458D" action="add">
+      <property_name>major_rev</property_name>
+      <sort_order>3072</sort_order>
+      <source_id keyed_name="CAD" type="qry_QueryItem">9F5D08CE9E804BC198BA0F6B627099D0</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="86684B2A42154C00B57475E952F7EB15" action="add">
+      <property_name>managed_by_id</property_name>
+      <sort_order>3200</sort_order>
+      <source_id keyed_name="CAD" type="qry_QueryItem">9F5D08CE9E804BC198BA0F6B627099D0</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="3178E6A4996E4C67A754B98AE9FDF3BD" action="add">
+      <property_name>minor_rev</property_name>
+      <sort_order>3328</sort_order>
+      <source_id keyed_name="CAD" type="qry_QueryItem">9F5D08CE9E804BC198BA0F6B627099D0</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="5D39E7076ECF491383B17FA1FE972338" action="add">
+      <property_name>modified_by_id</property_name>
+      <sort_order>3456</sort_order>
+      <source_id keyed_name="CAD" type="qry_QueryItem">9F5D08CE9E804BC198BA0F6B627099D0</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="AB227FAA551C4817A9100855BECC8C35" action="add">
+      <property_name>modified_on</property_name>
+      <sort_order>3584</sort_order>
+      <source_id keyed_name="CAD" type="qry_QueryItem">9F5D08CE9E804BC198BA0F6B627099D0</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="9C1D64200DC9477E9A31D4963ED10897" action="add">
+      <property_name>monolithic_model_file</property_name>
+      <sort_order>3712</sort_order>
+      <source_id keyed_name="CAD" type="qry_QueryItem">9F5D08CE9E804BC198BA0F6B627099D0</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="0B3182D05A2F424C82DFC3D81F9CCF04" action="add">
+      <property_name>name</property_name>
+      <sort_order>3840</sort_order>
+      <source_id keyed_name="CAD" type="qry_QueryItem">9F5D08CE9E804BC198BA0F6B627099D0</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="DFBD82BE771F405F9BCE396037780CEE" action="add">
+      <property_name>native_file</property_name>
+      <sort_order>3968</sort_order>
+      <source_id keyed_name="CAD" type="qry_QueryItem">9F5D08CE9E804BC198BA0F6B627099D0</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="CF92A9CA1B604644A1CF37F6BC00BB09" action="add">
+      <property_name>not_lockable</property_name>
+      <sort_order>4096</sort_order>
+      <source_id keyed_name="CAD" type="qry_QueryItem">9F5D08CE9E804BC198BA0F6B627099D0</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="459C52876DAD43D49AA6740C506822EA" action="add">
+      <property_name>owned_by_id</property_name>
+      <sort_order>4224</sort_order>
+      <source_id keyed_name="CAD" type="qry_QueryItem">9F5D08CE9E804BC198BA0F6B627099D0</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="29025CC312C74F8093F6A4EA8B1189D1" action="add">
+      <property_name>release_date</property_name>
+      <sort_order>4352</sort_order>
+      <source_id keyed_name="CAD" type="qry_QueryItem">9F5D08CE9E804BC198BA0F6B627099D0</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="EBF03BC51C9145068EA5E3248A67752E" action="add">
+      <property_name>shattered_model_file</property_name>
+      <sort_order>4480</sort_order>
+      <source_id keyed_name="CAD" type="qry_QueryItem">9F5D08CE9E804BC198BA0F6B627099D0</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="6D7F64D81333426D8D326C5842507B3B" action="add">
+      <property_name>superseded_date</property_name>
+      <sort_order>4736</sort_order>
+      <source_id keyed_name="CAD" type="qry_QueryItem">9F5D08CE9E804BC198BA0F6B627099D0</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="6136D9173938475EB524D062EFFE0C9E" action="add">
+      <property_name>team_id</property_name>
+      <sort_order>4992</sort_order>
+      <source_id keyed_name="CAD" type="qry_QueryItem">9F5D08CE9E804BC198BA0F6B627099D0</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="7CCBAE4945AF417DA918A8BC7B97ABCD" action="add">
+      <property_name>view_file</property_name>
+      <sort_order>5248</sort_order>
+      <source_id keyed_name="CAD" type="qry_QueryItem">9F5D08CE9E804BC198BA0F6B627099D0</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="E1C7E295ABDC4269BAA8F400D642CD22" action="add">
+      <property_name>viewable_file</property_name>
+      <sort_order>5376</sort_order>
+      <source_id keyed_name="CAD" type="qry_QueryItem">9F5D08CE9E804BC198BA0F6B627099D0</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="120700C28DBA4B00B11D8BC7ED7DD84F" action="add">
+      <property_name>x_max</property_name>
+      <sort_order>5504</sort_order>
+      <source_id keyed_name="CAD" type="qry_QueryItem">9F5D08CE9E804BC198BA0F6B627099D0</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="D48A67404B8B401C959298D7736E1D43" action="add">
+      <property_name>x_min</property_name>
+      <sort_order>5632</sort_order>
+      <source_id keyed_name="CAD" type="qry_QueryItem">9F5D08CE9E804BC198BA0F6B627099D0</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="9552AB4D5CB24C3BA31AB8FCA9C10CF5" action="add">
+      <property_name>y_max</property_name>
+      <sort_order>5760</sort_order>
+      <source_id keyed_name="CAD" type="qry_QueryItem">9F5D08CE9E804BC198BA0F6B627099D0</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="EF9E157364684893ABA811022E1AE6DF" action="add">
+      <property_name>y_min</property_name>
+      <sort_order>5888</sort_order>
+      <source_id keyed_name="CAD" type="qry_QueryItem">9F5D08CE9E804BC198BA0F6B627099D0</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="2ACDD948144E408CB1DE22EF0D5FAB5D" action="add">
+      <property_name>z_max</property_name>
+      <sort_order>6016</sort_order>
+      <source_id keyed_name="CAD" type="qry_QueryItem">9F5D08CE9E804BC198BA0F6B627099D0</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="43AEB0A8A8494347A9414FB81BF3C918" action="add">
+      <property_name>z_min</property_name>
+      <sort_order>6144</sort_order>
+      <source_id keyed_name="CAD" type="qry_QueryItem">9F5D08CE9E804BC198BA0F6B627099D0</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="4B3D2BF2ABFD406BB68F220546FBB9D8" action="add">
+      <property_name>item_number</property_name>
+      <sort_order>6272</sort_order>
+      <source_id keyed_name="CAD" type="qry_QueryItem">9F5D08CE9E804BC198BA0F6B627099D0</source_id>
+     </Item>
+    </Relationships>
+   </Item>
+   <Item type="qry_QueryItem" id="CC639CFDF17644DD8F0DB5A0FA37500D" action="add">
+    <item_type keyed_name="CAD Structure" type="ItemType" name="CAD Structure">2812BEB188644E7FB3BEE526FD62032A</item_type>
+    <ref_id>482A09090DDA495C9CC9D1A3FC972D68</ref_id>
+    <sort_order>768</sort_order>
+    <source_id keyed_name="Synchronization Scope Query" type="qry_QueryDefinition">9E4DAD6CCC4B4232A087E624F49F18F2</source_id>
+    <alias>CAD Structure</alias>
+    <Relationships>
+     <Item type="qry_QueryItemSelectProperty" id="B5DE17D60BB14BB790DEE1D81BF231B7" action="add">
+      <property_name>behavior</property_name>
+      <sort_order>128</sort_order>
+      <source_id keyed_name="CAD Structure" type="qry_QueryItem">CC639CFDF17644DD8F0DB5A0FA37500D</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="C2CD52D228C248508452779CB525E0F4" action="add">
+      <property_name>classification</property_name>
+      <sort_order>256</sort_order>
+      <source_id keyed_name="CAD Structure" type="qry_QueryItem">CC639CFDF17644DD8F0DB5A0FA37500D</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="D2C2131EB10C433E8F14D77BDE51A3F4" action="add">
+      <property_name>config_id</property_name>
+      <sort_order>384</sort_order>
+      <source_id keyed_name="CAD Structure" type="qry_QueryItem">CC639CFDF17644DD8F0DB5A0FA37500D</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="91AD93CE15424FFF888A1CE0B9694D83" action="add">
+      <property_name>created_by_id</property_name>
+      <sort_order>512</sort_order>
+      <source_id keyed_name="CAD Structure" type="qry_QueryItem">CC639CFDF17644DD8F0DB5A0FA37500D</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="DBD493C53560498CA0F5A374D1DAE510" action="add">
+      <property_name>created_on</property_name>
+      <sort_order>640</sort_order>
+      <source_id keyed_name="CAD Structure" type="qry_QueryItem">CC639CFDF17644DD8F0DB5A0FA37500D</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="748AFF8BC9624C81B9987D1FFC6557D6" action="add">
+      <property_name>css</property_name>
+      <sort_order>768</sort_order>
+      <source_id keyed_name="CAD Structure" type="qry_QueryItem">CC639CFDF17644DD8F0DB5A0FA37500D</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="DCDAC6CBFA2543648DD9A6D96529D088" action="add">
+      <property_name>current_state</property_name>
+      <sort_order>896</sort_order>
+      <source_id keyed_name="CAD Structure" type="qry_QueryItem">CC639CFDF17644DD8F0DB5A0FA37500D</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="5EF134A4B9F84571BC20500E9F48A978" action="add">
+      <property_name>external_id</property_name>
+      <sort_order>1024</sort_order>
+      <source_id keyed_name="CAD Structure" type="qry_QueryItem">CC639CFDF17644DD8F0DB5A0FA37500D</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="2714C4293FAC45EB9EC7093677A456A0" action="add">
+      <property_name>external_owner</property_name>
+      <sort_order>1152</sort_order>
+      <source_id keyed_name="CAD Structure" type="qry_QueryItem">CC639CFDF17644DD8F0DB5A0FA37500D</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="14E8E0607F41452EA279B5A3731EDF87" action="add">
+      <property_name>external_type</property_name>
+      <sort_order>1280</sort_order>
+      <source_id keyed_name="CAD Structure" type="qry_QueryItem">CC639CFDF17644DD8F0DB5A0FA37500D</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="8019A9EE501042CD968EF7D1EE89AF16" action="add">
+      <property_name>generation</property_name>
+      <sort_order>1408</sort_order>
+      <source_id keyed_name="CAD Structure" type="qry_QueryItem">CC639CFDF17644DD8F0DB5A0FA37500D</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="E167CF7FD57A45CA9633B0E68EA11DDD" action="add">
+      <property_name>global_version</property_name>
+      <sort_order>1536</sort_order>
+      <source_id keyed_name="CAD Structure" type="qry_QueryItem">CC639CFDF17644DD8F0DB5A0FA37500D</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="1E8D507341544B28A6BB1BF5686942FF" action="add">
+      <property_name>id</property_name>
+      <sort_order>1664</sort_order>
+      <source_id keyed_name="CAD Structure" type="qry_QueryItem">CC639CFDF17644DD8F0DB5A0FA37500D</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="F3A4B96AF63149F287FD35FEDBC63C97" action="add">
+      <property_name>is_released</property_name>
+      <sort_order>1792</sort_order>
+      <source_id keyed_name="CAD Structure" type="qry_QueryItem">CC639CFDF17644DD8F0DB5A0FA37500D</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="CBFDEFACEB9740F1A0CDB403EFB9E445" action="add">
+      <property_name>keyed_name</property_name>
+      <sort_order>1920</sort_order>
+      <source_id keyed_name="CAD Structure" type="qry_QueryItem">CC639CFDF17644DD8F0DB5A0FA37500D</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="F557370BA9574037955455C7899648C3" action="add">
+      <property_name>major_rev</property_name>
+      <sort_order>2176</sort_order>
+      <source_id keyed_name="CAD Structure" type="qry_QueryItem">CC639CFDF17644DD8F0DB5A0FA37500D</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="59A4301C8D734D38AEDB7C4A63A3AEBB" action="add">
+      <property_name>managed_by_id</property_name>
+      <sort_order>2304</sort_order>
+      <source_id keyed_name="CAD Structure" type="qry_QueryItem">CC639CFDF17644DD8F0DB5A0FA37500D</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="2F575477E7CF45608AF6E820ED0AF236" action="add">
+      <property_name>minor_rev</property_name>
+      <sort_order>2432</sort_order>
+      <source_id keyed_name="CAD Structure" type="qry_QueryItem">CC639CFDF17644DD8F0DB5A0FA37500D</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="73AA44DA39EF4457A3A92A6063A84103" action="add">
+      <property_name>modified_by_id</property_name>
+      <sort_order>2560</sort_order>
+      <source_id keyed_name="CAD Structure" type="qry_QueryItem">CC639CFDF17644DD8F0DB5A0FA37500D</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="E08500B261354EA58D3A00E1C2A13732" action="add">
+      <property_name>modified_on</property_name>
+      <sort_order>2688</sort_order>
+      <source_id keyed_name="CAD Structure" type="qry_QueryItem">CC639CFDF17644DD8F0DB5A0FA37500D</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="9FD9A909EFC54397A829F7C4DC3883A2" action="add">
+      <property_name>not_lockable</property_name>
+      <sort_order>2816</sort_order>
+      <source_id keyed_name="CAD Structure" type="qry_QueryItem">CC639CFDF17644DD8F0DB5A0FA37500D</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="13BF5CFBC82449D984AE46470EFA9358" action="add">
+      <property_name>owned_by_id</property_name>
+      <sort_order>2944</sort_order>
+      <source_id keyed_name="CAD Structure" type="qry_QueryItem">CC639CFDF17644DD8F0DB5A0FA37500D</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="FB93DD5287C1456F96BCF1EE4CE80AB7" action="add">
+      <property_name>related_id</property_name>
+      <sort_order>3072</sort_order>
+      <source_id keyed_name="CAD Structure" type="qry_QueryItem">CC639CFDF17644DD8F0DB5A0FA37500D</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="158F8F88BFCD4F1693AAC712BF1D123C" action="add">
+      <property_name>sort_order</property_name>
+      <sort_order>3200</sort_order>
+      <source_id keyed_name="CAD Structure" type="qry_QueryItem">CC639CFDF17644DD8F0DB5A0FA37500D</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="43E91CD0D6C641D5B264893820C8828B" action="add">
+      <property_name>source_id</property_name>
+      <sort_order>3328</sort_order>
+      <source_id keyed_name="CAD Structure" type="qry_QueryItem">CC639CFDF17644DD8F0DB5A0FA37500D</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="3F1AC0EF250E4290840B602A3B86ED16" action="add">
+      <property_name>team_id</property_name>
+      <sort_order>3584</sort_order>
+      <source_id keyed_name="CAD Structure" type="qry_QueryItem">CC639CFDF17644DD8F0DB5A0FA37500D</source_id>
+     </Item>
+    </Relationships>
+   </Item>
+   <Item type="qry_QueryItem" id="DB29885220F1459B8AC76EC127C69EEE" action="add">
+    <item_type keyed_name="CADFiles" type="ItemType" name="CADFiles">15FF1A4262FA4164B45A8A97BCE20CD4</item_type>
+    <ref_id>5072694CB2B44A4C87CBBEE4040367DD</ref_id>
+    <sort_order>1024</sort_order>
+    <source_id keyed_name="Synchronization Scope Query" type="qry_QueryDefinition">9E4DAD6CCC4B4232A087E624F49F18F2</source_id>
+    <alias>CADFiles</alias>
+    <Relationships>
+     <Item type="qry_QueryItemSelectProperty" id="5AE7A1C1F73340399B89A8282E413DCC" action="add">
+      <property_name>attached_file</property_name>
+      <sort_order>128</sort_order>
+      <source_id keyed_name="CADFiles" type="qry_QueryItem">DB29885220F1459B8AC76EC127C69EEE</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="77F62666079E4244B908FB4E7DC862A1" action="add">
+      <property_name>behavior</property_name>
+      <sort_order>256</sort_order>
+      <source_id keyed_name="CADFiles" type="qry_QueryItem">DB29885220F1459B8AC76EC127C69EEE</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="06AA63900BAA4D1589A64BA816E2745C" action="add">
+      <property_name>classification</property_name>
+      <sort_order>384</sort_order>
+      <source_id keyed_name="CADFiles" type="qry_QueryItem">DB29885220F1459B8AC76EC127C69EEE</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="560D4B85BA1C45F2B96A85F2C5B40BE0" action="add">
+      <property_name>comments</property_name>
+      <sort_order>512</sort_order>
+      <source_id keyed_name="CADFiles" type="qry_QueryItem">DB29885220F1459B8AC76EC127C69EEE</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="6920A3F4B2554026B80A013043649C89" action="add">
+      <property_name>config_id</property_name>
+      <sort_order>640</sort_order>
+      <source_id keyed_name="CADFiles" type="qry_QueryItem">DB29885220F1459B8AC76EC127C69EEE</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="7B783934C33548749A0236DF4A188129" action="add">
+      <property_name>created_by_id</property_name>
+      <sort_order>768</sort_order>
+      <source_id keyed_name="CADFiles" type="qry_QueryItem">DB29885220F1459B8AC76EC127C69EEE</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="545D006C44D5471DB02E3BE73A435BAB" action="add">
+      <property_name>created_on</property_name>
+      <sort_order>896</sort_order>
+      <source_id keyed_name="CADFiles" type="qry_QueryItem">DB29885220F1459B8AC76EC127C69EEE</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="F43F366FE77C44F08F61210E370AA253" action="add">
+      <property_name>css</property_name>
+      <sort_order>1024</sort_order>
+      <source_id keyed_name="CADFiles" type="qry_QueryItem">DB29885220F1459B8AC76EC127C69EEE</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="0008A5A2EE6E44B3A17630828DBE0321" action="add">
+      <property_name>current_state</property_name>
+      <sort_order>1152</sort_order>
+      <source_id keyed_name="CADFiles" type="qry_QueryItem">DB29885220F1459B8AC76EC127C69EEE</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="3DD4B1A7841B49EBBFDFDB907307E8C2" action="add">
+      <property_name>external_id</property_name>
+      <sort_order>1280</sort_order>
+      <source_id keyed_name="CADFiles" type="qry_QueryItem">DB29885220F1459B8AC76EC127C69EEE</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="9AA9BC33BF5040F8A2CB14578112CC62" action="add">
+      <property_name>external_owner</property_name>
+      <sort_order>1408</sort_order>
+      <source_id keyed_name="CADFiles" type="qry_QueryItem">DB29885220F1459B8AC76EC127C69EEE</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="7F8C16141241406DA93E6483F97DED07" action="add">
+      <property_name>external_type</property_name>
+      <sort_order>1536</sort_order>
+      <source_id keyed_name="CADFiles" type="qry_QueryItem">DB29885220F1459B8AC76EC127C69EEE</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="F438672AF4A64A099A5179EF24DE2034" action="add">
+      <property_name>file_type</property_name>
+      <sort_order>1664</sort_order>
+      <source_id keyed_name="CADFiles" type="qry_QueryItem">DB29885220F1459B8AC76EC127C69EEE</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="6548E7A53EB749A79E1CA206FE8D671C" action="add">
+      <property_name>generation</property_name>
+      <sort_order>1792</sort_order>
+      <source_id keyed_name="CADFiles" type="qry_QueryItem">DB29885220F1459B8AC76EC127C69EEE</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="417DAB620C9944BEB3CCC71820E8A592" action="add">
+      <property_name>global_version</property_name>
+      <sort_order>1920</sort_order>
+      <source_id keyed_name="CADFiles" type="qry_QueryItem">DB29885220F1459B8AC76EC127C69EEE</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="617DDBB63A6D4B37A6678E74E22A997B" action="add">
+      <property_name>id</property_name>
+      <sort_order>2048</sort_order>
+      <source_id keyed_name="CADFiles" type="qry_QueryItem">DB29885220F1459B8AC76EC127C69EEE</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="A7FA2359212B40F288DDD0BDCC0F1ACD" action="add">
+      <property_name>is_released</property_name>
+      <sort_order>2176</sort_order>
+      <source_id keyed_name="CADFiles" type="qry_QueryItem">DB29885220F1459B8AC76EC127C69EEE</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="662F2CE2C80741D3A3C85BBBB60135A3" action="add">
+      <property_name>keyed_name</property_name>
+      <sort_order>2304</sort_order>
+      <source_id keyed_name="CADFiles" type="qry_QueryItem">DB29885220F1459B8AC76EC127C69EEE</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="868D6679970A4CB8BA1F72B4C81B9325" action="add">
+      <property_name>major_rev</property_name>
+      <sort_order>2432</sort_order>
+      <source_id keyed_name="CADFiles" type="qry_QueryItem">DB29885220F1459B8AC76EC127C69EEE</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="DC4426978D3A40CD93B0D7C3A32DF99A" action="add">
+      <property_name>managed_by_id</property_name>
+      <sort_order>2560</sort_order>
+      <source_id keyed_name="CADFiles" type="qry_QueryItem">DB29885220F1459B8AC76EC127C69EEE</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="126BC1878E6643D6A47FE64549D3BD31" action="add">
+      <property_name>minor_rev</property_name>
+      <sort_order>2688</sort_order>
+      <source_id keyed_name="CADFiles" type="qry_QueryItem">DB29885220F1459B8AC76EC127C69EEE</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="543DDBAC854E4A2FB0BD2798DA9C317F" action="add">
+      <property_name>modified_by_id</property_name>
+      <sort_order>2816</sort_order>
+      <source_id keyed_name="CADFiles" type="qry_QueryItem">DB29885220F1459B8AC76EC127C69EEE</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="8CDFBD73EEAB415B8DEBF632C7543D7E" action="add">
+      <property_name>modified_on</property_name>
+      <sort_order>2944</sort_order>
+      <source_id keyed_name="CADFiles" type="qry_QueryItem">DB29885220F1459B8AC76EC127C69EEE</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="64826F0081C44DC48ABB47D682830403" action="add">
+      <property_name>not_lockable</property_name>
+      <sort_order>3072</sort_order>
+      <source_id keyed_name="CADFiles" type="qry_QueryItem">DB29885220F1459B8AC76EC127C69EEE</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="5F03BE7B55AF4739BBD8458BD1D21F00" action="add">
+      <property_name>owned_by_id</property_name>
+      <sort_order>3200</sort_order>
+      <source_id keyed_name="CADFiles" type="qry_QueryItem">DB29885220F1459B8AC76EC127C69EEE</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="3BE11DECE7AB47718D2BD83C1CC84EA7" action="add">
+      <property_name>related_id</property_name>
+      <sort_order>3328</sort_order>
+      <source_id keyed_name="CADFiles" type="qry_QueryItem">DB29885220F1459B8AC76EC127C69EEE</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="E8FC788F092544C6A61E96DC680641C2" action="add">
+      <property_name>sort_order</property_name>
+      <sort_order>3456</sort_order>
+      <source_id keyed_name="CADFiles" type="qry_QueryItem">DB29885220F1459B8AC76EC127C69EEE</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="8BDE4F75F6764F018348AA9F1315BC23" action="add">
+      <property_name>source_id</property_name>
+      <sort_order>3584</sort_order>
+      <source_id keyed_name="CADFiles" type="qry_QueryItem">DB29885220F1459B8AC76EC127C69EEE</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="05F3617CB5C347E982F117C26FF55FDE" action="add">
+      <property_name>team_id</property_name>
+      <sort_order>3840</sort_order>
+      <source_id keyed_name="CADFiles" type="qry_QueryItem">DB29885220F1459B8AC76EC127C69EEE</source_id>
+     </Item>
+    </Relationships>
+   </Item>
+   <Item type="qry_QueryItem" id="C61E6171211C4841869DFB8CD02837AA" action="add">
+    <item_type keyed_name="File" type="ItemType" name="File">8052A558B9084D41B9F11805E464F443</item_type>
+    <ref_id>7AEED50DB3CD48D292F40D24ECBBDE1D</ref_id>
+    <sort_order>1152</sort_order>
+    <source_id keyed_name="Synchronization Scope Query" type="qry_QueryDefinition">9E4DAD6CCC4B4232A087E624F49F18F2</source_id>
+    <alias>CAD Files</alias>
+    <Relationships>
+     <Item type="qry_QueryItemSelectProperty" id="E08ADC73A63A42B3BA691B461AE05F97" action="add">
+      <property_name>filename</property_name>
+      <sort_order>128</sort_order>
+      <source_id keyed_name="CAD Files" type="qry_QueryItem">C61E6171211C4841869DFB8CD02837AA</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="2C610D45BB184D84BE9A57AE7B036C52" action="add">
+      <property_name>file_type</property_name>
+      <sort_order>256</sort_order>
+      <source_id keyed_name="CAD Files" type="qry_QueryItem">C61E6171211C4841869DFB8CD02837AA</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="37C15D4AD2764B92A57DA59380FAE60B" action="add">
+      <property_name>id</property_name>
+      <sort_order>384</sort_order>
+      <source_id keyed_name="CAD Files" type="qry_QueryItem">C61E6171211C4841869DFB8CD02837AA</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="03FFBB2635CE409E95C86B0348F5CB31" action="add">
+      <property_name>keyed_name</property_name>
+      <sort_order>512</sort_order>
+      <source_id keyed_name="CAD Files" type="qry_QueryItem">C61E6171211C4841869DFB8CD02837AA</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="0967836CAC2C448FAD4E58A04021AACF" action="add">
+      <property_name>global_version</property_name>
+      <sort_order>640</sort_order>
+      <source_id keyed_name="CAD Files" type="qry_QueryItem">C61E6171211C4841869DFB8CD02837AA</source_id>
+     </Item>
+    </Relationships>
+   </Item>
+   <Item type="qry_QueryItem" id="44A597454EBA45A292DD1E35FF891FEB" action="add">
+    <item_type keyed_name="Located" type="ItemType" name="Located">5698BACD2A7A45D6AC3FA60EAB3E6566</item_type>
+    <ref_id>51FDA23F319845F0BBA75D95C99A1964</ref_id>
+    <sort_order>1280</sort_order>
+    <source_id keyed_name="Synchronization Scope Query" type="qry_QueryDefinition">9E4DAD6CCC4B4232A087E624F49F18F2</source_id>
+    <alias>Located_files</alias>
+    <Relationships>
+     <Item type="qry_QueryItemSelectProperty" id="A9515555D6AC4A749E1B4C6B933D7C3B" action="add">
+      <property_name>id</property_name>
+      <sort_order>128</sort_order>
+      <source_id keyed_name="Located_files" type="qry_QueryItem">44A597454EBA45A292DD1E35FF891FEB</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="09565F0B068D41B6A26044600772AAF3" action="add">
+      <property_name>related_id</property_name>
+      <sort_order>256</sort_order>
+      <source_id keyed_name="Located_files" type="qry_QueryItem">44A597454EBA45A292DD1E35FF891FEB</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="D26E06E7D68644A38B1B7EA73D7D380F" action="add">
+      <property_name>keyed_name</property_name>
+      <sort_order>384</sort_order>
+      <source_id keyed_name="Located_files" type="qry_QueryItem">44A597454EBA45A292DD1E35FF891FEB</source_id>
+     </Item>
+    </Relationships>
+   </Item>
+   <Item type="qry_QueryItem" id="93A5426C2A204AC090B7C48628CCB92C" action="add">
+    <item_type keyed_name="File" type="ItemType" name="File">8052A558B9084D41B9F11805E464F443</item_type>
+    <ref_id>EA8BB48EBBDA4C748180FB085E036C3E</ref_id>
+    <sort_order>1408</sort_order>
+    <source_id keyed_name="Synchronization Scope Query" type="qry_QueryDefinition">9E4DAD6CCC4B4232A087E624F49F18F2</source_id>
+    <alias>CAD native file</alias>
+    <Relationships>
+     <Item type="qry_QueryItemSelectProperty" id="B8AD668BE91A4B518AC2096E9886BE7E" action="add">
+      <property_name>filename</property_name>
+      <sort_order>128</sort_order>
+      <source_id keyed_name="CAD native file" type="qry_QueryItem">93A5426C2A204AC090B7C48628CCB92C</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="0F476C932B76471D9ADFBD321FB5E7E8" action="add">
+      <property_name>file_type</property_name>
+      <sort_order>256</sort_order>
+      <source_id keyed_name="CAD native file" type="qry_QueryItem">93A5426C2A204AC090B7C48628CCB92C</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="334F79356D9D4B03B2999662A1C8B2FD" action="add">
+      <property_name>id</property_name>
+      <sort_order>384</sort_order>
+      <source_id keyed_name="CAD native file" type="qry_QueryItem">93A5426C2A204AC090B7C48628CCB92C</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="06ACBAF543FA4735BDDCE59E5EC68576" action="add">
+      <property_name>keyed_name</property_name>
+      <sort_order>512</sort_order>
+      <source_id keyed_name="CAD native file" type="qry_QueryItem">93A5426C2A204AC090B7C48628CCB92C</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="C32416DCF1134EBE9A80EF53FF27F1CF" action="add">
+      <property_name>global_version</property_name>
+      <sort_order>640</sort_order>
+      <source_id keyed_name="CAD native file" type="qry_QueryItem">93A5426C2A204AC090B7C48628CCB92C</source_id>
+     </Item>
+    </Relationships>
+   </Item>
+   <Item type="qry_QueryItem" id="A163C05869354F74A467066562AFB449" action="add">
+    <item_type keyed_name="Located" type="ItemType" name="Located">5698BACD2A7A45D6AC3FA60EAB3E6566</item_type>
+    <ref_id>15E7546606A846D891C697063C963314</ref_id>
+    <sort_order>1536</sort_order>
+    <source_id keyed_name="Synchronization Scope Query" type="qry_QueryDefinition">9E4DAD6CCC4B4232A087E624F49F18F2</source_id>
+    <alias>Located_native</alias>
+    <Relationships>
+     <Item type="qry_QueryItemSelectProperty" id="30F15E5017C94C44BB0FDA650027283A" action="add">
+      <property_name>id</property_name>
+      <sort_order>128</sort_order>
+      <source_id keyed_name="Located_native" type="qry_QueryItem">A163C05869354F74A467066562AFB449</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="90150719FA044C1189D5BD2649F21FC5" action="add">
+      <property_name>related_id</property_name>
+      <sort_order>256</sort_order>
+      <source_id keyed_name="Located_native" type="qry_QueryItem">A163C05869354F74A467066562AFB449</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="757AB54375104E0C8D646E24FAEC7369" action="add">
+      <property_name>keyed_name</property_name>
+      <sort_order>384</sort_order>
+      <source_id keyed_name="Located_native" type="qry_QueryItem">A163C05869354F74A467066562AFB449</source_id>
+     </Item>
+    </Relationships>
+   </Item>
+   <Item type="qry_QueryItem" id="C4592AE850094AC2AFD2C286DF13C862" action="add">
+    <filter_xml><![CDATA[<condition>
+	<gt>
+		<count>
+			<query_reference_path>4A380B2DE0434841B5D9487894EC688B</query_reference_path>
+		</count>
+		<constant>0</constant>
+	</gt>
+</condition>]]></filter_xml>
+    <item_type keyed_name="Part BOM" type="ItemType" name="Part BOM">5E9C5A12CC58413A8670CF4003C57848</item_type>
+    <ref_id>BC9F6C36C8E4479DA72B2430BF3B1573</ref_id>
+    <sort_order>1664</sort_order>
+    <source_id keyed_name="Synchronization Scope Query" type="qry_QueryDefinition">9E4DAD6CCC4B4232A087E624F49F18F2</source_id>
+    <alias>Part BOM</alias>
+    <Relationships>
+     <Item type="qry_QueryItemSelectProperty" id="A77AC53B2E6345129A3AA958A09E35D9" action="add">
+      <property_name>behavior</property_name>
+      <sort_order>128</sort_order>
+      <source_id keyed_name="Part BOM" type="qry_QueryItem">C4592AE850094AC2AFD2C286DF13C862</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="5369DF6ECEF741E284A1DE713335C96C" action="add">
+      <property_name>classification</property_name>
+      <sort_order>256</sort_order>
+      <source_id keyed_name="Part BOM" type="qry_QueryItem">C4592AE850094AC2AFD2C286DF13C862</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="4CAA33A93A574543A14973AF53B19B90" action="add">
+      <property_name>config_id</property_name>
+      <sort_order>384</sort_order>
+      <source_id keyed_name="Part BOM" type="qry_QueryItem">C4592AE850094AC2AFD2C286DF13C862</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="C942963C7FBC489FB9B8EDB21544D5CB" action="add">
+      <property_name>created_by_id</property_name>
+      <sort_order>512</sort_order>
+      <source_id keyed_name="Part BOM" type="qry_QueryItem">C4592AE850094AC2AFD2C286DF13C862</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="A301B73701974EE4ACAD2EA2C204B53F" action="add">
+      <property_name>created_on</property_name>
+      <sort_order>640</sort_order>
+      <source_id keyed_name="Part BOM" type="qry_QueryItem">C4592AE850094AC2AFD2C286DF13C862</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="675F8DBADEB94F4896CB92029303BF96" action="add">
+      <property_name>css</property_name>
+      <sort_order>768</sort_order>
+      <source_id keyed_name="Part BOM" type="qry_QueryItem">C4592AE850094AC2AFD2C286DF13C862</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="7AF3C66611024D3AB6DCA47C3A3BD1B7" action="add">
+      <property_name>current_state</property_name>
+      <sort_order>896</sort_order>
+      <source_id keyed_name="Part BOM" type="qry_QueryItem">C4592AE850094AC2AFD2C286DF13C862</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="D85206A6448740B8949D7CF2CC1B2C5D" action="add">
+      <property_name>external_id</property_name>
+      <sort_order>1024</sort_order>
+      <source_id keyed_name="Part BOM" type="qry_QueryItem">C4592AE850094AC2AFD2C286DF13C862</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="D91C8708A82B479C8D92E7B45CA9FF7D" action="add">
+      <property_name>external_owner</property_name>
+      <sort_order>1152</sort_order>
+      <source_id keyed_name="Part BOM" type="qry_QueryItem">C4592AE850094AC2AFD2C286DF13C862</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="0279BC8901CE4F139AF3CA76B5CEABC3" action="add">
+      <property_name>external_type</property_name>
+      <sort_order>1280</sort_order>
+      <source_id keyed_name="Part BOM" type="qry_QueryItem">C4592AE850094AC2AFD2C286DF13C862</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="5FE95D3F64D34D809425FCADEC657181" action="add">
+      <property_name>generation</property_name>
+      <sort_order>1408</sort_order>
+      <source_id keyed_name="Part BOM" type="qry_QueryItem">C4592AE850094AC2AFD2C286DF13C862</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="D20BC8F3AD054CF3BE50323203ADB64F" action="add">
+      <property_name>global_version</property_name>
+      <sort_order>1536</sort_order>
+      <source_id keyed_name="Part BOM" type="qry_QueryItem">C4592AE850094AC2AFD2C286DF13C862</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="0D996BC2B9FD4320BDEECB74B013F824" action="add">
+      <property_name>id</property_name>
+      <sort_order>1664</sort_order>
+      <source_id keyed_name="Part BOM" type="qry_QueryItem">C4592AE850094AC2AFD2C286DF13C862</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="501A71CD05914523A19054E97A006BE0" action="add">
+      <property_name>is_current</property_name>
+      <sort_order>1792</sort_order>
+      <source_id keyed_name="Part BOM" type="qry_QueryItem">C4592AE850094AC2AFD2C286DF13C862</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="D6C8F489312C46D8980AACB187D2CA26" action="add">
+      <property_name>is_released</property_name>
+      <sort_order>1920</sort_order>
+      <source_id keyed_name="Part BOM" type="qry_QueryItem">C4592AE850094AC2AFD2C286DF13C862</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="8745AC2F364A4EF4AF323CBA678E78B9" action="add">
+      <property_name>keyed_name</property_name>
+      <sort_order>2048</sort_order>
+      <source_id keyed_name="Part BOM" type="qry_QueryItem">C4592AE850094AC2AFD2C286DF13C862</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="F953FE15D4A648C784A07E7991DA79A6" action="add">
+      <property_name>major_rev</property_name>
+      <sort_order>2176</sort_order>
+      <source_id keyed_name="Part BOM" type="qry_QueryItem">C4592AE850094AC2AFD2C286DF13C862</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="137D57EF3D78489E9C045E55669C3939" action="add">
+      <property_name>managed_by_id</property_name>
+      <sort_order>2304</sort_order>
+      <source_id keyed_name="Part BOM" type="qry_QueryItem">C4592AE850094AC2AFD2C286DF13C862</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="5749291D3D034D34B6BA0389D24AFBB1" action="add">
+      <property_name>minor_rev</property_name>
+      <sort_order>2432</sort_order>
+      <source_id keyed_name="Part BOM" type="qry_QueryItem">C4592AE850094AC2AFD2C286DF13C862</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="1EA1839C40684ED489A27EC0D6078A1D" action="add">
+      <property_name>modified_by_id</property_name>
+      <sort_order>2560</sort_order>
+      <source_id keyed_name="Part BOM" type="qry_QueryItem">C4592AE850094AC2AFD2C286DF13C862</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="F5722535425B43C39108D35CBACF0D2C" action="add">
+      <property_name>modified_on</property_name>
+      <sort_order>2688</sort_order>
+      <source_id keyed_name="Part BOM" type="qry_QueryItem">C4592AE850094AC2AFD2C286DF13C862</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="3D5DD9C3D84246038E3ECFF8CA8A8069" action="add">
+      <property_name>not_lockable</property_name>
+      <sort_order>2816</sort_order>
+      <source_id keyed_name="Part BOM" type="qry_QueryItem">C4592AE850094AC2AFD2C286DF13C862</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="1469AFE5DBDA4C9BBE5BC0069FB7B3B8" action="add">
+      <property_name>owned_by_id</property_name>
+      <sort_order>2944</sort_order>
+      <source_id keyed_name="Part BOM" type="qry_QueryItem">C4592AE850094AC2AFD2C286DF13C862</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="512129B025334114962E37F0A7BAA173" action="add">
+      <property_name>quantity</property_name>
+      <sort_order>3072</sort_order>
+      <source_id keyed_name="Part BOM" type="qry_QueryItem">C4592AE850094AC2AFD2C286DF13C862</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="66D6508126D740ADA7E71BFCE1A619B3" action="add">
+      <property_name>reference_designator</property_name>
+      <sort_order>3200</sort_order>
+      <source_id keyed_name="Part BOM" type="qry_QueryItem">C4592AE850094AC2AFD2C286DF13C862</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="C9A22A0A5ABD4598B6DF388925237224" action="add">
+      <property_name>related_id</property_name>
+      <sort_order>3328</sort_order>
+      <source_id keyed_name="Part BOM" type="qry_QueryItem">C4592AE850094AC2AFD2C286DF13C862</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="77CBA77F41994D58B32F37B4934BB841" action="add">
+      <property_name>sort_order</property_name>
+      <sort_order>3456</sort_order>
+      <source_id keyed_name="Part BOM" type="qry_QueryItem">C4592AE850094AC2AFD2C286DF13C862</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="1EDF3610CF984656A9EDEDBBEE2133AC" action="add">
+      <property_name>source_id</property_name>
+      <sort_order>3584</sort_order>
+      <source_id keyed_name="Part BOM" type="qry_QueryItem">C4592AE850094AC2AFD2C286DF13C862</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="4F2429F4F9CE4D1EB604E2FF8D8C93D1" action="add">
+      <property_name>team_id</property_name>
+      <sort_order>3840</sort_order>
+      <source_id keyed_name="Part BOM" type="qry_QueryItem">C4592AE850094AC2AFD2C286DF13C862</source_id>
+     </Item>
+    </Relationships>
+   </Item>
+   <Item type="qry_QueryItem" id="D76B648D40954EA19C2778ADE2F255D0" action="add">
+    <item_type keyed_name="File" type="ItemType" name="File">8052A558B9084D41B9F11805E464F443</item_type>
+    <ref_id>5788885294104475AF07F038F671C173</ref_id>
+    <sort_order>1792</sort_order>
+    <source_id keyed_name="Synchronization Scope Query" type="qry_QueryDefinition">9E4DAD6CCC4B4232A087E624F49F18F2</source_id>
+    <alias>CAD Viewable File</alias>
+    <Relationships>
+     <Item type="qry_QueryItemSelectProperty" id="26514620700642E0B8386C7300AA68C9" action="add">
+      <property_name>filename</property_name>
+      <sort_order>128</sort_order>
+      <source_id keyed_name="CAD Viewable File" type="qry_QueryItem">D76B648D40954EA19C2778ADE2F255D0</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="42934E67A43A43B89DA16F6A90C85B0F" action="add">
+      <property_name>file_type</property_name>
+      <sort_order>256</sort_order>
+      <source_id keyed_name="CAD Viewable File" type="qry_QueryItem">D76B648D40954EA19C2778ADE2F255D0</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="103F401845204B4182FCFFD2F70FBABE" action="add">
+      <property_name>id</property_name>
+      <sort_order>384</sort_order>
+      <source_id keyed_name="CAD Viewable File" type="qry_QueryItem">D76B648D40954EA19C2778ADE2F255D0</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="F69FF1F6B0A9452FB2B6431D705A2E3A" action="add">
+      <property_name>keyed_name</property_name>
+      <sort_order>512</sort_order>
+      <source_id keyed_name="CAD Viewable File" type="qry_QueryItem">D76B648D40954EA19C2778ADE2F255D0</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="3ED7A774C21F44768586024CB078BC2D" action="add">
+      <property_name>global_version</property_name>
+      <sort_order>640</sort_order>
+      <source_id keyed_name="CAD Viewable File" type="qry_QueryItem">D76B648D40954EA19C2778ADE2F255D0</source_id>
+     </Item>
+    </Relationships>
+   </Item>
+   <Item type="qry_QueryItem" id="8DC14F66DC414F01B1C29F5A3A7D4DA5" action="add">
+    <item_type keyed_name="Located" type="ItemType" name="Located">5698BACD2A7A45D6AC3FA60EAB3E6566</item_type>
+    <ref_id>E575BBBED95142A9A699F39A6CD879EB</ref_id>
+    <sort_order>1920</sort_order>
+    <source_id keyed_name="Synchronization Scope Query" type="qry_QueryDefinition">9E4DAD6CCC4B4232A087E624F49F18F2</source_id>
+    <alias>Located_viewable</alias>
+    <Relationships>
+     <Item type="qry_QueryItemSelectProperty" id="D4F1C8F6B9434F3495D9DEFD75ECED88" action="add">
+      <property_name>id</property_name>
+      <sort_order>128</sort_order>
+      <source_id keyed_name="Located_viewable" type="qry_QueryItem">8DC14F66DC414F01B1C29F5A3A7D4DA5</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="31604ECC4F0548858483F6E8E3830575" action="add">
+      <property_name>related_id</property_name>
+      <sort_order>256</sort_order>
+      <source_id keyed_name="Located_viewable" type="qry_QueryItem">8DC14F66DC414F01B1C29F5A3A7D4DA5</source_id>
+     </Item>
+     <Item type="qry_QueryItemSelectProperty" id="818551E3D3BD4FD39229B9978E2E53C0" action="add">
+      <property_name>keyed_name</property_name>
+      <sort_order>384</sort_order>
+      <source_id keyed_name="Located_viewable" type="qry_QueryItem">8DC14F66DC414F01B1C29F5A3A7D4DA5</source_id>
+     </Item>
+    </Relationships>
+   </Item>
+   <Item type="qry_QueryReference" id="D6F7E7B13EF146FFB06017AD25041848" action="add">
+    <child_ref_id>EEEDAB6B5E88473089CEC35CA33EF769</child_ref_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Synchronization Scope Query" type="qry_QueryDefinition">9E4DAD6CCC4B4232A087E624F49F18F2</source_id>
+   </Item>
+   <Item type="qry_QueryReference" id="DF2C66546E9746A095B3E3DB1DAC4F68" action="add">
+    <child_ref_id>FB46908E4DF343D68847D014F5454CD7</child_ref_id>
+    <filter_xml><![CDATA[<condition>
+	<eq>
+		<property query_items_xpath="parent::Item" name="id" />
+		<property name="source_id" />
+	</eq>
+</condition>]]></filter_xml>
+    <parent_ref_id>EEEDAB6B5E88473089CEC35CA33EF769</parent_ref_id>
+    <ref_id>4C33D9EF6E3F4E65879980397581CDF5</ref_id>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="Synchronization Scope Query" type="qry_QueryDefinition">9E4DAD6CCC4B4232A087E624F49F18F2</source_id>
+   </Item>
+   <Item type="qry_QueryReference" id="4187A6E84DF748078650425885A0D9B4" action="add">
+    <child_ref_id>05422CF4FBE14892B12D943DA42D0750</child_ref_id>
+    <filter_xml><![CDATA[<condition>
+	<eq>
+		<property query_items_xpath="parent::Item" name="related_id" />
+		<property name="id" />
+	</eq>
+</condition>]]></filter_xml>
+    <parent_ref_id>FB46908E4DF343D68847D014F5454CD7</parent_ref_id>
+    <ref_id>C7174F6BC1D24F4A8527BD7C4195DDAA</ref_id>
+    <sort_order>384</sort_order>
+    <source_id keyed_name="Synchronization Scope Query" type="qry_QueryDefinition">9E4DAD6CCC4B4232A087E624F49F18F2</source_id>
+   </Item>
+   <Item type="qry_QueryReference" id="09ADED6960624AD5956A40E292D43970" action="add">
+    <child_ref_id>1A2DEBA97EB9468CB7A96BE2F0AD03BC</child_ref_id>
+    <filter_xml><![CDATA[<condition>
+	<eq>
+		<property query_items_xpath="parent::Item" name="id" />
+		<property name="source_id" />
+	</eq>
+</condition>]]></filter_xml>
+    <parent_ref_id>05422CF4FBE14892B12D943DA42D0750</parent_ref_id>
+    <ref_id>3FC4F18D58F942FD82D73322CB725E6A</ref_id>
+    <sort_order>512</sort_order>
+    <source_id keyed_name="Synchronization Scope Query" type="qry_QueryDefinition">9E4DAD6CCC4B4232A087E624F49F18F2</source_id>
+   </Item>
+   <Item type="qry_QueryReference" id="C2DE090EA7C54FE392D452DDDFE63B8A" action="add">
+    <child_ref_id>E1E49D0C7E934D2AB6FFA3B449AF6B45</child_ref_id>
+    <filter_xml><![CDATA[<condition>
+	<eq>
+		<property query_items_xpath="parent::Item" name="related_id" />
+		<property name="id" />
+	</eq>
+</condition>]]></filter_xml>
+    <parent_ref_id>1A2DEBA97EB9468CB7A96BE2F0AD03BC</parent_ref_id>
+    <ref_id>74B79C863BD5471FA6839BCD2C1D30E6</ref_id>
+    <sort_order>640</sort_order>
+    <source_id keyed_name="Synchronization Scope Query" type="qry_QueryDefinition">9E4DAD6CCC4B4232A087E624F49F18F2</source_id>
+   </Item>
+   <Item type="qry_QueryReference" id="BA53B8E632F34D87821CB88014AA9119" action="add">
+    <child_ref_id>482A09090DDA495C9CC9D1A3FC972D68</child_ref_id>
+    <filter_xml><![CDATA[<condition>
+	<eq>
+		<property query_items_xpath="parent::Item" name="id" />
+		<property name="source_id" />
+	</eq>
+</condition>]]></filter_xml>
+    <parent_ref_id>E1E49D0C7E934D2AB6FFA3B449AF6B45</parent_ref_id>
+    <ref_id>A2F70EE60E9845A49701D5A024A65874</ref_id>
+    <sort_order>768</sort_order>
+    <source_id keyed_name="Synchronization Scope Query" type="qry_QueryDefinition">9E4DAD6CCC4B4232A087E624F49F18F2</source_id>
+   </Item>
+   <Item type="qry_QueryReference" id="D838BBAB783C4859B293E6450AC041D7" action="add">
+    <child_ref_id>5072694CB2B44A4C87CBBEE4040367DD</child_ref_id>
+    <filter_xml><![CDATA[<condition>
+	<eq>
+		<property query_items_xpath="parent::Item" name="id" />
+		<property name="source_id" />
+	</eq>
+</condition>]]></filter_xml>
+    <parent_ref_id>E1E49D0C7E934D2AB6FFA3B449AF6B45</parent_ref_id>
+    <ref_id>859E5486603D44B691C5291815E392BF</ref_id>
+    <sort_order>1024</sort_order>
+    <source_id keyed_name="Synchronization Scope Query" type="qry_QueryDefinition">9E4DAD6CCC4B4232A087E624F49F18F2</source_id>
+   </Item>
+   <Item type="qry_QueryReference" id="935D1D036B0246B5855BC0FE92A088BD" action="add">
+    <child_ref_id>7AEED50DB3CD48D292F40D24ECBBDE1D</child_ref_id>
+    <filter_xml><![CDATA[<condition>
+	<eq>
+		<property query_items_xpath="parent::Item" name="attached_file" />
+		<property name="id" />
+	</eq>
+</condition>]]></filter_xml>
+    <parent_ref_id>5072694CB2B44A4C87CBBEE4040367DD</parent_ref_id>
+    <ref_id>1169016AA09C469EADFC8FF2EE6D4F37</ref_id>
+    <sort_order>1152</sort_order>
+    <source_id keyed_name="Synchronization Scope Query" type="qry_QueryDefinition">9E4DAD6CCC4B4232A087E624F49F18F2</source_id>
+   </Item>
+   <Item type="qry_QueryReference" id="AC180E616B2944B4B70F93A442522A96" action="add">
+    <child_ref_id>51FDA23F319845F0BBA75D95C99A1964</child_ref_id>
+    <filter_xml><![CDATA[<condition>
+	<eq>
+		<property query_items_xpath="parent::Item" name="id" />
+		<property name="source_id" />
+	</eq>
+</condition>]]></filter_xml>
+    <parent_ref_id>7AEED50DB3CD48D292F40D24ECBBDE1D</parent_ref_id>
+    <ref_id>87D701B3C9EB49819702EC41617FE370</ref_id>
+    <sort_order>1280</sort_order>
+    <source_id keyed_name="Synchronization Scope Query" type="qry_QueryDefinition">9E4DAD6CCC4B4232A087E624F49F18F2</source_id>
+   </Item>
+   <Item type="qry_QueryReference" id="12AF9BFB044449B9A0F7D71CB52C5370" action="add">
+    <child_ref_id>EA8BB48EBBDA4C748180FB085E036C3E</child_ref_id>
+    <filter_xml><![CDATA[<condition>
+	<eq>
+		<property query_items_xpath="parent::Item" name="native_file" />
+		<property name="id" />
+	</eq>
+</condition>]]></filter_xml>
+    <parent_ref_id>E1E49D0C7E934D2AB6FFA3B449AF6B45</parent_ref_id>
+    <ref_id>53ABFFFC33184F179BF75E4B0A1FFC88</ref_id>
+    <sort_order>1408</sort_order>
+    <source_id keyed_name="Synchronization Scope Query" type="qry_QueryDefinition">9E4DAD6CCC4B4232A087E624F49F18F2</source_id>
+   </Item>
+   <Item type="qry_QueryReference" id="1F24786CDAE04AF7BE40E30444195888" action="add">
+    <child_ref_id>15E7546606A846D891C697063C963314</child_ref_id>
+    <filter_xml><![CDATA[<condition>
+	<eq>
+		<property query_items_xpath="parent::Item" name="id" />
+		<property name="source_id" />
+	</eq>
+</condition>]]></filter_xml>
+    <parent_ref_id>EA8BB48EBBDA4C748180FB085E036C3E</parent_ref_id>
+    <ref_id>A7C194DED3734F27AB815D18D24F697C</ref_id>
+    <sort_order>1536</sort_order>
+    <source_id keyed_name="Synchronization Scope Query" type="qry_QueryDefinition">9E4DAD6CCC4B4232A087E624F49F18F2</source_id>
+   </Item>
+   <Item type="qry_QueryReference" id="F583532E8EEF417D96AA6BC514CD9C80" action="add">
+    <child_ref_id>BC9F6C36C8E4479DA72B2430BF3B1573</child_ref_id>
+    <filter_xml><![CDATA[<condition>
+	<eq>
+		<property query_items_xpath="parent::Item" name="id" />
+		<property name="source_id" />
+	</eq>
+</condition>]]></filter_xml>
+    <parent_ref_id>05422CF4FBE14892B12D943DA42D0750</parent_ref_id>
+    <ref_id>B9530C3ED4F949548C9FDEC58CF3CEB3</ref_id>
+    <sort_order>1664</sort_order>
+    <source_id keyed_name="Synchronization Scope Query" type="qry_QueryDefinition">9E4DAD6CCC4B4232A087E624F49F18F2</source_id>
+   </Item>
+   <Item type="qry_QueryReference" id="30F077CAF69E41A3B103054763AE081D" action="add">
+    <child_ref_id>05422CF4FBE14892B12D943DA42D0750</child_ref_id>
+    <filter_xml><![CDATA[<condition>
+	<eq>
+		<property query_items_xpath="parent::Item" name="related_id" />
+		<property name="id" />
+	</eq>
+</condition>]]></filter_xml>
+    <parent_ref_id>BC9F6C36C8E4479DA72B2430BF3B1573</parent_ref_id>
+    <ref_id>4A380B2DE0434841B5D9487894EC688B</ref_id>
+    <sort_order>1792</sort_order>
+    <source_id keyed_name="Synchronization Scope Query" type="qry_QueryDefinition">9E4DAD6CCC4B4232A087E624F49F18F2</source_id>
+   </Item>
+   <Item type="qry_QueryReference" id="6FA60429B7DE42E998E4C47B0E1B0783" action="add">
+    <child_ref_id>E1E49D0C7E934D2AB6FFA3B449AF6B45</child_ref_id>
+    <filter_xml><![CDATA[<condition>
+	<eq>
+		<property query_items_xpath="parent::Item" name="related_id" />
+		<property name="id" />
+	</eq>
+</condition>]]></filter_xml>
+    <parent_ref_id>482A09090DDA495C9CC9D1A3FC972D68</parent_ref_id>
+    <ref_id>9C99B4C8CD604B5D948F0BB83F6F997D</ref_id>
+    <sort_order>1920</sort_order>
+    <source_id keyed_name="Synchronization Scope Query" type="qry_QueryDefinition">9E4DAD6CCC4B4232A087E624F49F18F2</source_id>
+   </Item>
+   <Item type="qry_QueryReference" id="2352334248A4457994D0A4DBE072C0C7" action="add">
+    <child_ref_id>5788885294104475AF07F038F671C173</child_ref_id>
+    <filter_xml><![CDATA[<condition>
+	<eq>
+		<property query_items_xpath="parent::Item" name="viewable_file" />
+		<property name="id" />
+	</eq>
+</condition>]]></filter_xml>
+    <parent_ref_id>E1E49D0C7E934D2AB6FFA3B449AF6B45</parent_ref_id>
+    <ref_id>D97E51D494E54164927E7F45219ECA20</ref_id>
+    <sort_order>2048</sort_order>
+    <source_id keyed_name="Synchronization Scope Query" type="qry_QueryDefinition">9E4DAD6CCC4B4232A087E624F49F18F2</source_id>
+   </Item>
+   <Item type="qry_QueryReference" id="6242B5C54AC64D40A10DCF02BE9DC0DA" action="add">
+    <child_ref_id>E575BBBED95142A9A699F39A6CD879EB</child_ref_id>
+    <filter_xml><![CDATA[<condition>
+	<eq>
+		<property query_items_xpath="parent::Item" name="id" />
+		<property name="source_id" />
+	</eq>
+</condition>]]></filter_xml>
+    <parent_ref_id>5788885294104475AF07F038F671C173</parent_ref_id>
+    <ref_id>C6CA530813B5445788044B7E64782E6F</ref_id>
+    <sort_order>2176</sort_order>
+    <source_id keyed_name="Synchronization Scope Query" type="qry_QueryDefinition">9E4DAD6CCC4B4232A087E624F49F18F2</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

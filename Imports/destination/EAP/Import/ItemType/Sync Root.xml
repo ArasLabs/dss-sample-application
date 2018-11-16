@@ -1,0 +1,123 @@
+﻿<AML>
+ <Item type="ItemType" id="EAE1BD9EF3E1444FB9E93B80F052A2A6" action="add">
+  <allow_private_permission>1</allow_private_permission>
+  <auto_search>0</auto_search>
+  <enforce_discovery>1</enforce_discovery>
+  <hide_where_used>0</hide_where_used>
+  <implementation_type>table</implementation_type>
+  <instance_data>SYNC_ROOT</instance_data>
+  <is_dependent>0</is_dependent>
+  <is_relationship>0</is_relationship>
+  <is_versionable>0</is_versionable>
+  <revisions keyed_name="Default" type="Revision">7FE395DD8B9F4E1090756A34B733D75E</revisions>
+  <show_parameters_tab>1</show_parameters_tab>
+  <structure_view>tabs on</structure_view>
+  <unlock_on_logout>0</unlock_on_logout>
+  <use_src_access>0</use_src_access>
+  <name>Sync Root</name>
+  <Relationships>
+   <Item type="Property" id="A509EE09C8904291AA919DC238266501" action="add">
+    <column_alignment>left</column_alignment>
+    <data_type>global_version</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">global_version</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>1</readonly>
+    <sort_order>3072</sort_order>
+    <source_id keyed_name="Sync Root" type="ItemType" name="Sync Root">EAE1BD9EF3E1444FB9E93B80F052A2A6</source_id>
+    <track_history>0</track_history>
+    <name>global_version</name>
+   </Item>
+   <Item type="Property" id="4077D694C67244D0B0824F250AD303A2" action="add">
+    <column_alignment>left</column_alignment>
+    <data_type>boolean</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>3328</sort_order>
+    <source_id keyed_name="Sync Root" type="ItemType" name="Sync Root">EAE1BD9EF3E1444FB9E93B80F052A2A6</source_id>
+    <track_history>0</track_history>
+    <name>is_internal</name>
+   </Item>
+   <Item type="Property" id="5FCD4139ECAC484EB93160BB0D56A07A" action="add">
+    <column_alignment>left</column_alignment>
+    <data_type>string</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>1</is_required>
+    <label xml:lang="en">Name</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>3200</sort_order>
+    <source_id keyed_name="Sync Root" type="ItemType" name="Sync Root">EAE1BD9EF3E1444FB9E93B80F052A2A6</source_id>
+    <stored_length>32</stored_length>
+    <track_history>0</track_history>
+    <name>name</name>
+   </Item>
+   <Item type="Property" id="62CEA7D58B61436CBF8125F602E2E543" action="add">
+    <column_alignment>left</column_alignment>
+    <data_type>federated</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>3456</sort_order>
+    <source_id keyed_name="Sync Root" type="ItemType" name="Sync Root">EAE1BD9EF3E1444FB9E93B80F052A2A6</source_id>
+    <track_history>0</track_history>
+    <name>sync_state</name>
+   </Item>
+   <Item type="View" id="41767F384B5E4046ACD04DB7EA5A5F2F" action="add">
+    <client>js</client>
+    <related_id keyed_name="Sync Root" type="Form">E6E449B8080743FE8290622853DEE7A2</related_id>
+    <role keyed_name="World" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>World</name>
+     </Item>
+    </role>
+    <show_ssvc>0</show_ssvc>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Sync Root" type="ItemType" name="Sync Root">EAE1BD9EF3E1444FB9E93B80F052A2A6</source_id>
+    <type>default</type>
+   </Item>
+   <Item type="TOC Access" id="0ADD2A4AAB2C4A229DFB89DE7DA99402" action="add">
+    <related_id keyed_name="Administrators" type="Identity">2618D6F5A90949BAA7E920D1B04C7EE1</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Sync Root" type="ItemType" name="Sync Root">EAE1BD9EF3E1444FB9E93B80F052A2A6</source_id>
+    <category>Administration</category>
+   </Item>
+   <Item type="Can Add" id="FC4C2F62BBEA4313B09B4942AE9C3520" action="add">
+    <can_add>1</can_add>
+    <related_id keyed_name="World" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>World</name>
+     </Item>
+    </related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Sync Root" type="ItemType" name="Sync Root">EAE1BD9EF3E1444FB9E93B80F052A2A6</source_id>
+   </Item>
+   <Item type="Allowed Permission" id="FBDA88537AA34E8A9013DED332CCBD70" action="add">
+    <is_default>1</is_default>
+    <related_id keyed_name="Sync Root" type="Permission">13807DF12665413B83C7D596D9FE8574</related_id>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="Sync Root" type="ItemType" name="Sync Root">EAE1BD9EF3E1444FB9E93B80F052A2A6</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>
