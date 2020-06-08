@@ -8,11 +8,13 @@ This sample application is an Aras Community Project. It is not a standard produ
 
 Release | Notes
 --------|--------
+[12.0.4.1](https://github.com/ArasLabs/dss-sample-application/releases/tag/12.0.4.1) | Updated to 12.0
 [11.0.15.1](https://github.com/ArasLabs/dss-sample-application/releases/tag/11.0.15.1) | First release.
 
 #### Supported Aras Versions
 Project | Notes
 --------|--------
+[12.0.4.1](https://github.com/ArasLabs/dss-sample-application/releases/tag/12.0.4.1) | 12.0 SP4
 [11.0.15.1](https://github.com/ArasLabs/dss-sample-application/releases/tag/11.0.15.1) | 11.0 SP15
 
 ## Installation
@@ -22,8 +24,9 @@ Project | Notes
 
 ### Pre-requisites
 
-1. Aras Innovator installed (version 11.0 SP15)
+1. Aras Innovator installed (version 12.0 SP4)
 	* Note: This sample application requires two Innovator instances to install
+	* Note: This sample application should be compatible with any version of 12.0 SPX
 2. Agent Service installed
 3. Conversion Server installed
 	* You can refer to the [Sample Guide](https://github.com/ArasLabs/dss-sample-application/blob/master/Documentation/Aras%20Innovator%2011.0%20-%20DSS%20Sample%20Package%20Guide.pdf) for steps on configuring your Conversion Server
